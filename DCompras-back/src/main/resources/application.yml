@@ -1,0 +1,17 @@
+some:
+  message:
+    config: hello from config file
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/db_decompras?createDatabaseIfNotExist=true&useSSL=true
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
