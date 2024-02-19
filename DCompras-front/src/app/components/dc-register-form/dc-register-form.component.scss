@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+
   }
 }
 
@@ -27,29 +28,20 @@
   height: 50%;
 }
 
-.mat-card-header {
-  display: flex;
-  justify-content: space-between;
+.header-logo{
+  margin-top: -30px;
 }
-
-.mat-card-header__column {
-  flex: 1;
+.header-title{
   text-align: center;
-}
-
-.mat-card-header__column1 {
   font-size: 22px;
   font-weight: bold;
+  margin-top: 20px;
 }
-
-.mat-card-header__column2 {
+.header-subtitle{
+  text-align: center;
   color: gray;
   font-size: large;
-}
-
-.mat-card-header__column3 {
-  margin-bottom: -50px;
-  margin-top: -50px;
+  margin-top: 20px;
 }
 
 .input-container {
@@ -74,7 +66,6 @@
     border-radius: 25px;
     border: 2px solid red !important;
   }
-
   &__continuar {
     font-size: medium;
     border-radius: 25px;
@@ -82,13 +73,26 @@
 }
 
 // Medias querys
-
 @media only screen and (max-width: 767px) {
   /* Estilos para dispositivos móviles */
+
+  ::-webkit-scrollbar {
+    width: 7px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  /* Estilo del thumb (la parte deslizable) de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 42, 0); 
+    border-radius: 4rem;
+  }
+  
   .card {
     width: 95%; 
+    height: 95%;
     padding: 15px; 
     border-radius: 1.5rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   .card__image {
@@ -96,19 +100,13 @@
     height: 20%; 
   }
 
-  .mat-card-header__column1 {
-    font-size: 20px; 
+  .header-logo{
+    text-align: center;
+  
   }
 
-  .mat-card-header__column2 {
-    font-size: small; 
+  .header-subtitle{
     display: none;
-  }
-
-  .mat-card-header__column3 {
-    margin-bottom: -70px; 
-    margin-top: -70px; 
-    padding-bottom: 40px;
   }
 
   .input-container {
@@ -123,18 +121,7 @@
   .mat-form-field {
     width: 100%;
   }
-  .mat-grid-list {
-    display: grid !important; 
-    grid-template-columns: 1fr; 
-    gap: 20px; /* Espacio entre las celdas */
-  }
-
-  .mat-grid-tile {
-    width: 100%; 
-    box-sizing: border-box; 
-    padding: 20px; 
-  }
-
+  
   .button__cancelar {
     width: 60%; 
     font-size: small; 
@@ -160,19 +147,6 @@
   .card__image {
     width: 40%; 
     height: auto; 
-  }
-
-  .mat-card-header__column1 {
-    font-size: 20px; 
-  }
-
-  .mat-card-header__column2 {
-    font-size: large; 
-  }
-
-  .mat-card-header__column3 {
-    margin-bottom: -40px; 
-    margin-top: -40px; 
   }
 
   .button__cancelar,
