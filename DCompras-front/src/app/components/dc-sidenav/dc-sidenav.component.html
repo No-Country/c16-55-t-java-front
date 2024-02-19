@@ -1,46 +1,128 @@
-<div class="dc-sidenav">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <h1>Sistema Venta</h1>
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<div class="dc-sidenav__img-b">
+  <div class="dc-sidenav__button" *ngIf="shouldShowBlock">
+    <div
+      class="dc-sidenav__button-icon"
+      mat-icon-button
+      (click)="changeStatusSideNav()"
+    >
+      <mat-icon>menu</mat-icon>
+    </div>
+    <div class="dc-sidenav__button-title">
+      <img class="dc-sidenav__button-title-logo" alt="Logo" />
+    </div>
+    <!--    <app-fs-nav-options-mobile
+      class="right-button"
+      [windowWidth]="windowWidth"
+      [closed]="!this.drawer?.opened"
+    ></app-fs-nav-options-mobile> -->
+  </div>
+  <app-dc-header
+    class="dc-sidenav__header"
+    (linkSelected)="linkSelected($event)"
+  ></app-dc-header>
 
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav opened="true" mode="side" style="width: 300px">
-      <mat-nav-list>
-        <mat-list-item>
-          <mat-icon matListItemIcon>dashboard</mat-icon>
-          <div mat-line>DashBoard</div>
-        </mat-list-item>
+  <mat-drawer-container class="dc-sidenav__container" autosize>
+    <mat-drawer
+      #drawer
+      class="dc-sidenav__container-sidenav"
+      style="position: fixed"
+      [mode]="mode"
+    >
+      <mat-list class="mat">
+        <mat-list-item
+          *ngFor="let item of listItems"
+          (click)="close()"
+          [ngStyle]="{
+            display: windowWidth > 950 && item.link === 'profile' ? 'none' : ''
+          }"
+        >
+          <div
+            class="dc-sidenav__container-sidenav-item"
+            routerLinkActive="dc-sidenav__container-sidenav-item-selected"
+            [routerLink]="item.link"
+            matTooltipPosition="above"
+            matTooltip="{{ item.text }}"
+          >
+            <img
+              src="{{ item.img }}"
+              class="dc-sidenav__container-sidenav-item-icon"
+            />
 
-        <mat-list-item>
-          <mat-icon matListItemIcon>group</mat-icon>
-          <div mat-line>Usuarios</div>
+            <div class="dc-sidenav__container-sidenav-item-text">
+              {{ item.text }}
+            </div>
+          </div>
         </mat-list-item>
+      </mat-list>
+    </mat-drawer>
 
-        <mat-list-item>
-          <mat-icon matListItemIcon>collections-bookmark</mat-icon>
-          <div mat-line>Productos</div>
-        </mat-list-item>
-
-        <mat-list-item>
-          <mat-icon matListItemIcon>monetization_on</mat-icon>
-          <div mat-line>Venta</div>
-        </mat-list-item>
-
-        <mat-list-item>
-          <mat-icon matListItemIcon>edit_note</mat-icon>
-          <div mat-line>Historial Ventas</div>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <div style="height: 100vh">
-        <router-outlet></router-outlet>
+    <div class="dc-sidenav__container-content">
+      <div *ngIf="windowWidth > 950">
+        <mat-list class="dc-sidenav__container-content--open" *ngIf="!closed">
+          <mat-list-item class="text-center mb-3">
+            <button class="" *ngIf="!closed" mat-icon-button (click)="close()">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
       </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+      <mat-list
+        class="dc-sidenav__container-content--close"
+        *ngIf="windowWidth > 950 && closed"
+      >
+        <mat-list-item
+          class="text-center mt-3 d-flex justify-content-center align-items-center"
+        >
+          <button class="" *ngIf="closed" mat-icon-button (click)="open()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-list-item
+          *ngFor="let item of listItems"
+          [ngStyle]="{
+            display: windowWidth > 950 && item.link === 'profile' ? 'none' : ''
+          }"
+        >
+          <div
+            class="dc-sidenav__container-sidenav-item"
+            routerLinkActive="dc-sidenav__container-sidenav-item-selected"
+            [routerLink]="item.link"
+            matTooltipPosition="above"
+            matTooltip="{{ item.text }}"
+          >
+            <img
+              alt="'Icono ' {{ item.text }} "
+              src="{{ item.img }}"
+              class="dc-sidenav__container-sidenav-item-icon"
+            />
+          </div>
+        </mat-list-item>
+      </mat-list>
+      <div
+        class="dc-sidenav__container-content-view"
+        [ngClass]="{
+          'dc-sidenav__container-content-view--closed': !closed
+        }"
+      >
+        <div class="dc-sidenav__container-content-view-router">
+          <div
+            *ngIf="
+              pageTitle !== 'FS.TITLE.TITLEHOME' &&
+              pageTitle !== 'FS.TITLE.HELP' &&
+              pageTitle !== 'FS.TITLE.NOTIFICATIONS'
+            "
+            class="dc-sidenav__container-content-view-router-title"
+          >
+            {{ pageTitle }}
+          </div>
+          <div class="dc-sidenav__container-content-view-router--view">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--   <div class="dc-sidenav__footer">
+      <app-dc-footer></app-dc-footer>
+    </div> -->
+  </mat-drawer-container>
 </div>

@@ -1,0 +1,34 @@
+<div class="dc-header">
+  <mat-toolbar class="dc-header__toolbar">
+    <img
+      class="dc-header__toolbar-logo"
+      src="assets/imgs/dc-general/ICONODeCompras.png"
+      alt="logo"
+    />
+    <form
+      *ngIf="pageTitle == ''"
+      class="dc-header__toolbar-search"
+      style="margin-left: 1.5rem"
+      (submit)="prevenRefresh($event)"
+    >
+      <div class="dc-header__toolbar-search-form">
+        <img
+          src="assets\img\header\search.svg"
+          class="dc-header__toolbar-search-form-icon"
+        />
+        <label for="search">
+          <input
+            class="dc-header__toolbar-search-form-input"
+            type="text"
+            placeholder="FS.HEADER.SEARCH "
+            [formControl]="myControl"
+            id="search"
+          />
+        </label>
+      </div>
+    </form>
+    <div class="dc-header__toolbar-title">{{ pageTitle }}</div>
+
+    <div class="dc-header__toolbar-spacer"></div>
+  </mat-toolbar>
+</div>
