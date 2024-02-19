@@ -1,34 +1,39 @@
 <div class="dc-header">
   <mat-toolbar class="dc-header__toolbar">
-    <img
-      class="dc-header__toolbar-logo"
-      src="assets/imgs/dc-general/ICONODeCompras.png"
-      alt="logo"
-    />
+    <img class="fs-header__toolbar-img" alt="logo" />
     <form
       *ngIf="pageTitle == ''"
-      class="dc-header__toolbar-search"
+      class="fs-header__toolbar-search"
       style="margin-left: 1.5rem"
       (submit)="prevenRefresh($event)"
     >
-      <div class="dc-header__toolbar-search-form">
+      <div class="fs-header__toolbar-search-form">
         <img
           src="assets\img\header\search.svg"
-          class="dc-header__toolbar-search-form-icon"
+          class="fs-header__toolbar-search-form-icon"
         />
         <label for="search">
           <input
-            class="dc-header__toolbar-search-form-input"
+            class="fs-header__toolbar-search-form-input"
             type="text"
-            placeholder="FS.HEADER.SEARCH "
+            placeholder="Buscar"
             [formControl]="myControl"
+            [matAutocomplete]="auto"
             id="search"
           />
         </label>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option.text"
+            (click)="onSelect(option.link)"
+          >
+            {{ option.text }}
+          </mat-option>
+        </mat-autocomplete>
       </div>
     </form>
-    <div class="dc-header__toolbar-title">{{ pageTitle }}</div>
-
+    <div class="fs-header__toolbar-title">{{ pageTitle }}</div>
     <div class="dc-header__toolbar-spacer"></div>
   </mat-toolbar>
 </div>

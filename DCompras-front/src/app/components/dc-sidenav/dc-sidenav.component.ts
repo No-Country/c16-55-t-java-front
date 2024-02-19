@@ -15,17 +15,17 @@ export class DcSidenavComponent {
 
   closed: boolean = true;
   panelOpenState = false;
-  pageTitle = 'FS.TITLE.TITLEHOME';
+  pageTitle = 'Home';
   mode!: MatDrawerMode;
 
   displayLogoMobile: boolean = false;
   windowWidth: number = window.innerWidth;
   shouldShowBlock: boolean = true;
   pageTitleMap = new Map<string, string>([
-    ['/finsuite/cards/new-card', 'Ofertas'],
-    ['/finsuite/cards', 'Categorías'],
-    ['/finsuite/operaciones', 'Tiendas'],
-    ['/finsuite/points', 'Mi perfil'],
+    ['/register', 'Ofertas'],
+    ['/cards', 'Categorías'],
+    ['/operaciones', 'Tiendas'],
+    ['/points', 'Mi perfil'],
   ]);
   onRouteChangeSub: Subscription = new Subscription();
   listItems!: any[];
@@ -61,7 +61,7 @@ export class DcSidenavComponent {
       {
         img: 'assets/img/sidenav/inicio.svg',
         text: 'Ofertas',
-        link: '',
+        link: 'register',
       },
       {
         img: 'assets/img/sidenav/tarjetas.svg',
