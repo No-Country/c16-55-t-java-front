@@ -6,9 +6,11 @@ import { DcLoginComponent } from './views/dc-login/dc-login.component';
 import { DcSidenavComponent } from './components/dc-sidenav/dc-sidenav.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DcLoginFormComponent } from './components/dc-login-form/dc-login-form.component';
+import { DcLoginBannerComponent } from './components/dc-login-banner/dc-login-banner.component';
 
 @NgModule({
-  declarations: [AppComponent, DcLoginComponent, DcSidenavComponent],
+  declarations: [AppComponent, DcLoginComponent, DcSidenavComponent, DcLoginFormComponent, DcLoginBannerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
