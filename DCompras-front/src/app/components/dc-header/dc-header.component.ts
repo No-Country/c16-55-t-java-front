@@ -48,8 +48,8 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   private setOptions() {
     this.options = [
       {
-        link: 'home',
-        text: 'FS.HEADER.OPTIONS.START',
+        link: 'register',
+        text: 'Registro',
         selected: false,
       },
       {
