@@ -1,0 +1,135 @@
+<div class="dc-register__img"></div>
+
+<mat-card class="card">
+    <mat-card-header cols="3" rowHeight="80px" class="mat-card-header">
+        <div class="mat-card-header__column mat-card-header__column1">Registro</div>
+        <div class="mat-card-header__column mat-card-header__column2">Registrate de forma fácil y sencilla a nuestra plataforma para que empieces a irte De_Compras</div>
+        <div class="mat-card-header__column mat-card-header__column3">
+            <img src="../../../assets/imgs/dc-general/De Compras 9.png" alt="Logo">
+        </div>
+    </mat-card-header>
+    <mat-card-content class="mat-card-content">
+        <form [formGroup]="formularioUsuario">
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Nombres</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre completo</mat-label>
+                            <input matInput autocomplete="off" formControlName="nombreCompleto">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+    
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>E-mail</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ingresa tu email</mat-label>
+                            <input matInput autocomplete="off" formControlName="correo">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Clave</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Ingresa tu contraseña
+                            </mat-label>
+                            <input matInput autocomplete="off" formControlName="clave">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Repetir clave</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Repetir contraseña
+                            </mat-label>
+                            <input matInput autocomplete="off" formControlName="clave">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>País</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona un país</mat-label>
+                            <mat-select formControlName="idPais">
+                                <!-- <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Estado</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona un estado</mat-label>
+                            <mat-select formControlName="idEstado">
+                                <!-- <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona una ciudad</mat-label>
+                            <mat-select formControlName="idCiudad">
+                                <!-- <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+    
+            </mat-grid-list>
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile>
+                    <div class="input-container">
+                        <mat-label>Dirección</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ingresar dirección</mat-label>
+                            <input matInput autocomplete="off" formControlName="direccion">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card-content>
+    <mat-card-content class="mat-card-content">
+        <mat-grid-list cols="3" rowHeight="100px">
+            <mat-grid-tile>
+                <div>
+                    <h5>¿Ya tienes cuenta?<a href="" class="link-iniciar-sesion"> Iniciar sesión</a></h5>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-stroked-button color="warn" class="button__cancelar"> Cancelar </button>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-raised-button color="warn" class="button__continuar" style="width: 40%;"> Continuar </button>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>
