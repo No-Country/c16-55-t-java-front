@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DcLoginComponent } from './views/dc-login/dc-login.component';
 import { DcSidenavComponent } from './components/dc-sidenav/dc-sidenav.component';
 import { DcLoginFormComponent } from './components/dc-login-form/dc-login-form.component';
+import { DcLoginBannerComponent } from './components/dc-login-banner/dc-login-banner.component';
 
 const routes: Routes = [
   /*   {
@@ -21,8 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: DcLoginFormComponent,
-  }
+    component: DcLoginComponent,
+  },
 ];
 
 @NgModule({

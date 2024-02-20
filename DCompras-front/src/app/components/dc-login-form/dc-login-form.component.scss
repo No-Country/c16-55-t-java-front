@@ -1,3 +1,10 @@
+.login_section {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
 .form_container {
   width: fit-content;
   height: fit-content;
@@ -124,6 +131,11 @@
   align-items: center;
   gap: 10px;
   justify-content: space-between;
+}
+
+.reminder__checkbox {
+  display: flex;
+  align-items: center;
 }
 
 .reminder__checkbox-label {
