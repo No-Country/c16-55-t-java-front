@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    image: nnicolas1/backendjavadcompras:1.0
+    ports:
+      - "8080:8080"
+    networks:
+      - backenddecompras
+    depends_on:
+      - mysql-container
+  mysql-container:
+    image: mysql:latest
+    networks:
+      - backenddecompras
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_decompras
+
+networks:
+  backenddecompras:
+    driver: bridge
