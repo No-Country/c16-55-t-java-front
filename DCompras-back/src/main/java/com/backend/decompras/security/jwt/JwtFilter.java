@@ -31,11 +31,12 @@ public class JwtFilter extends OncePerRequestFilter {
   private JwtUtils jwtUtil;
   @Autowired
   private UserDetailsServiceCustomer customerDetailsService;
+
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-          throws ServletException, IOException {
+          throws ServletException, IOException{
 
-    if (request.getRequestURI().equals("/auth/signup") || request.getRequestURI().equals("/auth/login")  ||request.getRequestURI().equals("/votacion/candidatos") ) {
+    if (request.getRequestURI().equals("/signup") || request.getRequestURI().equals("/auth/login")  ||request.getRequestURI().equals("/votacion/candidatos") ) {
       filterChain.doFilter(request, response);
     }else
     {
@@ -85,9 +86,8 @@ public class JwtFilter extends OncePerRequestFilter {
         response.getWriter().write(objectMapper.writeValueAsString(apiResponse));
       }
 
-
     }
 
-
   }
+
 }

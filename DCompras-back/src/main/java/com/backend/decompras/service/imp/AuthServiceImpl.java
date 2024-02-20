@@ -31,16 +31,16 @@ public class AuthServiceImpl implements AuthService {
 
   @Override
   public UserLogueoDTO login(LoginDTO credentials) {
-    System.out.println("ENTRA AL SERVICE DE LOGIN");
-    System.out.println("EMAIL:  " + credentials.getEmail());
     UserLogueoDTO userLogueoDTO  = new UserLogueoDTO();
-    String token = "";
+    String tokenn = "";
     Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(credentials.getEmail(),credentials.getPassword()));
-    System.out.println("auth.isAuthenticated() = " + auth.isAuthenticated());
-    if (auth.isAuthenticated()) token = jwtUtils.generateToken(userDetailsServiceCustomer.getUserDetail().getEmail(), userDetailsServiceCustomer.getUserDetail().getRole());
+    if (auth.isAuthenticated())
+      tokenn = jwtUtils.generateToken(userDetailsServiceCustomer.getUserDetail().getEmail(), userDetailsServiceCustomer.getUserDetail().getRole());
     log.info("Se logueo el usuario "+ credentials.getEmail());
     User userFound = userDetailsServiceCustomer.getUserDetail();
-    userLogueoDTO.setToken(token);
+    System.out.println("userFound = " + userFound);
+    System.out.println("token = " + tokenn);
+    userLogueoDTO.setToken(tokenn);
     userLogueoDTO.setUsername(userFound.getName());
     userLogueoDTO.setEmail(userFound.getEmail());
     userLogueoDTO.setRol(userFound.getRole());

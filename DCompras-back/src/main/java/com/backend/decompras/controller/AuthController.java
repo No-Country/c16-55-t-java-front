@@ -32,11 +32,12 @@ public class AuthController {
     response.setHeader("Authorization", "Bearer " + token);
     UserDTO userDTO = new UserDTO();
     userDTO.setEmail(userLogueoDTO.getEmail());
-    userDTO.setToken(userDTO.getToken());
+    userDTO.setToken(userLogueoDTO.getToken());
     ApiResponse apiResponse = new ApiResponse();
     apiResponse.setStatus(0);
     apiResponse.setPayload(userDTO);
     apiResponse.setMessage(Constants.SUCESS);
+
     response.setStatus(HttpServletResponse.SC_OK);
     response.setContentType(MediaType.APPLICATION_JSON_VALUE);
     return apiResponse;

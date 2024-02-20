@@ -20,12 +20,15 @@ import org.springframework.security.web.context.NullSecurityContextRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+
   private final Integer numberCod;
+
   @Autowired
   public SecurityConfiguration(@Value("${number.cod}") Integer numberCod)
   {
     this.numberCod = numberCod;
   }
+
   @Bean
   protected SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, JwtFilter jwtFilter)throws Exception
   {
@@ -33,7 +36,7 @@ public class SecurityConfiguration {
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.disable())
             .authorizeHttpRequests( authorize -> authorize
-
+                    .requestMatchers("/auth/login", "/signup","/votacion/candidatos").permitAll()
                     .anyRequest().permitAll())
             .securityContext((context) -> context
                     .securityContextRepository(new NullSecurityContextRepository())
@@ -47,7 +50,6 @@ public class SecurityConfiguration {
   {
     return new BCryptPasswordEncoder(numberCod);
   }
-
   @Bean
   AuthenticationManager authenticationManager (AuthenticationConfiguration authenticationConfiguration) throws Exception
   {

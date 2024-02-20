@@ -3,6 +3,7 @@ package com.backend.decompras.controller;
 import com.backend.decompras.entities.User;
 import com.backend.decompras.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
