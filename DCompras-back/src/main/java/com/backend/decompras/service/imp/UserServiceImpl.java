@@ -13,13 +13,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
   private final UserRepository userRepository;
-  @Override
-  public User registerUser(User userModel) {
-    return userRepository.save(userModel);
-  }
 
   @Override
-  public Optional<User> findUserById(Long id) {
-    return  userRepository.findById(id);
+  public Optional<User> findUserByEmail(String email) {
+    return userRepository.findByEmail(email);
   }
 }
