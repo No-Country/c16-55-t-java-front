@@ -15,5 +15,16 @@ public class SignUpDTO implements Serializable {
   @NotBlank
   public String password;
   @NotBlank
-  public String username;
+  public String country;
+  @NotBlank
+  public String city;
+  @NotBlank
+  public String province;
+  @NotBlank
+  public String name;
+  @NotBlank
+  public String lastname;
+  @NotBlank
+  public String address;
+
 }

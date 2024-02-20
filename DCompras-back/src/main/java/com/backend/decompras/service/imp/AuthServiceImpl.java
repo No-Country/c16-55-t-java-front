@@ -38,12 +38,12 @@ public class AuthServiceImpl implements AuthService {
       tokenn = jwtUtils.generateToken(userDetailsServiceCustomer.getUserDetail().getEmail(), userDetailsServiceCustomer.getUserDetail().getRole());
     log.info("Se logueo el usuario "+ credentials.getEmail());
     User userFound = userDetailsServiceCustomer.getUserDetail();
-    System.out.println("userFound = " + userFound);
-    System.out.println("token = " + tokenn);
     userLogueoDTO.setToken(tokenn);
-    userLogueoDTO.setUsername(userFound.getName());
     userLogueoDTO.setEmail(userFound.getEmail());
-    userLogueoDTO.setRol(userFound.getRole());
+    userLogueoDTO.setCity(userFound.getCity());
+    userLogueoDTO.setCountry(userFound.getCountry());
+    userLogueoDTO.setProvince(userFound.getProvince());
+    userLogueoDTO.setAddress(userFound.getAddress());
     return userLogueoDTO;
   }
 
@@ -53,7 +53,14 @@ public class AuthServiceImpl implements AuthService {
     if (!userByEmail.isEmpty())
       throw new RegisterDuplicated("email ya esta ocupado");
     User userToSave = new User();
+    userToSave.setCity(body.getCity());
+    userToSave.setCountry(body.getCountry());
+    userToSave.setName(body.getName());
+    userToSave.setLastname(body.getLastname());
+    userToSave.setProvince(body.getProvince());
+    userToSave.setCity(body.getCity());
     userToSave.setEmail(body.getEmail());
+    userToSave.setAddress(body.getAddress());
     userToSave.setPassword( passwordEncoder.encode(body.getPassword()));
     userToSave.setRole("USER");
     userRepository.save(userToSave);

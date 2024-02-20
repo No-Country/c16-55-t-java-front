@@ -9,7 +9,9 @@ import com.backend.decompras.security.jwt.JwtUtils;
 import com.backend.decompras.service.AuthService;
 import com.backend.decompras.util.Constants;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +35,7 @@ public class AuthController {
     UserDTO userDTO = new UserDTO();
     userDTO.setEmail(userLogueoDTO.getEmail());
     userDTO.setToken(userLogueoDTO.getToken());
+    userDTO.setUserInfo(userLogueoDTO);
     ApiResponse apiResponse = new ApiResponse();
     apiResponse.setStatus(0);
     apiResponse.setPayload(userDTO);
@@ -44,7 +47,7 @@ public class AuthController {
   }
 
   @PostMapping("/signup")
-  public ApiResponse signup(HttpServletResponse response, @RequestBody SignUpDTO signUpDTO)
+  public ApiResponse signup(HttpServletResponse response,@Valid @RequestBody SignUpDTO signUpDTO)
   {
     response.setStatus(HttpServletResponse.SC_OK);
     response.setContentType(MediaType.APPLICATION_JSON_VALUE);

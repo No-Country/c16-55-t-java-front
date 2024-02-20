@@ -9,9 +9,9 @@ import java.io.Serializable;
 @Setter
 public class UserLogueoDTO implements Serializable {
   private String token;
-  private String username;
-  private boolean voto;
-  private String candidato;
   private String email;
-  private String rol;
+  private String country;
+  private String city;
+  private String province;
+  private String address;
 }

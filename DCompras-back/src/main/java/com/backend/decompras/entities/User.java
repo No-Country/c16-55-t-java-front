@@ -20,5 +20,9 @@ public class User {
   private String lastname;
   private String email;
   private String password;
+  private String country;
+  private String city;
+  private String province;
   private String role;
+  private String address;
 }
