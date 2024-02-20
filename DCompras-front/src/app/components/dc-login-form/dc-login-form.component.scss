@@ -4,7 +4,7 @@ p {
 
 .login_section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   place-content: center;
 }
@@ -85,7 +85,6 @@ p {
   font-size: 0.75rem;
   color: #8b8e98;
   font-weight: 600;
-
 }
 
 .input_field {
@@ -107,7 +106,7 @@ p {
 }
 
 .sign-in_btn {
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0;
   width: 100%;
   height: 40px;
   border: 0;
@@ -119,14 +118,14 @@ p {
 }
 
 .sign-up_btn {
-  margin-top: .6rem;
+  margin-top: 0.6rem;
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #E03A06;
+  background: #e03a06;
   border-radius: 7px;
   outline: none;
   color: #242424;
@@ -138,6 +137,7 @@ p {
 }
 
 .reminder {
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -182,3 +182,36 @@ p {
   background-color: #e8e8e8;
 }
 
+@media screen and (max-width: 576px) {
+  .login_section {
+    display: flex;
+    margin-top: 1rem;
+  }
+  .form_container {
+    padding: 50px 20px;
+  }
+
+  .logo_container {
+    display: none;
+  }
+
+  .input_field {
+    padding: 0 0 0 30px;
+  }
+
+  .input_container {
+    margin-top: 2rem;
+  }
+
+  .icon {
+    left: 10px;
+  }
+
+  .input_label {
+    font-size: 0.7rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}

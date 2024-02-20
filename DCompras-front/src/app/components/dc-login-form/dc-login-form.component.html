@@ -26,10 +26,6 @@
     <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="error-message">
       <p *ngIf="loginForm.get('password')?.errors?.['required']" class="error-message__text">Contraseña es requerida</p>
     </div>
-    <button title="Sign In" type="submit" class="sign-in_btn">
-      <span>Iniciar sesión</span>
-    </button>
-
     <div class="reminder">
       <div class="reminder__checkbox">
         <input type="checkbox" class="reminder__checkbox-input" (change)="toggleAutocomplete($event)">
@@ -37,7 +33,10 @@
       </div>
       <span class="reminder__forgot-password">¿Olvidaste tu contraseña?</span>
     </div>
-
+    
+    <button title="Sign In" type="submit" class="sign-in_btn">
+      <span>Iniciar sesión</span>
+    </button>
 
     <div class="separator">
       <hr class="line">
