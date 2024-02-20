@@ -68,39 +68,39 @@
                             <mat-label>País</mat-label>
                             <mat-form-field appearance="outline">
                                 <mat-label>Selecciona un país</mat-label>
-                                <mat-select formControlName="idPais">
-                                    <!-- <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
-                                        {{item.nombre}}
-                                    </mat-option> -->
+                                <mat-select formControlName="id">
+                                    <mat-option *ngFor="let item of paises" [value]="item.id">
+                                        {{item.name}}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="input-container">
-                            <mat-label>Estado</mat-label>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Selecciona un estado</mat-label>
-                                <mat-select formControlName="idEstado">
-                                    <!-- <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
-                                        {{item.nombre}}
-                                    </mat-option> -->
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-container">
+                        <mat-label>Estado</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona un estado</mat-label>
+                            <mat-select formControlName="idEstado">
+                                <!-- <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="input-container">
-                            <mat-label>Ciudad</mat-label>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Selecciona una ciudad</mat-label>
-                                <mat-select formControlName="idCiudad">
-                                    <!-- <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
-                                        {{item.nombre}}
-                                    </mat-option> -->
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-container">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona una ciudad</mat-label>
+                            <mat-select formControlName="idCiudad">
+                                <!-- <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
@@ -130,7 +130,7 @@
                 </mat-grid-tile>
     
                 <mat-grid-tile>
-                    <button mat-raised-button color="warn" class="button__continuar" style="width: 40%;"> Continuar </button>
+                    <button (click)="SaveData()" mat-raised-button color="warn" class="button__continuar" style="width: 40%;"> Continuar </button>
                 </mat-grid-tile>
     
             </mat-grid-list>
