@@ -1,13 +1,20 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
-import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/internal/Subscription';
+
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-dc-sidenav',
   templateUrl: './dc-sidenav.component.html',
   styleUrls: ['./dc-sidenav.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class DcSidenavComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
@@ -15,33 +22,41 @@ export class DcSidenavComponent {
 
   closed: boolean = true;
   panelOpenState = false;
-  pageTitle = 'Home';
+  pageTitle = 'register';
   mode!: MatDrawerMode;
 
+  companyLogo!: string;
   displayLogoMobile: boolean = false;
   windowWidth: number = window.innerWidth;
   shouldShowBlock: boolean = true;
-  pageTitleMap = new Map<string, string>([
-    ['/register', 'Ofertas'],
-    ['/cards', 'Categorías'],
-    ['/operaciones', 'Tiendas'],
-    ['/points', 'Mi perfil'],
-  ]);
+  pageTitleMap = new Map<string, string>([['/home/register', 'Register']]);
+  themeConfigSub: Subscription = new Subscription();
   onRouteChangeSub: Subscription = new Subscription();
+  onLangChangeSub!: Subscription;
   listItems!: any[];
 
   constructor(private router: Router) {
     this.updateMode(window.innerWidth);
+    this.onRouteChangeSub = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const pageTitle = this.getPageTitle(event.urlAfterRedirects);
+        this.pageTitle = pageTitle;
+      }
+    });
   }
 
   ngOnInit() {
     this.setListItems();
     const CurrentURL = this.router.url;
-    this.shouldDisplayLogoOnMobile(CurrentURL);
     const pageTitle = this.pageTitleMap.get(CurrentURL) || '';
     this.pageTitle = pageTitle;
   }
-
+  getPageTitle(url: string): string {
+    if (url === '/home/register') {
+      return 'Register';
+    }
+    return '';
+  }
   ngOnDestroy(): void {
     this.onRouteChangeSub.unsubscribe();
   }
@@ -59,24 +74,9 @@ export class DcSidenavComponent {
   setListItems() {
     this.listItems = [
       {
-        img: 'assets/img/sidenav/inicio.svg',
-        text: 'Ofertas',
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'register',
         link: 'register',
-      },
-      {
-        img: 'assets/img/sidenav/tarjetas.svg',
-        text: 'Categorías',
-        link: '',
-      },
-      {
-        img: 'assets/img/sidenav/prestamos.svg',
-        text: 'Tiendas',
-        link: '',
-      },
-      {
-        img: 'assets/img/sidenav/pagar servicios.svg',
-        text: 'Mi perfil',
-        link: '',
       },
     ];
   }
@@ -88,17 +88,16 @@ export class DcSidenavComponent {
       this.mode = 'over';
     }
   }
-
-  /*   toggleDrawer() {
+  /* 
+  toggleDrawer() {
     this.toggleService.toggle();
-  }
- */
+  } */
 
-  shouldDisplayLogoOnMobile(CurrentURL: string) {
-    if (CurrentURL === '/finsuite/home') {
+  /*  shouldDisplayLogoOnMobile(CurrentURL: string) {
+    if (CurrentURL === '//home') {
       this.displayLogoMobile = true;
     }
-  }
+  } */
   changeStatusSideNav() {
     if (!this.drawer?.opened) {
       this.drawer.open();

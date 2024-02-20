@@ -23,6 +23,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   @Input() pageTitle: string = '';
   options!: any[];
   filteredOptions!: Observable<any[]>;
+  notifications$!: Subscription;
   setNotifications: boolean = false;
   onLangChangeSub!: Subscription;
   subscriptionName!: Subscription;
@@ -35,6 +36,8 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptionName.unsubscribe();
+    this.notifications$.unsubscribe();
+    this.onLangChangeSub.unsubscribe();
   }
 
   private setFilteredOptions() {
@@ -49,47 +52,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
     this.options = [
       {
         link: 'register',
-        text: 'Registro',
-        selected: false,
-      },
-      {
-        link: 'cards',
-        text: 'FS.HEADER.OPTIONS.CARD',
-        selected: false,
-      },
-      {
-        link: 'loan',
-        text: 'FS.HEADER.OPTIONS.LOANS',
-        selected: false,
-      },
-      {
-        link: 'pay-service',
-        text: 'FS.HEADER.OPTIONS.PAY SERVICE',
-        selected: false,
-      },
-      {
-        link: 'operaciones',
-        text: 'FS.HEADER.OPTIONS.OPERATIONS',
-        selected: false,
-      },
-      {
-        link: 'we-offer',
-        text: 'FS.HEADER.OPTIONS.WE OFFER YOU',
-        selected: false,
-      },
-      {
-        link: 'insurances',
-        text: 'FS.HEADER.OPTIONS.INSURANCE',
-        selected: false,
-      },
-      {
-        link: 'points',
-        text: 'FS.HEADER.OPTIONS.POINTS',
-        selected: false,
-      },
-      {
-        link: 'help',
-        text: 'FS.HEADER.OPTIONS.SUPPORT',
+        text: 'FS.HEADER.OPTIONS.START',
         selected: false,
       },
     ];
@@ -104,7 +67,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   }
 
   onSelect(option: any) {
-    this.router.navigate(['/DCompras/' + option]);
+    this.router.navigate(['/home/register']);
     this.linkSelected.emit(option);
     this.myControl.reset();
   }

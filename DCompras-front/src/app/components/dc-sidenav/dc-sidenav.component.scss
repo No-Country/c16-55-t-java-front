@@ -7,19 +7,17 @@ body {
 }
 
 .dc-sidenav {
-  &__img-b {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    background-image: url(../../../assets/imgs/dc-general/background-carrier.png);
-  }
-
   width: 100vw;
   height: 100vh;
   position: relative;
   font-family: var(--fontName);
   &__footer {
+    /*   position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff; 
+    z-index: 1000; */
+
     background-color: #fff;
     color: white;
     text-align: center;
@@ -55,7 +53,7 @@ body {
     }
 
     &-icon {
-      width: 3rem;
+      width: 4rem;
       margin-right: -3rem;
       display: flex;
     }
@@ -69,8 +67,8 @@ body {
 
       margin-left: 50px;
       &-logo {
-        width: auto;
-        height: 40px;
+        width: 4rem;
+        height: 4rem;
       }
     }
 

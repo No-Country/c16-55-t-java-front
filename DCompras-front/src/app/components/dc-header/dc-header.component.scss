@@ -6,11 +6,12 @@
     display: block;
   }
   &__toolbar {
+    //background: transparent;
     height: 4.5rem;
 
     &-icon {
-      height: 20px;
-      width: 20px;
+      height: 4rem;
+      width: 4rem;
     }
     &-search {
       display: flex;
@@ -56,10 +57,28 @@
       flex: 1 1 auto;
     }
 
-    &-logo {
-      width: 5rem;
-      height: 4.5rem;
+    &-img {
+      height: 4rem;
+      width: 4rem;
       margin-left: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    &-name {
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 1rem;
+      margin-right: 2rem;
+      padding-right: 0;
+      color: var(--nameColor);
+      font-family: var(--fontName);
+    }
+
+    &-config {
+      color: #3f3d3d;
+      font-size: 0.75rem;
+
+      font-weight: 400;
     }
 
     &-menu-button-view-all {
@@ -73,6 +92,69 @@
       font-size: 0.625rem !important;
       font-weight: 500 !important;
       justify-content: flex-end !important;
+    }
+
+    &-menu-button-notification {
+      align-items: flex-start;
+      gap: 1rem;
+      align-self: stretch;
+      width: 21rem;
+
+      &-null {
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #cecece;
+        font-size: 1.25rem;
+        font-weight: 500;
+        gap: 1rem;
+        text-align: center;
+        padding: 0 1rem;
+        transform: scale(0.7);
+      }
+
+      &-title {
+        padding: 1rem;
+        color: var(--titleColorNotification);
+        font-family: var(--fontName);
+        font-size: 0.625rem;
+
+        font-weight: 600;
+        line-height: 1rem;
+        /* 160% */
+        letter-spacing: 0.00781rem;
+        text-transform: uppercase;
+      }
+
+      &-content {
+        display: flex !important;
+        align-items: flex-start;
+        gap: 0.25rem;
+        flex: 1 0 0;
+        color: var(--dateTimeColor);
+        font-size: 0.625rem;
+
+        font-weight: 600;
+        line-height: 1rem;
+        letter-spacing: 0.00781rem;
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+
+        &-text {
+          padding-inline: 0.5rem;
+        }
+      }
+
+      &-text {
+        color: var(--gris-oscuro, #8b8b8b);
+        align-self: stretch;
+        font-size: 0.75rem;
+
+        font-weight: 400;
+        line-height: 1.125rem;
+      }
     }
   }
 
