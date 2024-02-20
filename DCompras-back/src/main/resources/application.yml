@@ -1,3 +1,5 @@
+number:
+  cod: 4
 some:
   message:
     config: hello from config file
@@ -13,5 +15,4 @@ spring:
         format_sql: 'true'
     hibernate:
       ddl-auto: update
-    show-sql: 'true'
 
