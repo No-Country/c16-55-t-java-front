@@ -266,11 +266,9 @@ body {
       }
     }
 
-    @media (max-width: 1440px) {
-      .mdc-list {
-        padding: 0 !important;
-        background: #ffffff;
-      }
+    .mdc-list {
+      padding: 0 !important;
+      background: #ffffff;
 
       .mdc-list-item--with-one-line {
         margin: 0 !important;

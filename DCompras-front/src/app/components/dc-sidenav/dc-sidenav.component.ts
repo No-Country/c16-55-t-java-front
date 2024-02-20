@@ -19,7 +19,6 @@ import { MatAccordion } from '@angular/material/expansion';
 export class DcSidenavComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
-
   closed: boolean = true;
   panelOpenState = false;
   pageTitle = 'register';
@@ -29,7 +28,14 @@ export class DcSidenavComponent {
   displayLogoMobile: boolean = false;
   windowWidth: number = window.innerWidth;
   shouldShowBlock: boolean = true;
-  pageTitleMap = new Map<string, string>([['/home/register', 'Register']]);
+  pageTitleMap = new Map<string, string>([
+    ['/home/offers', 'Ofertas'],
+    ['/home/categories', 'Categorías'],
+    ['/home/shops', 'Tiendas'],
+    ['/home/my-profile', 'Mi perfil'],
+    ['/home/register', 'Registro'],
+    ['/home/login', 'Inicio de sesión'],
+  ]);
   themeConfigSub: Subscription = new Subscription();
   onRouteChangeSub: Subscription = new Subscription();
   onLangChangeSub!: Subscription;
@@ -52,10 +58,22 @@ export class DcSidenavComponent {
     this.pageTitle = pageTitle;
   }
   getPageTitle(url: string): string {
-    if (url === '/home/register') {
-      return 'Register';
+    switch (url) {
+      case '/home/offers':
+        return 'Ofertas';
+      case '/home/categories':
+        return 'Categorías';
+      case '/home/shops':
+        return 'Tiendas';
+      case '/home/my-profile':
+        return 'Mi perfil';
+      case '/home/register':
+        return 'Registro';
+      case '/home/login':
+        return 'Inicio de sesión';
+      default:
+        return '';
     }
-    return '';
   }
   ngOnDestroy(): void {
     this.onRouteChangeSub.unsubscribe();
@@ -75,8 +93,33 @@ export class DcSidenavComponent {
     this.listItems = [
       {
         img: 'assets/imgs/dc-general/search.svg',
-        text: 'register',
+        text: 'Ofertas',
+        link: 'offers',
+      },
+      {
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'Categorías',
+        link: 'categories',
+      },
+      {
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'Tiendas',
+        link: 'shops',
+      },
+      {
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'Mi perfil',
+        link: 'my-profile',
+      },
+      {
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'Registro',
         link: 'register',
+      },
+      {
+        img: 'assets/imgs/dc-general/search.svg',
+        text: 'Inicio de sesión',
+        link: 'login',
       },
     ];
   }
