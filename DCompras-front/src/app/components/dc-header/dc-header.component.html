@@ -1,22 +1,28 @@
 <div class="dc-header">
   <mat-toolbar class="dc-header__toolbar">
-    <img class="fs-header__toolbar-img" alt="logo" />
+    <img
+      class="dc-header__toolbar-img"
+      src="assets/imgs/dc-general/ICONODeCompras.png"
+      alt="logo"
+    />
+    <div class="dc-header__toolbar-title">
+      {{ pageTitle }}
+    </div>
     <form
-      *ngIf="pageTitle == ''"
-      class="fs-header__toolbar-search"
+      class="dc-header__toolbar-search"
       style="margin-left: 1.5rem"
       (submit)="prevenRefresh($event)"
     >
-      <div class="fs-header__toolbar-search-form">
+      <div class="dc-header__toolbar-search-form">
         <img
-          src="assets\img\header\search.svg"
-          class="fs-header__toolbar-search-form-icon"
+          src="assets/imgs/dc-general/search.svg"
+          class="dc-header__toolbar-search-form-icon"
         />
         <label for="search">
           <input
-            class="fs-header__toolbar-search-form-input"
+            class="dc-header__toolbar-search-form-input"
             type="text"
-            placeholder="Buscar"
+            placeholder="Hola"
             [formControl]="myControl"
             [matAutocomplete]="auto"
             id="search"
@@ -33,7 +39,7 @@
         </mat-autocomplete>
       </div>
     </form>
-    <div class="fs-header__toolbar-title">{{ pageTitle }}</div>
-    <div class="dc-header__toolbar-spacer"></div>
+
+    <div class="dc-header__toolbar-name">Yoel Mandelli</div>
   </mat-toolbar>
 </div>
