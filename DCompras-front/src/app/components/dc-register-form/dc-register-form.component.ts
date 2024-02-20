@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dc-register-form',
   templateUrl: './dc-register-form.component.html',
-  styleUrls: ['./dc-register-form.component.scss']
+  styleUrls: ['./dc-register-form.component.scss'],
 })
 export class DcRegisterFormComponent {
-
   formularioUsuario: FormGroup;
   
   constructor(
@@ -27,12 +26,12 @@ export class DcRegisterFormComponent {
     });
   }
   ngOnInit() {
-    this.SaveData();
+    this.saveData();
 
     }
 
   
-    SaveData(){
+    saveData(){
       console.log(this.formularioUsuario.value);
       this.router.navigate(["register"])
     }

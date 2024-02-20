@@ -12,9 +12,9 @@ const routes: Routes = [
   {
     path: '',
     component: DcRegisterComponent,
-  }, 
+  },
   {
-    path: '',
+    path: 'home',
     component: DcSidenavComponent,
     children: [
       {

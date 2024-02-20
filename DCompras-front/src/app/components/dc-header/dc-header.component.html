@@ -1,0 +1,39 @@
+<div class="dc-header">
+  <mat-toolbar class="dc-header__toolbar">
+    <img class="fs-header__toolbar-img" alt="logo" />
+    <form
+      *ngIf="pageTitle == ''"
+      class="fs-header__toolbar-search"
+      style="margin-left: 1.5rem"
+      (submit)="prevenRefresh($event)"
+    >
+      <div class="fs-header__toolbar-search-form">
+        <img
+          src="assets\img\header\search.svg"
+          class="fs-header__toolbar-search-form-icon"
+        />
+        <label for="search">
+          <input
+            class="fs-header__toolbar-search-form-input"
+            type="text"
+            placeholder="Buscar"
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+            id="search"
+          />
+        </label>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option.text"
+            (click)="onSelect(option.link)"
+          >
+            {{ option.text }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </form>
+    <div class="fs-header__toolbar-title">{{ pageTitle }}</div>
+    <div class="dc-header__toolbar-spacer"></div>
+  </mat-toolbar>
+</div>

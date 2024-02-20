@@ -6,29 +6,25 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-
   }
 }
-
 .card {
   background-color: white;
   padding: 20px;
   width: 90%;
   height: 90%;
   border-radius: 2rem;
-  position: absolute; 
+  position: absolute;
   top: 50%; /* Ajustar verticalmente */
   left: 50%; /* Ajustar horizontalmente */
   transform: translate(-50%, -50%); /* Centrar la mat-card */
   z-index: 1; /* Asegurarse de que esté por encima de la imagen de fondo */
 }
-
 .card__image {
   width: 30%;
   height: 50%;
 }
-
-p.header-logo{
+.header-logo{
   margin-top: -30px;
 }
 .header-title{
@@ -41,24 +37,20 @@ p.header-logo{
   text-align: center;
   color: gray;
   font-size: large;
-  margin-top: 20x;
+  margin-top: 20px;
 }
-
 .input-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-
 .mat-form-field {
   width: 100%;
 }
-
 .link-iniciar-sesion {
   text-decoration: none;
   color: rgb(255, 0, 0);
 }
-
 .button {
   &__cancelar {
     width: 40%;
@@ -71,44 +63,35 @@ p.header-logo{
     border-radius: 25px;
   }
 }
-
 // Medias querys
 @media only screen and (max-width: 767px) {
   /* Estilos para dispositivos móviles */
-
   ::-webkit-scrollbar {
     width: 7px; /* Ancho de la barra de desplazamiento */
   }
-  
   /* Estilo del thumb (la parte deslizable) de la barra de desplazamiento */
   ::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 42, 0); 
+    background-color: rgb(255, 42, 0);
     border-radius: 4rem;
   }
-  
   .card {
-    width: 95%; 
+    width: 95%;
     height: 95%;
-    padding: 15px; 
+    padding: 15px;
     border-radius: 1.5rem;
     overflow-x: hidden;
     overflow-y: scroll;
   }
-
   .card__image {
-    width: 10%; 
-    height: 20%; 
+    width: 10%;
+    height: 20%;
   }
-
   .header-logo{
     text-align: center;
-  
   }
-
   .header-subtitle{
     display: none;
   }
-
   .input-container {
     width: 100%;
     margin-top: 20px;
@@ -116,43 +99,37 @@ p.header-logo{
   .mat-label {
     width: 50%;
     font-size: 5px;
-
   }
   .mat-form-field {
     width: 100%;
   }
-  
   .button__cancelar {
-    width: 60%; 
-    font-size: small; 
-    margin-top: 20px; 
+    width: 60%;
+    font-size: small;
+    margin-top: 20px;
   }
   .button__continuar {
-    width: 70%; 
-    font-size: small; 
-    margin-top: 20px; 
+    width: 70%;
+    font-size: small;
+    margin-top: 20px;
   }
-
 }
-
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
   /* Estilos para tabletas */
   .card {
-    width: 70%; 
-    height: auto; 
-    padding: 15px; 
-    border-radius: 1.5rem; 
+    width: 70%;
+    height: auto;
+    padding: 15px;
+    border-radius: 1.5rem;
   }
-
   .card__image {
-    width: 40%; 
-    height: auto; 
+    width: 40%;
+    height: auto;
   }
-
   .button__cancelar,
   .button__continuar {
-    width: 50%; 
-    font-size: medium; 
-    margin-top: 20px; 
+    width: 50%;
+    font-size: medium;
+    margin-top: 20px;
   }
 }
