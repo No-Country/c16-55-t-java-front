@@ -36,7 +36,7 @@ public class SecurityConfiguration {
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.disable())
             .authorizeHttpRequests( authorize -> authorize
-                    .requestMatchers("/auth/login", "/signup","/votacion/candidatos").permitAll()
+                    .requestMatchers("/auth/login", "/auth/signup","/").permitAll()
                     .anyRequest().permitAll())
             .securityContext((context) -> context
                     .securityContextRepository(new NullSecurityContextRepository())

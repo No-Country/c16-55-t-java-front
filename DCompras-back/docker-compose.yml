@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db_decompras
   backend:
-    image: nnicolas1/backendjavadcompras:1.0
+    image: nnicolas1/backendjavadcompras:1.1
     ports:
       - "8080:8080"
     networks:
