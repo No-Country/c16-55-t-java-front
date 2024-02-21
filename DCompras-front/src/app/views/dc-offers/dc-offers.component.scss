@@ -1,0 +1,15 @@
+.dc-offers {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  &__background {
+    background-color: #ffff;
+    padding: 1rem;
+  }
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}

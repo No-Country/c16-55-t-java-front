@@ -6,28 +6,40 @@ import { DcLoginComponent } from './views/dc-login/dc-login.component';
 import { DcSidenavComponent } from './components/dc-sidenav/dc-sidenav.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DcLoginFormComponent } from './components/dc-login-form/dc-login-form.component';
-import { DcLoginBannerComponent } from './components/dc-login-banner/dc-login-banner.component';
 import { DcHeaderComponent } from './components/dc-header/dc-header.component';
 import { DcRegisterComponent } from './views/dc-register/dc-register.component';
 import { DcRegisterFormComponent } from './components/dc-register-form/dc-register-form.component';
-
+import { DcLoginFormComponent } from './components/dc-login-form/dc-login-form.component';
+import { DcLoginBannerComponent } from './components/dc-login-banner/dc-login-banner.component';
+import { DcOffersComponent } from './views/dc-offers/dc-offers.component';
+import { DcCategoriesComponent } from './views/dc-categories/dc-categories.component';
+import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
+import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
+import { DcProductCardComponent } from './components/dc-product-card/dc-product-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     DcLoginComponent,
     DcSidenavComponent,
     DcHeaderComponent,
-    AppComponent,
-    DcLoginComponent,
-    DcSidenavComponent,
     DcRegisterComponent,
     DcRegisterFormComponent,
-    AppComponent,
-    DcLoginComponent,
-    DcSidenavComponent,
     DcLoginFormComponent,
     DcLoginBannerComponent,
+    DcOffersComponent,
+    DcCategoriesComponent,
+    DcShopsComponent,
+    DcMyProfileComponent,
+    DcProductCardComponent,
   ],
+
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

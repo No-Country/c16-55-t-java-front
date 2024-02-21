@@ -11,24 +11,7 @@ body {
   height: 100vh;
   position: relative;
   font-family: var(--fontName);
-  &__footer {
-    /*   position: sticky;
-    bottom: 0;
-    width: 100%;
-    background-color: #fff; 
-    z-index: 1000; */
 
-    background-color: #fff;
-    color: white;
-    text-align: center;
-    padding: 1em;
-    margin-top: 1rem;
-    left: 0;
-
-    @media (width < 1024px) {
-      margin: 0;
-    }
-  }
   &__header {
     position: fixed;
     top: 0;
@@ -103,8 +86,6 @@ body {
         color: #8e8ea1;
         font-weight: 400;
         align-items: center;
-
-        // position: fixed;
         &-icon {
           margin-inline: 1rem;
           width: 1.25rem;
@@ -141,8 +122,6 @@ body {
         }
       }
     }
-
-    background-color: #f7fafc;
     &-content {
       display: flex;
       align-items: flex-start;
@@ -153,27 +132,6 @@ body {
         height: 100%;
         overflow: hidden;
         padding: 0 1rem;
-        &-router {
-          display: flex;
-          flex-flow: column;
-          height: 100%;
-          overflow-y: scroll;
-          padding-right: 1rem;
-          @media (width < 768px) {
-            padding: 0;
-          }
-          &-title {
-            color: var(--Black, #22242c);
-            font-family: var(--fontName);
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
-            @media (width > 950px) {
-              display: none;
-            }
-          }
-        }
       }
       @media (width > 950px) {
         &-view {
@@ -186,12 +144,10 @@ body {
             margin-left: 1.5rem;
           }
           &-router {
-            padding-top: 2rem;
             display: flex;
             flex-flow: column;
             justify-content: space-between;
-
-            overflow-y: scroll;
+            overflow: hidden;
 
             &--view {
               &--view {

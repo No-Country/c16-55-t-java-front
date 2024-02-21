@@ -197,7 +197,7 @@
         }"
       >
         <div class="dc-sidenav__container-content-view-router">
-          <div
+          <!--  <div
             *ngIf="
               pageTitle !== 'FS.TITLE.TITLEHOME' &&
               pageTitle !== 'FS.TITLE.HELP' &&
@@ -206,7 +206,8 @@
             class="dc-sidenav__container-content-view-router-title"
           >
             {{ pageTitle }}
-          </div>
+          </div> -->
+          <router-outlet></router-outlet>
         </div>
       </div>
     </div>
