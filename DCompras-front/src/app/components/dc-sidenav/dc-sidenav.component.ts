@@ -92,26 +92,26 @@ export class DcSidenavComponent {
   setListItems() {
     this.listItems = [
       {
-        img: 'assets/imgs/dc-general/search.svg',
+        img: 'assets/icons/dc-sidenav/list_carrier.svg',
         text: 'Ofertas',
         link: 'offers',
       },
-      {
+      /*    {
         img: 'assets/imgs/dc-general/search.svg',
         text: 'Categorías',
         link: 'categories',
-      },
+      }, */
       {
-        img: 'assets/imgs/dc-general/search.svg',
+        img: 'assets/icons/dc-sidenav/shop_icon.svg',
         text: 'Tiendas',
         link: 'shops',
       },
       {
-        img: 'assets/imgs/dc-general/search.svg',
+        img: 'assets/icons/dc-sidenav/profile.svg',
         text: 'Mi perfil',
         link: 'my-profile',
       },
-      {
+      /*       {
         img: 'assets/imgs/dc-general/search.svg',
         text: 'Registro',
         link: 'register',
@@ -120,7 +120,7 @@ export class DcSidenavComponent {
         img: 'assets/imgs/dc-general/search.svg',
         text: 'Inicio de sesión',
         link: 'login',
-      },
+      }, */
     ];
   }
 
