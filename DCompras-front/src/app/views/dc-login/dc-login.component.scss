@@ -16,3 +16,15 @@
   flex: 1;
   overflow: hidden;
 }
+
+
+@media screen and (max-width: 576px) {
+  .dc-login {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .dc-login > * {
+    flex: 0;
+  }
+}
