@@ -22,9 +22,9 @@ export class DcRegisterFormComponent {
       lastname:['', Validators.required],
       email:['', Validators.required],
       password:['', Validators.required],
-      country:[''],
-      province:[''],
-      city:[''],
+      country:['Argentina'],
+      province:['Buenos Aires'],
+      city:['Belgrano'],
       address:['', Validators.required],
       
     });
