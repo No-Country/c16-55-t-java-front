@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./dc-register-form.component.scss'],
 })
 export class DcRegisterFormComponent {
-  formularioUsuario: FormGroup;
+  formUser: FormGroup;
   
   constructor(
     private fb: FormBuilder,
     private router: Router
   ){
-    this.formularioUsuario = this.fb.group({
+    this.formUser = this.fb.group({
       nombreCompleto:['', Validators.required],
       correo:['', Validators.required],
       clave:['', Validators.required],
@@ -32,7 +32,7 @@ export class DcRegisterFormComponent {
 
   
     saveData(){
-      console.log(this.formularioUsuario.value);
+      console.log(this.formUser.value);
       this.router.navigate(["register"])
     }
     
