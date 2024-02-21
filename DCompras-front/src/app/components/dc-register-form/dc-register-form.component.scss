@@ -8,7 +8,6 @@
     position: relative;
   }
 }
-
 .card {
   background-color: white;
   padding: 20px;
@@ -21,43 +20,37 @@
   transform: translate(-50%, -50%); /* Centrar la mat-card */
   z-index: 1; /* Asegurarse de que esté por encima de la imagen de fondo */
 }
-
 .card__image {
   width: 30%;
   height: 50%;
 }
-
-.header-logo {
+.header-logo{
   margin-top: -30px;
 }
-.header-title {
+.header-title{
   text-align: center;
   font-size: 22px;
   font-weight: bold;
   margin-top: 20px;
 }
-.header-subtitle {
+.header-subtitle{
   text-align: center;
   color: gray;
   font-size: large;
   margin-top: 20px;
 }
-
 .input-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-
 .mat-form-field {
   width: 100%;
 }
-
 .link-iniciar-sesion {
   text-decoration: none;
   color: rgb(255, 0, 0);
 }
-
 .button {
   &__cancelar {
     width: 40%;
@@ -70,24 +63,18 @@
     border-radius: 25px;
   }
 }
-
 // Medias querys
 @media only screen and (max-width: 767px) {
   /* Estilos para dispositivos móviles */
-
   ::-webkit-scrollbar {
     width: 7px; /* Ancho de la barra de desplazamiento */
   }
-
   /* Estilo del thumb (la parte deslizable) de la barra de desplazamiento */
   ::-webkit-scrollbar-thumb {
     background-color: rgb(255, 42, 0);
     border-radius: 4rem;
   }
-
   .card {
-    width: 95%;
-    padding: 15px;
     width: 95%;
     height: 95%;
     padding: 15px;
@@ -95,35 +82,16 @@
     overflow-x: hidden;
     overflow-y: scroll;
   }
-
   .card__image {
     width: 10%;
     height: 20%;
   }
-
-  .mat-card-header__column1 {
-    font-size: 20px;
-  }
-
-  .mat-card-header__column2 {
-    font-size: small;
-    display: none;
-  }
-
-  .mat-card-header__column3 {
-    margin-bottom: -70px;
-    margin-top: -70px;
-    padding-bottom: 40px;
-  }
-
-  .header-logo {
+  .header-logo{
     text-align: center;
   }
-
-  .header-subtitle {
+  .header-subtitle{
     display: none;
   }
-
   .input-container {
     width: 100%;
     margin-top: 20px;
@@ -135,18 +103,6 @@
   .mat-form-field {
     width: 100%;
   }
-  .mat-grid-list {
-    display: grid !important;
-    grid-template-columns: 1fr;
-    gap: 20px; /* Espacio entre las celdas */
-  }
-
-  .mat-grid-tile {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-  }
-
   .button__cancelar {
     width: 60%;
     font-size: small;
@@ -158,7 +114,6 @@
     margin-top: 20px;
   }
 }
-
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
   /* Estilos para tabletas */
   .card {
@@ -167,67 +122,14 @@
     padding: 15px;
     border-radius: 1.5rem;
   }
-
   .card__image {
     width: 40%;
     height: auto;
   }
-
-  .mat-card-header__column1 {
-    font-size: 20px;
-  }
-
-  .mat-card-header__column2 {
-    font-size: large;
-  }
-
-  .mat-card-header__column3 {
-    margin-bottom: -40px;
-    margin-top: -40px;
-  }
-
   .button__cancelar,
   .button__continuar {
     width: 50%;
     font-size: medium;
     margin-top: 20px;
-  }
-}
-
-.dc-register-form__input {
-  padding: 0 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid #dcdbdd;
-  background: #fff;
-  height: 3rem;
-  width: 15rem;
-
-  &-select {
-    outline: none;
-    height: 3rem;
-    color: #84818a;
-    font-size: 0.875rem;
-    font-weight: 400;
-    width: 15rem;
-    cursor: pointer;
-    border-radius: 0.75rem;
-    border: 1px solid #dcdbdd;
-    background: #fff;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: flex;
-
-    &::ng-deep .mat-mdc-select-arrow {
-      background-image: url("../../../assets/imgs/dc-general/selectArrowNew.svg");
-      background-repeat: no-repeat;
-      background-position: right center;
-      width: 1.1875rem;
-      height: 1.1875rem;
-      background-size: cover;
-      svg {
-        display: none;
-      }
-    }
   }
 }

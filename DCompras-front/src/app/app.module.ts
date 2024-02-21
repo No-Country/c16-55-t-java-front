@@ -16,6 +16,8 @@ import { DcCategoriesComponent } from './views/dc-categories/dc-categories.compo
 import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
 import { DcProductCardComponent } from './components/dc-product-card/dc-product-card.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { DcProductCardComponent } from './components/dc-product-card/dc-product-
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
