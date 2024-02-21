@@ -18,19 +18,28 @@
               <div class="row">
                   <div class="col-sm-4">
                       <div class="input-container">
-                          <mat-label>Nombre completo</mat-label>
+                          <mat-label>Nombre</mat-label>
                           <mat-form-field appearance="outline">
-                              <mat-label>Nombre completo</mat-label>
-                              <input matInput autocomplete="off" formControlName="nombreCompleto">
+                              <mat-label>Ingresa tu nombre</mat-label>
+                              <input matInput autocomplete="off" formControlName="name">
                           </mat-form-field>
                       </div>
                   </div>
+                  <div class="col-sm-4">
+                    <div class="input-container">
+                        <mat-label>Apellidos</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ingresa tu apellido</mat-label>
+                            <input matInput autocomplete="off" formControlName="lastname">
+                        </mat-form-field>
+                    </div>
+                </div>
                   <div class="col-sm-4">
                       <div class="input-container">
                           <mat-label>E-mail</mat-label>
                           <mat-form-field appearance="outline">
                               <mat-label>Ingresa tu email</mat-label>
-                              <input matInput autocomplete="off" formControlName="correo">
+                              <input matInput autocomplete="off" formControlName="email">
                           </mat-form-field>
                       </div>
                   </div>
@@ -43,7 +52,7 @@
                               <mat-label>
                                   Ingresa tu contraseña
                               </mat-label>
-                              <input matInput autocomplete="off" formControlName="clave">
+                              <input matInput autocomplete="off" formControlName="password">
                           </mat-form-field>
                       </div>
                   </div>
@@ -54,31 +63,32 @@
                               <mat-label>
                                   Repetir contraseña
                               </mat-label>
-                              <input matInput autocomplete="off" formControlName="clave">
+                              <input matInput autocomplete="off" formControlName="password">
                           </mat-form-field>
                       </div>
                   </div>
+                  <div class="col-sm-4">
+                    <div class="input-container">
+                        <mat-label>País</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona un país</mat-label>
+                            <mat-select formControlName="country">
+                                <!-- <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
+                                    {{item.nombre}}
+                                </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
               </div>
-              <div class="row">
+              
+              <div class="row">  
                   <div class="col-sm-4">
                       <div class="input-container">
-                          <mat-label>País</mat-label>
+                          <mat-label>Provincia</mat-label>
                           <mat-form-field appearance="outline">
-                              <mat-label>Selecciona un país</mat-label>
-                              <mat-select formControlName="idPais">
-                                  <!-- <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
-                                      {{item.nombre}}
-                                  </mat-option> -->
-                              </mat-select>
-                          </mat-form-field>
-                      </div>
-                  </div>
-                  <div class="col-sm-4">
-                      <div class="input-container">
-                          <mat-label>Estado</mat-label>
-                          <mat-form-field appearance="outline">
-                              <mat-label>Selecciona un estado</mat-label>
-                              <mat-select formControlName="idEstado">
+                              <mat-label>Selecciona una provincia</mat-label>
+                              <mat-select formControlName="province">
                                   <!-- <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
                                       {{item.nombre}}
                                   </mat-option> -->
@@ -91,7 +101,7 @@
                           <mat-label>Ciudad</mat-label>
                           <mat-form-field appearance="outline">
                               <mat-label>Selecciona una ciudad</mat-label>
-                              <mat-select formControlName="idCiudad">
+                              <mat-select formControlName="city">
                                   <!-- <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
                                       {{item.nombre}}
                                   </mat-option> -->
@@ -99,17 +109,15 @@
                           </mat-form-field>
                       </div>
                   </div>
-              </div>
-              <div class="row">
                   <div class="col-sm-4">
-                      <div class="input-container">
-                          <mat-label>Dirección</mat-label>
-                          <mat-form-field appearance="outline">
-                              <mat-label>Ingresar dirección</mat-label>
-                              <input matInput autocomplete="off" formControlName="direccion">
-                          </mat-form-field>
-                      </div>
-                  </div>
+                    <div class="input-container">
+                        <mat-label>Dirección</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Ingresar dirección</mat-label>
+                            <input matInput autocomplete="off" formControlName="address">
+                        </mat-form-field>
+                    </div>
+                </div>
               </div>
           </form>
       </mat-card-content>
@@ -124,7 +132,7 @@
                   <button mat-stroked-button color="warn" class="button__cancelar"> Cancelar </button>
               </mat-grid-tile>
               <mat-grid-tile>
-                  <button (click)="saveData()" mat-raised-button color="warn" class="button__continuar"> Continuar </button>
+                  <button (click)="onSubmit()" mat-raised-button color="warn" class="button__continuar"> Continuar </button>
               </mat-grid-tile>
           </mat-grid-list>
       </mat-card-content>

@@ -11,22 +11,26 @@ const routes: Routes = [
   }, */
   {
     path: '',
-    component: DcRegisterComponent,
+    component: DcRegisterComponent, pathMatch:"full"
   },
   {
+     path: 'register',
+     component: DcRegisterComponent, pathMatch:"full"
+   },
+   {
     path: 'home',
-    component: DcSidenavComponent,
-    children: [
-      {
-        path: '',
-        component: DcLoginComponent,
-      },
-      {
-        path: 'register',
-        component: DcRegisterComponent,
-      },
-    ],
-  },
+     component: DcSidenavComponent,
+     children: [
+       {
+         path: '',
+         component: DcLoginComponent,
+       },
+       {
+         path: 'register',
+         component: DcRegisterComponent,
+       },
+     ],
+   },
 ];
 
 @NgModule({

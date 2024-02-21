@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DcHeaderComponent } from './components/dc-header/dc-header.component';
 import { DcRegisterComponent } from './views/dc-register/dc-register.component';
 import { DcRegisterFormComponent } from './components/dc-register-form/dc-register-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DcRegisterFormComponent } from './components/dc-register-form/dc-regist
     DcSidenavComponent,
     DcRegisterComponent,
     DcRegisterFormComponent,
+    
   ],
 
   imports: [
@@ -28,6 +30,7 @@ import { DcRegisterFormComponent } from './components/dc-register-form/dc-regist
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
