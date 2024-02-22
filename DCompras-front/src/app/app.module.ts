@@ -15,7 +15,7 @@ import { DcOffersComponent } from './views/dc-offers/dc-offers.component';
 import { DcCategoriesComponent } from './views/dc-categories/dc-categories.component';
 import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
-import { DcProductCardComponent } from './components/dc-product-card/dc-product-card.component';
+import { DcCardComponent } from './components/dc-card/dc-card.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     DcCategoriesComponent,
     DcShopsComponent,
     DcMyProfileComponent,
-    DcProductCardComponent,
+    DcCardComponent,
   ],
 
   imports: [

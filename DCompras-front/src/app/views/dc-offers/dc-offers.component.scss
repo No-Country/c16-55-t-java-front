@@ -15,6 +15,21 @@
     flex-direction: row;
     gap: 1rem;
     height: 80vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+  }
+}
+
+@media (width < 768px) {
+  .dc-offers {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    &__background {
+      background-color: white;
+      padding: 1rem;
+      box-shadow: 4px 0px 8px 8px rgb(0 0 0 / 4%);
+      border-radius: 1rem;
+      margin: 0.5rem 0;
+    }
   }
 }

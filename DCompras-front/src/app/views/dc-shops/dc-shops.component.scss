@@ -1,0 +1,27 @@
+.dc-shops {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  &__background {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 4px 0px 8px 8px rgb(0 0 0 / 4%);
+    border-radius: 1rem;
+    margin: 0.5rem 0;
+  }
+  &__shops {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  &__header {
+    &-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

@@ -46,10 +46,10 @@
     }
 
     &-title {
-      font-weight: 600;
-      color: var(--Black, #22242c);
-      font-family: var(--fontName);
-      font-size: 1.125rem;
+      width: 10rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: black;
       padding-left: 3rem;
     }
 
@@ -58,10 +58,9 @@
     }
 
     &-img {
-      height: 4rem;
-      width: 4rem;
-      margin-left: 1rem;
-      padding-bottom: 0.5rem;
+      height: 5rem;
+      width: 6rem;
+      margin-left: 2rem;
     }
 
     &-name {
@@ -160,6 +159,8 @@
 
   .mat-toolbar-row,
   .mat-toolbar-single-row {
+    display: flex;
+    justify-content: space-between;
     padding: 0;
     background: #ffffff;
     border-radius: 0px 0px 0px 50px;

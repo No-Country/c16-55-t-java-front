@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IDcProduct } from 'src/app/interfaces/Idc-product';
 import { DcOffersService } from 'src/app/services/dc-offers.service';
 
 @Component({

@@ -1,10 +1,10 @@
 <div class="dc-offers">
   <div class="dc-offers__background">
     <div class="dc-offers__products" *ngIf="products">
-      <app-dc-product-card
+      <app-dc-card
         *ngFor="let product of products"
         [product]="product"
-      ></app-dc-product-card>
+      ></app-dc-card>
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+<!-- Product-Card -->
+
 <div class="dc-product-card" *ngIf="product">
   <div class="dc-product-card__body">
     <img
@@ -16,12 +18,12 @@
         />
       </div>
       <div class="dc-product-card__body-col--right">
-        <p class="dc-product-card__description">
+        <div class="dc-product-card__description">
           {{ product.name }} {{ product.quantity }}
-        </p>
-        <p class="dc-product-card__description">
+        </div>
+        <div class="dc-product-card__description">
           {{ product.description }}
-        </p>
+        </div>
       </div>
     </div>
   </div>
@@ -30,5 +32,19 @@
     <div class="dc-product-card__body-background-price--price">
       {{ product.price | currency }}
     </div>
+  </div>
+</div>
+
+<!-- Shop-Card -->
+<div class="dc-shop-card" *ngIf="shop">
+  <img
+    class="dc-shop-card__brand-shop"
+    src="{{ shop.imgBrand }}"
+    alt="icon"
+    onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
+  />
+
+  <div class="dc-shop-card__brand-title">
+    {{ shop.brand }}
   </div>
 </div>
