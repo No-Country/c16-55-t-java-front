@@ -133,3 +133,19 @@
     margin-top: 20px;
   }
 }
+
+.error{
+  display: flex;
+  color: #cc3d3d;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.015rem;
+  align-items: center;
+  gap: 0.25rem;
+  &::before{
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    
+  }
+}
