@@ -18,13 +18,13 @@
         <div class="row">
           <div>
             <div class="dc-register__input">
-              <mat-label>Nombre</mat-label>
+              <mat-label class="dc-register__input-title">Nombre</mat-label>
               <input formControlName="name" placeholder="Ingresa tu nombre" />
             </div>
           </div>
           <div>
             <div class="dc-register__input">
-              <mat-label>Apellidos</mat-label>
+              <mat-label class="dc-register__input-title">Apellidos</mat-label>
               <input
                 formControlName="lastname"
                 placeholder="Ingresa tu apellido"
@@ -33,7 +33,7 @@
           </div>
           <div>
             <div class="dc-register__input">
-              <mat-label>E-mail</mat-label>
+              <mat-label class="dc-register__input-title">E-mail</mat-label>
               <input matInput formControlName="email" placeholder="Email" />
               <span
                 *ngIf="
@@ -59,7 +59,7 @@
         <div class="row">
           <div>
             <div class="dc-register__input">
-              <mat-label>Clave</mat-label>
+              <mat-label class="dc-register__input-title">Clave</mat-label>
 
               <input
                 formControlName="password"
@@ -69,14 +69,14 @@
           </div>
           <div>
             <div class="dc-register__input">
-              <mat-label>Repetir clave</mat-label>
+              <mat-label class="dc-register__input-title">Repetir clave</mat-label>
 
               <input formControlName="password" placeholder="Repetir clave " />
             </div>
           </div>
           <div>
             <div class="dc-register__input">
-              <mat-label>Dirección</mat-label>
+              <mat-label class="dc-register__input-title">Dirección</mat-label>
               <input
                 formControlName="address"
                 placeholder="Ingresar dirección"
@@ -127,6 +127,7 @@
                   </div> -->
         </div>
       </form>
+      <div>{{ formUser.value | json }}</div>
     </mat-card-content>
     <div class="dc-register__content-row">
       <div>
@@ -144,14 +145,7 @@
         >
           Cancelar
         </button>
-        <button
-          (click)="onSubmit()"
-          mat-raised-button
-          color="warn"
-          class="dc-register__content-row--button dc-register__content-row--button__continuar"
-        >
-          Continuar
-        </button>
+        <button (click)="onSubmit()" mat-raised-button color="warn" class="dc-register__content-row--button dc-register__content-row--button__continuar">Continuar</button>
       </div>
     </div>
   </mat-card>
