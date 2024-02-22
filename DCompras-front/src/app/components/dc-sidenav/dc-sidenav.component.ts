@@ -92,7 +92,7 @@ export class DcSidenavComponent {
   setListItems() {
     this.listItems = [
       {
-        img: 'assets/icons/dc-sidenav/list_carrier.svg',
+        img: 'assets/icons/dc-sidenav/offers.png',
         text: 'Ofertas',
         link: 'offers',
       },

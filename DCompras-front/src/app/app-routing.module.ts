@@ -31,11 +31,11 @@ const routes: Routes = [
         path: 'offers',
         component: DcOffersComponent,
       },
-      {
+      /*    {
         path: 'categories',
         component: DcCategoriesComponent,
       },
-
+ */
       {
         path: 'shops',
         component: DcShopsComponent,
@@ -46,10 +46,10 @@ const routes: Routes = [
         component: DcMyProfileComponent,
       },
 
-      {
+      /*   {
         path: 'register',
         component: DcRegisterComponent,
-      },
+      }, */
     ],
   },
 ];

@@ -64,3 +64,28 @@ body {
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background: #d9d9d9;
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e03a06;
+  border-radius: 20px;
+}
+@media (width < 1024px) {
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 20px;
+  }
+}
