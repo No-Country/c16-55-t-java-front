@@ -36,6 +36,7 @@
               <mat-label class="dc-register__input-title">E-mail</mat-label>
               <input matInput formControlName="email" placeholder="Email" />
               <span
+              class="dc-register__error"
                 *ngIf="
                   formUser.get('email')?.hasError('required') &&
                   formUser.get('email')?.touched
@@ -45,6 +46,7 @@
               </span>
 
               <span
+                class="dc-register__error"
                 *ngIf="
                   formUser.get('email')?.hasError('email') &&
                   formUser.get('email')?.touched &&
@@ -127,7 +129,6 @@
                   </div> -->
         </div>
       </form>
-      <div>{{ formUser.value | json }}</div>
     </mat-card-content>
     <div class="dc-register__content-row">
       <div>

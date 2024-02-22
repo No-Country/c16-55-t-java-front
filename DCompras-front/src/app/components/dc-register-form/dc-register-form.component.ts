@@ -82,7 +82,7 @@ export class DcRegisterFormComponent {
   } */
 
   onSubmit(): void {
-    console.log('Formulario válido:', this.formUser.valid);
+    
     if (this.formUser.valid) {
       const signUpData: SignUp = {
         name: this.formUser.value.name,
@@ -97,7 +97,7 @@ export class DcRegisterFormComponent {
 
       this.signUpService.saveRegister(signUpData).subscribe({
         next: (response) => {
-          debugger;
+         
           if (response.message) {
             this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
             this.router.navigate(['login']);
@@ -108,7 +108,6 @@ export class DcRegisterFormComponent {
         },
       });
 
-      console.log(signUpData);
     }
   }
 
