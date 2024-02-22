@@ -37,10 +37,16 @@
                   <div class="col-sm-4">
                       <div class="input-container">
                           <mat-label>E-mail</mat-label>
-                          <mat-form-field appearance="outline">
-                              <mat-label>Ingresa tu email</mat-label>
-                              <input matInput autocomplete="off" formControlName="email">
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName="email" placeholder="Email">
                           </mat-form-field>
+                          <span *ngIf="formUser.get('email')?.hasError('required') && formUser.get('email')?.touched">
+                            El email es requerido
+                          </span>
+                          
+                          <span *ngIf="formUser.get('email')?.hasError('email') && formUser.get('email')?.touched && !formUser.get('email')?.hasError('required')">
+                            Este campo requiere un email válido
+                          </span>
                       </div>
                   </div>
               </div>
@@ -69,48 +75,6 @@
                   </div>
                   <div class="col-sm-4">
                     <div class="input-container">
-                        <mat-label>País</mat-label>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Selecciona un país</mat-label>
-                            <mat-select formControlName="country">
-                                <!-- <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
-                                    {{item.nombre}}
-                                </mat-option> -->
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                </div>
-              </div>
-              
-              <div class="row">  
-                  <div class="col-sm-4">
-                      <div class="input-container">
-                          <mat-label>Provincia</mat-label>
-                          <mat-form-field appearance="outline">
-                              <mat-label>Selecciona una provincia</mat-label>
-                              <mat-select formControlName="province">
-                                  <!-- <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
-                                      {{item.nombre}}
-                                  </mat-option> -->
-                              </mat-select>
-                          </mat-form-field>
-                      </div>
-                  </div>
-                  <div class="col-sm-4">
-                      <div class="input-container">
-                          <mat-label>Ciudad</mat-label>
-                          <mat-form-field appearance="outline">
-                              <mat-label>Selecciona una ciudad</mat-label>
-                              <mat-select formControlName="city">
-                                  <!-- <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
-                                      {{item.nombre}}
-                                  </mat-option> -->
-                              </mat-select>
-                          </mat-form-field>
-                      </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="input-container">
                         <mat-label>Dirección</mat-label>
                         <mat-form-field appearance="outline">
                             <mat-label>Ingresar dirección</mat-label>
@@ -118,6 +82,49 @@
                         </mat-form-field>
                     </div>
                 </div>
+                  <!-- <div class="col-sm-4">
+                    <div class="input-container">
+                        <mat-label>País</mat-label>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Selecciona un país</mat-label>
+                            <mat-select formControlName="country">
+                                 <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
+                                    {{item.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div> 
+              </div>-->
+              
+              <!-- <div class="row">  
+                  <div class="col-sm-4">
+                      <div class="input-container">
+                          <mat-label>Provincia</mat-label>
+                          <mat-form-field appearance="outline">
+                              <mat-label>Selecciona una provincia</mat-label>
+                              <mat-select formControlName="province">
+                                   <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
+                                      {{item.nombre}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                  </div> -->
+                  <!-- <div class="col-sm-4">
+                      <div class="input-container">
+                          <mat-label>Ciudad</mat-label>
+                          <mat-form-field appearance="outline">
+                              <mat-label>Selecciona una ciudad</mat-label>
+                              <mat-select formControlName="city">
+                                   <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
+                                      {{item.nombre}}
+                                  </mat-option> 
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                  </div> -->
+                  
               </div>
           </form>
       </mat-card-content>
@@ -129,7 +136,7 @@
                   </div>
               </mat-grid-tile>
               <mat-grid-tile>
-                  <button mat-stroked-button color="warn" class="button__cancelar"> Cancelar </button>
+                  <button (click)="cancelRegister()" mat-stroked-button color="warn" class="button__cancelar"> Cancelar </button>
               </mat-grid-tile>
               <mat-grid-tile>
                   <button (click)="onSubmit()" mat-raised-button color="warn" class="button__continuar"> Continuar </button>
