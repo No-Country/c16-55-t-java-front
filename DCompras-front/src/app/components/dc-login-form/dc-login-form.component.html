@@ -26,24 +26,24 @@
         />
       </svg>
       <input
-        placeholder="Usuario"
+        placeholder="Correo electrónico"
         title="Inpit title"
         name="input-name"
-        type="text"
+        type="email"
         class="input_field"
         id="email_field"
-        formControlName="username"
+        formControlName="email"
       />
     </div>
     <div
       *ngIf="
-        loginForm.get('username')?.invalid &&
-        (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
+        loginForm.get('email')?.invalid &&
+        (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
       "
       class="error-message"
     >
       <p
-        *ngIf="loginForm.get('username')?.errors?.['required']"
+        *ngIf="loginForm.get('email')?.errors?.['required']"
         class="error-message__text"
       >
         Usuario es requerido
