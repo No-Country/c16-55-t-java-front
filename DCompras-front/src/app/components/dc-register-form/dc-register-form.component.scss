@@ -6,15 +6,75 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+    padding: 1rem;
+  }
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    &-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      width: 50%;
+      color: #838383;
+    }
+  }
+  &__content {
+    overflow: auto;
+    &-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: flex-end;
+      align-items: center;
+      &--buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      &--button {
+        width: 7rem;
+        font-size: small;
+        border-radius: 1rem;
+        height: 3rem;
+
+        &__cancelar {
+          border: 2px solid red !important;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    height: 12rem;
+    width: 10rem;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    &_title {
+      font-size: 1rem;
+      font-weight: 200;
+    }
   }
 }
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
-  padding: 20px;
+  padding: 1rem;
   width: 90%;
   height: 90%;
   border-radius: 2rem;
-  position: absolute;
   top: 50%; /* Ajustar verticalmente */
   left: 50%; /* Ajustar horizontalmente */
   transform: translate(-50%, -50%); /* Centrar la mat-card */
@@ -24,26 +84,10 @@
   width: 30%;
   height: 50%;
 }
-.header-logo{
+.header-logo {
   margin-top: -30px;
 }
-.header-title{
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-.header-subtitle{
-  text-align: center;
-  color: gray;
-  font-size: large;
-  margin-top: 20px;
-}
-.input-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
+
 .mat-form-field {
   width: 100%;
 }
@@ -53,27 +97,67 @@
 }
 .button {
   &__cancelar {
-    width: 40%;
+    width: 7rem;
+    padding: 0.5rem;
     font-size: medium;
-    border-radius: 25px;
+    border-radius: 1rem;
     border: 2px solid red !important;
   }
   &__continuar {
+    width: 7rem;
     font-size: medium;
-    border-radius: 25px;
+    border-radius: 1rem;
+    padding: 0.5rem;
   }
 }
 // Medias querys
 @media only screen and (max-width: 767px) {
-  /* Estilos para dispositivos móviles */
-  ::-webkit-scrollbar {
-    width: 7px; /* Ancho de la barra de desplazamiento */
+  .dc-register {
+    &__img {
+      background-image: url(../../../assets/imgs/dc-general/background-carrier.png);
+      background-size: cover;
+      background-position: center;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    &__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      &-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      &-subtitle {
+        display: none;
+      }
+    }
+    &__content {
+      overflow: auto;
+      &-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: flex-end;
+        align-items: center;
+        &--buttons {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+    &__logo {
+      height: 7rem;
+      width: 6rem;
+    }
   }
-  /* Estilo del thumb (la parte deslizable) de la barra de desplazamiento */
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 42, 0);
-    border-radius: 4rem;
-  }
+
   .card {
     width: 95%;
     height: 95%;
@@ -86,32 +170,19 @@
     width: 10%;
     height: 20%;
   }
-  .header-logo{
+  .header-logo {
     text-align: center;
   }
-  .header-subtitle{
+  .header-subtitle {
     display: none;
   }
-  .input-container {
+  .input {
     width: 100%;
     margin-top: 20px;
   }
   .mat-label {
     width: 50%;
     font-size: 5px;
-  }
-  .mat-form-field {
-    width: 100%;
-  }
-  .button__cancelar {
-    width: 60%;
-    font-size: small;
-    margin-top: 20px;
-  }
-  .button__continuar {
-    width: 70%;
-    font-size: small;
-    margin-top: 20px;
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -126,15 +197,9 @@
     width: 40%;
     height: auto;
   }
-  .button__cancelar,
-  .button__continuar {
-    width: 50%;
-    font-size: medium;
-    margin-top: 20px;
-  }
 }
 
-.error{
+.error {
   display: flex;
   color: #cc3d3d;
   font-size: 0.75rem;
@@ -142,10 +207,9 @@
   letter-spacing: 0.015rem;
   align-items: center;
   gap: 0.25rem;
-  &::before{
+  &::before {
     content: "";
     width: 1.5rem;
     height: 1.5rem;
-    
   }
 }
