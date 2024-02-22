@@ -1,0 +1,45 @@
+<div class="dc-header">
+  <mat-toolbar class="dc-header__toolbar">
+    <img
+      class="dc-header__toolbar-img"
+      src="assets/imgs/dc-general/ICONODeCompras.png"
+      alt="logo"
+    />
+    <div class="dc-header__toolbar-title">
+      {{ pageTitle }}
+    </div>
+    <form
+      class="dc-header__toolbar-search"
+      style="margin-left: 1.5rem"
+      (submit)="prevenRefresh($event)"
+    >
+      <div class="dc-header__toolbar-search-form">
+        <img
+          src="assets/imgs/dc-general/search.svg"
+          class="dc-header__toolbar-search-form-icon"
+        />
+        <label for="search">
+          <input
+            class="dc-header__toolbar-search-form-input"
+            type="text"
+            placeholder="Hola"
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+            id="search"
+          />
+        </label>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option.text"
+            (click)="onSelect(option.link)"
+          >
+            {{ option.text }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+    </form>
+
+    <div class="dc-header__toolbar-name">Yoel Mandelli</div>
+  </mat-toolbar>
+</div>

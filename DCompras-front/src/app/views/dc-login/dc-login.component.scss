@@ -1,9 +1,30 @@
-.dc-login {
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    background-image: url(../../../assets/imgs/dc-general/background-carrier.png);
+.dc-login {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dc-login > * {
+  flex: 1;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 576px) {
+  .dc-login {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .dc-login > * {
+    flex: 0;
   }
 }
