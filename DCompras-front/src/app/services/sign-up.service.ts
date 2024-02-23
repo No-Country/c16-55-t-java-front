@@ -12,20 +12,17 @@ import { SignUp } from '../interfaces/sign-up';
 })
 export class SignUpService {
 
+  private urlAPI: string = environment.endpoint + "auth/";
+
   //private urlAPI: string = "http://localhost:8080/auth/";
 
   constructor(
-    private http: HttpClient
-    ) { }
+    private http: HttpClient) { }
 
    saveRegister(request: SignUp): Observable<ApiResponse> {
-     return this.http.post<ApiResponse>('http://localhost:8080/auth/signup', request);
+     //return this.http.post<ApiResponse>('http://localhost:8080/auth/signup', request);
+     return this.http.post<ApiResponse>(`${this.urlAPI}signup`, request)
    }
 
 
-  // saveRegister(request: SignUp) {
-  //   return this.http.post<SignUp>('http://localhost:8080/auth/signup', request);
-  // }
-
-  
 }

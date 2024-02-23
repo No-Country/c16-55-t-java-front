@@ -20,6 +20,33 @@
             <div class="dc-register__input">
               <mat-label class="dc-register__input-title">Nombre</mat-label>
               <input formControlName="name" placeholder="Ingresa tu nombre" />
+              <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('required') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre es requerido
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('pattern') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre solo puede contener letras
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('maxlength') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre no puede exceder los 30 carácteres
+            </span>
             </div>
           </div>
           <div>
@@ -29,6 +56,34 @@
                 formControlName="lastname"
                 placeholder="Ingresa tu apellido"
               />
+              <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('required') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido es requerido
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('pattern') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido solo puede contener letras
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('maxlength') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido no puede exceder los 30 carácteres
+            </span>
+
             </div>
           </div>
           <div>
@@ -55,21 +110,65 @@
               >
                 Este campo requiere un email válido
               </span>
+              
             </div>
           </div>
         </div>
         <div class="row">
+
           <div>
             <div class="dc-register__input">
-              <mat-label class="dc-register__input-title">Clave</mat-label>
 
+              <mat-label class="dc-register__input-title">Clave</mat-label>
               <input
                 formControlName="password"
                 placeholder="Ingresa tu clave"
-              />
+                [type]="ocultarPassword ? 'password' : 'text'"
+              >
+              <span
+                  class="dc-register__error"
+                  *ngIf="
+                    formUser.get('password')?.hasError('required') &&
+                    formUser.get('password')?.touched
+                  "
+                >
+                  La clave es requerida
+                </span>
+                <span
+                  class="dc-register__error"
+                  *ngIf="
+                    formUser.get('password')?.hasError('minlength') &&
+                    formUser.get('password')?.touched
+                  "
+                >
+                  La clave debe tener al menos 4 caracteres
+                </span>
+                <span
+                  class="dc-register__error"
+                  *ngIf="
+                    formUser.get('password')?.hasError('pattern') &&
+                    formUser.get('password')?.touched
+                  "
+                >
+                  La clave debe contener al menos una letra, un número y un carácter especial
+                </span>
             </div>
           </div>
-          <div>
+          <div class="dc-register__input">
+            <label class="dc-register__input-clave" style="border-radius:40px;"> Clave</label>
+            <mat-form-field class="dc-register__input" appearance="outline">
+              <mat-label>
+              </mat-label>
+              <input [type]="ocultarPassword ? 'password' : 'text'"
+              formControlName="password" matInput autocomplete="off" placeholder="Ingresa tu clave">
+              <button mat-icon-button matSuffix
+              (click)="ocultarPassword = !ocultarPassword" type="button"
+              >
+              <mat-icon matSuffix> {{ocultarPassword ? 'visibility_off' : 'visibility'}} </mat-icon>
+              </button>
+          </mat-form-field>
+
+          
             <div class="dc-register__input">
               <mat-label class="dc-register__input-title">Repetir clave</mat-label>
 
@@ -83,6 +182,24 @@
                 formControlName="address"
                 placeholder="Ingresar dirección"
               />
+              <span
+                class="dc-register__error"
+                *ngIf="
+                    formUser.get('address')?.hasError('required') &&
+                    formUser.get('address')?.touched
+                    "
+              >
+                La dirección es requerida
+              </span>
+              <span
+                class="dc-register__error"
+                *ngIf="
+                      formUser.get('address')?.hasError('pattern') &&
+                      formUser.get('address')?.touched
+                    "
+              >
+                La dirección solo puede contener letras, números y espacios
+              </span>
             </div>
           </div>
           <!-- <div >
