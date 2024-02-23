@@ -11,18 +11,15 @@ import { DcCategoriesComponent } from './views/dc-categories/dc-categories.compo
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
 
 const routes: Routes = [
-  /*   {
-    path: '',
-    component: DcLoginComponent,
-  }, */
   {
     path: '',
+    component: DcLoginComponent,
+  },
+  {
+    path: 'register',
     component: DcRegisterComponent,
   },
-  {
-    path: 'login',
-    component: DcLoginComponent,
-  },
+
   {
     path: 'home',
     component: DcSidenavComponent,

@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  FormControl,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, catchError, finalize, map, of, switchMap } from 'rxjs';
 import { SignUp } from 'src/app/interfaces/sign-up';
@@ -14,19 +20,18 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 export class DcRegisterFormComponent {
   formUser: FormGroup;
   emailTaken: boolean = false;
-  
-  
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private signUpService: SignUpService,
     private utilitiesService: UtilitiesService
-  ){
+  ) {
     this.formUser = this.fb.group({
-      name:['', Validators.required],
-      lastname:['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-        password: [
+      name: ['', Validators.required],
+      lastname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
         '',
         [
           Validators.required,
@@ -36,53 +41,15 @@ export class DcRegisterFormComponent {
       ],
       //repeatPassword: ['', [Validators.required, this.mustMatch('password')]],
       //password:['', Validators.required],
-       country:['Argentina'],
-      province:['Buenos Aires'],
-      city:['Belgrano'], 
-      address:['', Validators.required],
-      
+      country: ['Argentina'],
+      province: ['Buenos Aires'],
+      city: ['Belgrano'],
+      address: ['', Validators.required],
     });
-    
   }
-  ngOnInit() {
-  }
-  
-
-  /* onSubmit(): void {
-    console.log("probando");
-      if (this.formUser.valid) {
-        const signUpData: SignUp = {
-          name: this.formUser.value.name,
-          lastname: this.formUser.value.lastname,
-          email: this.formUser.value.email,
-          password: this.formUser.value.password,
-          country: this.formUser.value.country,
-          province: this.formUser.value.province,
-          city: this.formUser.value.city,
-          address: this.formUser.value.address
-        };
-          console.log(this.formUser);
-         this.signUpService.saveRegister(signUpData).subscribe({ 
-          next:(response) => {
-            debugger
-            if(response.message){
-              this.utilitiesService.mostrarAlerta("Registro exitoso", "Ok!")
-              this.router.navigate(["login"]);
-            }
-    
-          },
-          error: (e: any) => {
-         
-            this.utilitiesService.mostrarAlerta("El email ya existe", "Opps!")
-          } 
-       });
-       
-
-    }
-  } */
+  ngOnInit() {}
 
   onSubmit(): void {
-    
     if (this.formUser.valid) {
       const signUpData: SignUp = {
         name: this.formUser.value.name,
@@ -97,7 +64,6 @@ export class DcRegisterFormComponent {
 
       this.signUpService.saveRegister(signUpData).subscribe({
         next: (response) => {
-         
           if (response.message) {
             this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
             this.router.navigate(['login']);
@@ -107,14 +73,10 @@ export class DcRegisterFormComponent {
           this.utilitiesService.mostrarAlerta('El email ya existe', 'Opps!');
         },
       });
-
     }
   }
 
   cancelRegister(): void {
     this.router.navigate(['login']);
-  }
+  }
 }
-
-    
-
