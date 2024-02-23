@@ -114,67 +114,96 @@
             </div>
           </div>
         </div>
-        <div class="row">
-
-          <div>
-            <div class="dc-register__input">
-
-              <mat-label class="dc-register__input-title">Clave</mat-label>
-              <input
-                formControlName="password"
-                placeholder="Ingresa tu clave"
-                [type]="ocultarPassword ? 'password' : 'text'"
+        
+            <!-- input valido -->
+            <div>
+              <div class="dc-register__input" style="position: relative;">
+                <label class="dc-register__input-title">Clave</label>
+                <input
+                  matInput
+                  formControlName="password"
+                  placeholder="Ingresa tu clave"
+                  [type]="ocultarPassword ? 'password' : 'text'"
+                  style="padding-right: 40px;"
+                />
+                <button mat-icon-button style="position: absolute; right: 8px; top: 35%;" (click)="ocultarPassword = !ocultarPassword" type="button">
+                  <mat-icon>{{ ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('required') &&
+                  formUser.get('password')?.touched
+                "
               >
+                La clave es requerida
+              </span>
               <span
-                  class="dc-register__error"
-                  *ngIf="
-                    formUser.get('password')?.hasError('required') &&
-                    formUser.get('password')?.touched
-                  "
-                >
-                  La clave es requerida
-                </span>
-                <span
-                  class="dc-register__error"
-                  *ngIf="
-                    formUser.get('password')?.hasError('minlength') &&
-                    formUser.get('password')?.touched
-                  "
-                >
-                  La clave debe tener al menos 4 caracteres
-                </span>
-                <span
-                  class="dc-register__error"
-                  *ngIf="
-                    formUser.get('password')?.hasError('pattern') &&
-                    formUser.get('password')?.touched
-                  "
-                >
-                  La clave debe contener al menos una letra, un número y un carácter especial
-                </span>
-            </div>
-          </div>
-          <div class="dc-register__input">
-            <label class="dc-register__input-clave" style="border-radius:40px;"> Clave</label>
-            <mat-form-field class="dc-register__input" appearance="outline">
-              <mat-label>
-              </mat-label>
-              <input [type]="ocultarPassword ? 'password' : 'text'"
-              formControlName="password" matInput autocomplete="off" placeholder="Ingresa tu clave">
-              <button mat-icon-button matSuffix
-              (click)="ocultarPassword = !ocultarPassword" type="button"
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('minlength') &&
+                  formUser.get('password')?.touched
+                "
               >
-              <mat-icon matSuffix> {{ocultarPassword ? 'visibility_off' : 'visibility'}} </mat-icon>
-              </button>
-          </mat-form-field>
-
+                La clave debe tener al menos 4 caracteres
+              </span>
+              <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('pattern') &&
+                  formUser.get('password')?.touched
+                "
+              >
+                La clave debe contener al menos una letra, un número y un carácter especial
+              </span>
+              </div>
           
-            <div class="dc-register__input">
-              <mat-label class="dc-register__input-title">Repetir clave</mat-label>
-
-              <input formControlName="password" placeholder="Repetir clave " />
+          <!--  -->
+          <div>
+            <div class="dc-register__input" style="position: relative;">
+              <label class="dc-register__input-title">Repetir clave</label>
+              <input
+                matInput
+                formControlName="password"
+                placeholder="Repetir clave"
+                [type]="ocultarPassword ? 'password' : 'text'"
+                style="padding-right: 40px;"
+              />
+              <button mat-icon-button style="position: absolute; right: 8px; top: 35%;" (click)="ocultarPassword = !ocultarPassword" type="button">
+                <mat-icon>{{ ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('password')?.hasError('required') &&
+                formUser.get('password')?.touched
+              "
+            >
+              El campo es requerido
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('password')?.hasError('minlength') &&
+                formUser.get('password')?.touched
+              "
+            >
+              La clave debe tener al menos 4 caracteres
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('password')?.hasError('pattern') &&
+                formUser.get('password')?.touched
+              "
+            >
+              La clave debe contener al menos una letra, un número y un carácter especial
+            </span>
             </div>
           </div>
+
+          <!--  -->
+
           <div>
             <div class="dc-register__input">
               <mat-label class="dc-register__input-title">Dirección</mat-label>

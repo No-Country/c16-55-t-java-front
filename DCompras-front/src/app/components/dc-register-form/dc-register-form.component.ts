@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-  FormControl,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUp } from 'src/app/interfaces/sign-up';
 import { SignUpService } from 'src/app/services/sign-up.service';
@@ -67,7 +61,7 @@ export class DcRegisterFormComponent {
         next: (response) => {
           if (response.message) {
             this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
-            this.router.navigate(['login']);
+            this.router.navigate(['']);
           }
         },
         error: (e: any) => {
@@ -76,8 +70,7 @@ export class DcRegisterFormComponent {
       });
     }
   }
-
   cancelRegister(): void {
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
 }
