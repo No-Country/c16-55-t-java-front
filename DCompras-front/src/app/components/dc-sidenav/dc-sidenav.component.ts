@@ -9,6 +9,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 import { MatAccordion } from '@angular/material/expansion';
+import { IDCProfile } from 'src/app/interfaces/Idc-profile';
+import { DCProfileService } from 'src/app/services/dc-profile.service';
 
 @Component({
   selector: 'app-dc-sidenav',
@@ -23,7 +25,7 @@ export class DcSidenavComponent {
   panelOpenState = false;
   pageTitle = 'register';
   mode!: MatDrawerMode;
-
+  profile!: IDCProfile;
   companyLogo!: string;
   displayLogoMobile: boolean = false;
   windowWidth: number = window.innerWidth;
@@ -41,7 +43,10 @@ export class DcSidenavComponent {
   onLangChangeSub!: Subscription;
   listItems!: any[];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private dcProfileService: DCProfileService
+  ) {
     this.updateMode(window.innerWidth);
     this.onRouteChangeSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -57,6 +62,12 @@ export class DcSidenavComponent {
     const pageTitle = this.pageTitleMap.get(CurrentURL) || '';
     this.pageTitle = pageTitle;
   }
+  private getProfileById() {
+    this.dcProfileService.getProfileData().subscribe((data) => {
+      this.profile = data;
+    });
+  }
+
   getPageTitle(url: string): string {
     switch (url) {
       case '/home/offers':
@@ -67,28 +78,11 @@ export class DcSidenavComponent {
         return 'Tiendas';
       case '/home/my-profile':
         return 'Mi perfil';
-      case '/home/register':
-        return 'Registro';
-      case '/home/login':
-        return 'Inicio de sesión';
+
       default:
         return '';
     }
   }
-  ngOnDestroy(): void {
-    this.onRouteChangeSub.unsubscribe();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event: any) {
-    this.windowWidth = event.target.innerWidth;
-    this.updateMode(this.windowWidth);
-  }
-
-  closeAccordion() {
-    this.accordion?.closeAll();
-  }
-
   setListItems() {
     this.listItems = [
       {
@@ -123,6 +117,15 @@ export class DcSidenavComponent {
       }, */
     ];
   }
+  ngOnDestroy(): void {
+    this.onRouteChangeSub.unsubscribe();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: any) {
+    this.windowWidth = event.target.innerWidth;
+    this.updateMode(this.windowWidth);
+  }
 
   private updateMode(windowWidth: number) {
     if (windowWidth > 950) {
@@ -131,16 +134,7 @@ export class DcSidenavComponent {
       this.mode = 'over';
     }
   }
-  /* 
-  toggleDrawer() {
-    this.toggleService.toggle();
-  } */
 
-  /*  shouldDisplayLogoOnMobile(CurrentURL: string) {
-    if (CurrentURL === '//home') {
-      this.displayLogoMobile = true;
-    }
-  } */
   changeStatusSideNav() {
     if (!this.drawer?.opened) {
       this.drawer.open();
@@ -157,7 +151,6 @@ export class DcSidenavComponent {
   close() {
     this.drawer.close();
     this.closed = true;
-    this.closeAccordion();
   }
 
   linkSelected(event: any) {

@@ -61,4 +61,8 @@ export class DcLoginFormComponent implements OnInit {
       field.autocomplete = event.target.checked ? 'on' : 'off';
     });
   }
+
+  openViewRegister() {
+    this.router.navigate(['register']);
+  }
 }
