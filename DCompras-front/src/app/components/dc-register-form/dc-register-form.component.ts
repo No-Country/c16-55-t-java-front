@@ -33,20 +33,42 @@ export class DcRegisterFormComponent {
           Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/),
         ],
       ],
-      //repeatPassword: ['', [Validators.required, this.mustMatch('password')]],
-      //password:['', Validators.required],
-       country:['Argentina'],
+      repeatPassword: ['', Validators.required],
+      country:['Argentina'],
       province:['Buenos Aires'],
       city:['Belgrano'], 
       address:['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s]+$/)]],
       
     });
   }
+
+  
+  
   ngOnInit() {
   }
 
   onSubmit(): void {
     if (this.formUser.valid) {
+
+    const password = this.formUser.value.password;
+    const repeatPasswordControl = this.formUser.get('repeatPassword');
+
+    if (!repeatPasswordControl) {
+      // Si el control no está definido en el formulario, no podemos realizar la comparación
+      return;
+    }
+
+    const repeatPassword = repeatPasswordControl.value;
+
+    if (repeatPassword === null || repeatPassword === undefined) {
+      // Verificar si repeatPassword es null o undefined
+      return;
+    }
+
+    if (password !== repeatPassword) {
+      this.formUser.get('repeatPassword')?.setErrors({ 'mismatch': true });
+      return;
+    }
       const signUpData: SignUp = {
         name: this.formUser.value.name,
         lastname: this.formUser.value.lastname,
