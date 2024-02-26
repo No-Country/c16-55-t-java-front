@@ -1,13 +1,20 @@
 package com.backend.decompras.controller;
 
+import com.backend.decompras.dto.ResetPasswordDTO;
+import com.backend.decompras.dto.UserLogueoDTO;
+import com.backend.decompras.dto.response.ApiResponse;
 import com.backend.decompras.entities.User;
+import com.backend.decompras.security.service.UserDetailsServiceCustomer;
 import com.backend.decompras.service.UserService;
+import com.backend.decompras.util.Constants;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -17,16 +24,30 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
   private final UserService userService;
+  private final UserDetailsServiceCustomer userDetailsServiceCustomer;
   @GetMapping
   public String helloworld (){
     return "hello word from user controller";
   }
-  @GetMapping("/comodin")
-  public List<Object> comodin(){
-    String url = "https://alberdisa.myvtex.com/api/catalog_system/pub/products/search/?_from=0&_to=49&fq=skuId:3322&fq=skuId:3323&fq=skuId:3324&fq=skuId:3325&fq=skuId:3326&fq=skuId:3327&fq=skuId:3328&fq=skuId:3329&fq=skuId:3330&fq=skuId:4288&fq=skuId:16351&fq=skuId:16352";
-    RestTemplate restTemplate = new RestTemplate();
-    Object[] products = restTemplate.getForObject(url, Object[].class);
-    return Arrays.asList(products);
+  @PostMapping("/update/info")
+  public ApiResponse editUser(HttpServletRequest response, @Valid @RequestBody UserLogueoDTO userLogueoDTO){
+    User user =  userDetailsServiceCustomer.getUserDetail();
+    UserLogueoDTO userLogueoDTO1 = userService.updateUser(user, userLogueoDTO);
+    ApiResponse apiResponse = new ApiResponse();
+    apiResponse.setStatus(0);
+    apiResponse.setPayload(userLogueoDTO1);
+    apiResponse.setMessage(Constants.SUCESS);
+    return apiResponse;
+  }
+  @PostMapping("/update/password")
+  public ApiResponse editUser(HttpServletRequest response, @Valid @RequestBody ResetPasswordDTO resetPasswordDTO){
+    User user =  userDetailsServiceCustomer.getUserDetail();
+    Boolean verify = userService.updatePassword(user, resetPasswordDTO);
+    ApiResponse apiResponse = new ApiResponse();
+    apiResponse.setStatus(0);
+    apiResponse.setPayload(verify);
+    apiResponse.setMessage(Constants.SUCESS);
+    return apiResponse;
   }
 
 }
