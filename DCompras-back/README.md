@@ -44,5 +44,12 @@
 |  password| String  |
 |  newPassword| String  |
 
+## APIS PRODUCTS
 
+ - CARREFOUR - GET
+    - /products/carrefour/vinos
+    - /products/carrefour/arroz
+    - /products/carrefour/fideos
+    - /products/carrefour/aguas
+    - /products/carrefour/aceites
 
