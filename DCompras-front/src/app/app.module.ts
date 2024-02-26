@@ -17,6 +17,7 @@ import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
 import { DcCardComponent } from './components/dc-card/dc-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DcProfileComponent } from './components/dc-profile/dc-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     DcShopsComponent,
     DcMyProfileComponent,
     DcCardComponent,
+    DcProfileComponent,
   ],
 
   imports: [
