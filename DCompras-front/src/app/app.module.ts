@@ -44,7 +44,7 @@ import { DcProfileComponent } from './components/dc-profile/dc-profile.component
     SharedModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [DcRegisterFormComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -27,9 +27,9 @@ export class DcLoginFormComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
-    if (window.localStorage.getItem('token')) {
+    /* if (window.localStorage.getItem('token')) {
       this.router.navigate(['/home/offers']);
-    }
+    } */
   }
 
   onSubmit() {
@@ -38,8 +38,11 @@ export class DcLoginFormComponent implements OnInit {
         .post('http://localhost:8080/auth/login', this.loginForm.value)
         .subscribe(
           (response: any) => {
+            console.log(response.payload.userInfo)
             console.log('Formulario enviado correctamente', response);
             localStorage.setItem('token', response.payload.token);
+            const userInfo: any = JSON.stringify(response.payload.userInfo);
+            localStorage.setItem('userInfo', userInfo);
             console.log(response.payload.token);
             this.router.navigate(['/home/offers']);
           },
