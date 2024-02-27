@@ -26,12 +26,6 @@ Este sitio web se ha diseñado con el propósito de simplificar tu experiencia d
 
 <h1> ¿Quienes somos?
 </h1>
-
-
-
-
-
-
 <div>
 <h3>Project Manager</h3>
 <table align='center'>
@@ -45,10 +39,7 @@ Este sitio web se ha diseñado con el propósito de simplificar tu experiencia d
           <h4 style="margin-top: 1rem;">Mónica Díaz</br><small>Project Manager</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/garigliojc2" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
-        </a>
-        <a href="https://www.linkedin.com/in/monicadiazgarzon/" target="_blank">
+          <a href="https://www.linkedin.com/in/monicadiazgarzon/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
         </a>
         </div>
@@ -56,20 +47,8 @@ Este sitio web se ha diseñado con el propósito de simplificar tu experiencia d
     </td>
 </tr>
 </table>
-
 </div>
-
-
 <div>
-
-
-
-
-
-
-
-
-
 <h3>Equipo de Front-End</h3>
 
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
@@ -80,17 +59,17 @@ Este sitio web se ha diseñado con el propósito de simplificar tu experiencia d
   <tr>
     <td align='center'>
       <div >
-        <a href="https://www.linkedin.com/in/marianelacortina/" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/yoel-mandelli-31142528a/" target="_blank" rel="author">
           <img width="110" src="https://media.licdn.com/dms/image/D4D03AQHwxfEee0v5DA/profile-displayphoto-shrink_200_200/0/1698539330820?e=1714608000&v=beta&t=nbqI_2BhQzlSvV6aQ7b70_xZ57unFDI21np7Oa4Cs8M"/>
         </a>
-        <a href="https://www.linkedin.com/in/marianelacortina/" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/yoel-mandelli-31142528a/" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Yoel Mandelli</br><small>Front-End Developer</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/yoel1221AR" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
-        <a href="https://www.linkedin.com/in/marianelacortina/" target="_blank">
+        <a href="https://www.linkedin.com/in/yoel-mandelli-31142528a/" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
         </a>
         </div>
