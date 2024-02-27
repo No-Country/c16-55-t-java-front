@@ -4,8 +4,8 @@ some:
 spring:
   datasource:
     username: root
-    url: jdbc:mysql://localhost:3306/db_decompras?createDatabaseIfNotExist=true&useSSL=true
-    password: root
+    url: jdbc:mysql://roundhouse.proxy.rlwy.net:48293/railway?createDatabaseIfNotExist=true&useSSL=true
+    password: gCchCg4E155bBefG3C1Dg6gFbbDeCFAf
   jpa:
     properties:
       hibernate:
