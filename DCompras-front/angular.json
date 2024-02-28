@@ -94,10 +94,6 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
     "analytics": false
-=======
-    "analytics": "58cd1919-7ad7-461f-8256-f19087b51dd9"
->>>>>>> origin/DeLaCruz
   }
 }
