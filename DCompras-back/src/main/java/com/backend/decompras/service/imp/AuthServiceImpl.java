@@ -38,6 +38,8 @@ public class AuthServiceImpl implements AuthService {
       tokenn = jwtUtils.generateToken(userDetailsServiceCustomer.getUserDetail().getEmail(), userDetailsServiceCustomer.getUserDetail().getRole());
     log.info("Se logueo el usuario "+ credentials.getEmail());
     User userFound = userDetailsServiceCustomer.getUserDetail();
+    userLogueoDTO.setName(userFound.getName());
+    userLogueoDTO.setLastname(userFound.getName());
     userLogueoDTO.setToken(tokenn);
     userLogueoDTO.setEmail(userFound.getEmail());
     userLogueoDTO.setCity(userFound.getCity());

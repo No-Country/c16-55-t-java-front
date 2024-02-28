@@ -8,6 +8,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class UserLogueoDTO implements Serializable {
+  private String name;
+  private String lastname;
   private String token;
   private String email;
   private String country;

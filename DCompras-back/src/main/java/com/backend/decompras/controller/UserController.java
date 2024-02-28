@@ -22,6 +22,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class UserController {
   private final UserService userService;
   private final UserDetailsServiceCustomer userDetailsServiceCustomer;

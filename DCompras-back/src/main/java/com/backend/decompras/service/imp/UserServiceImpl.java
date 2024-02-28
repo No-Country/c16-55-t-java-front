@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserLogueoDTO updateUser(User user, UserLogueoDTO userLogueoDTO) {
+    user.setName(userLogueoDTO.getName());
+    user.setLastname(userLogueoDTO.getLastname());
     user.setEmail(userLogueoDTO.getEmail());
     user.setCountry(userLogueoDTO.getCountry());
     user.setCity(userLogueoDTO.getCity());
@@ -34,6 +36,8 @@ public class UserServiceImpl implements UserService {
 
     UserLogueoDTO updatedUserLogueoDTO = new UserLogueoDTO();
     //token updated?
+    updatedUserLogueoDTO.setLastname(userLogueoDTO.getLastname());
+    updatedUserLogueoDTO.setName(userLogueoDTO.getName());
     updatedUserLogueoDTO.setToken(userLogueoDTO.getToken());
     updatedUserLogueoDTO.setEmail(user.getEmail());
     updatedUserLogueoDTO.setCountry(user.getCountry());

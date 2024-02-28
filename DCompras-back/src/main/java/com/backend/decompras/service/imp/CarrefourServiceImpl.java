@@ -18,7 +18,7 @@ public class CarrefourServiceImpl implements CarrefourService {
   @Override
   public CarrefourProductDTO getWinesCategory() {
     try {
-      HttpResponse<String> response = Unirest.get("https://www.carrefour.com.ar/_v/segment/graphql/v1?workspace=master&maxAge=short&appsEtag=remove&domain=store&locale=es-AR&operationName=productSearchV3&variables=%7B%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2240b843ca1f7934d20d05d334916220a0c2cae3833d9f17bcb79cdd2185adceac%22%2C%22sender%22%3A%22vtex.store-resources%400.x%22%2C%22provider%22%3A%22vtex.search-graphql%400.x%22%7D%2C%22variables%22%3A%22eyJoaWRlVW5hdmFpbGFibGVJdGVtcyI6dHJ1ZSwic2t1c0ZpbHRlciI6IkFMTF9BVkFJTEFCTEUiLCJzaW11bGF0aW9uQmVoYXZpb3IiOiJkZWZhdWx0IiwiaW5zdGFsbG1lbnRDcml0ZXJpYSI6Ik1BWF9XSVRIT1VUX0lOVEVSRVNUIiwicHJvZHVjdE9yaWdpblZ0ZXgiOmZhbHNlLCJtYXAiOiJjLGMsYyIsInF1ZXJ5IjoiYmViaWRhcy92aW5vcy92aW5vcy10aW50b3MiLCJvcmRlckJ5IjoiT3JkZXJCeVNjb3JlREVTQyIsImZyb20iOjAsInRvIjoxNSwic2VsZWN0ZWRGYWNldHMiOlt7ImtleSI6ImMiLCJ2YWx1ZSI6ImJlYmlkYXMifSx7ImtleSI6ImMiLCJ2YWx1ZSI6InZpbm9zIn0seyJrZXkiOiJjIiwidmFsdWUiOiJ2aW5vcy10aW50b3MifV0sImZhY2V0c0JlaGF2aW9yIjoiU3RhdGljIiwiY2F0ZWdvcnlUcmVlQmVoYXZpb3IiOiJkZWZhdWx0Iiwid2l0aEZhY2V0cyI6ZmFsc2UsInZhcmlhbnQiOiI2NWE2OTc1MmRlODIzYzRlMzE5MTM4Y2ItdmFyaWFudFRyZWFtZW50In0%3D%22%7D")
+      HttpResponse<String> response = Unirest.get("https://www.catalogosofertas.com.ar/offers-dynamic/spotlight/6")
               .asString();
       ObjectMapper objectMapper = new ObjectMapper();
       CarrefourProductResponseDTO carrefourProductDTO = objectMapper
