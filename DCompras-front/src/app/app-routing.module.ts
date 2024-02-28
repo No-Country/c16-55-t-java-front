@@ -12,6 +12,10 @@ import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.compon
 
 const routes: Routes = [
   {
+    path: '',
+    component: DcLoginComponent,
+  },
+  {
     path: 'login',
     component: DcLoginComponent,
   },

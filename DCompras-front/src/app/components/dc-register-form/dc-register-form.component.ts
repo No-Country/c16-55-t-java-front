@@ -14,7 +14,6 @@ export class DcRegisterFormComponent {
   formUser: FormGroup;
   ocultarPassword:boolean=true;
   
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -42,8 +41,6 @@ export class DcRegisterFormComponent {
     });
   }
 
-  
-  
   ngOnInit() {
   }
 
@@ -83,7 +80,7 @@ export class DcRegisterFormComponent {
         next: (response) => {
           if (response.message) {
             this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
-            this.router.navigate(['']);
+            this.router.navigate(['login']);
           }
         },
         error: (e: any) => {
@@ -93,6 +90,6 @@ export class DcRegisterFormComponent {
     }
   }
   cancelRegister(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 }

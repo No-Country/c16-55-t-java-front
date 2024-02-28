@@ -16,7 +16,6 @@ export class DcProfileComponent {
 
   formUser: FormGroup;
 
-
   constructor(
     @Inject(DcRegisterFormComponent) public datosUsuario: IdcUser,
     private fb: FormBuilder,
@@ -31,19 +30,13 @@ export class DcProfileComponent {
       country:[''],
       province:[''],
       city:[''], 
-      address:[''],
-      
+      address:['']
     });
-
   }
 
   ngOnInit(): void {
     const userInfoLogueado: any = window.localStorage.getItem('userInfo')
     const userInfo= JSON.parse(userInfoLogueado);
-    /* console.log();
-    const userData: IdcUser = this.formUser.value;
-    this.dcUserService.editUser(userData)
-    console.log(userData) */
     if(userInfo != null){
       this.formUser.patchValue({
         //name: this.datosUsuario.name,
@@ -53,12 +46,9 @@ export class DcProfileComponent {
         province: userInfo.province,
         city: userInfo.city,
         address: userInfo.address
-
       })
-      //console.log(this.datosUsuario);
     }
   }
-
 
   onSubmit(): void {
     if (this.formUser.valid) {
@@ -66,13 +56,12 @@ export class DcProfileComponent {
       console.log(userData);
        this.dcUserService.editUser(userData).subscribe({
         next: (response: ApiResponse) => {
-          if (response.status === 0 && response.message === 'success') {
+          console.log(response)
+          if (response.status === 0 && response.message === 'sucess') {
             const userInfo: any = JSON.stringify(response.payload);
             localStorage.setItem('userInfo', userInfo);
-
             this.utilitiesService.mostrarAlerta('Perfil actualizado correctamente', 'Ok!');
             this.router.navigate(['home']);
-            
           } else {
             this.utilitiesService.mostrarAlerta('Error al actualizar el perfil', 'Error');
           }
@@ -84,18 +73,8 @@ export class DcProfileComponent {
     } 
   }
 
-
   cancelRegister(): void {
     this.router.navigate(['home']);
   }
-
-
-
-
-
-
-
-
-
 
 }
