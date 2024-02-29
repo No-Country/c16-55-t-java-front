@@ -51,14 +51,12 @@ export class DcRegisterFormComponent {
     const repeatPasswordControl = this.formUser.get('repeatPassword');
 
     if (!repeatPasswordControl) {
-      // Si el control no está definido en el formulario, no podemos realizar la comparación
       return;
     }
 
     const repeatPassword = repeatPasswordControl.value;
 
     if (repeatPassword === null || repeatPassword === undefined) {
-      // Verificar si repeatPassword es null o undefined
       return;
     }
 
@@ -80,7 +78,7 @@ export class DcRegisterFormComponent {
         next: (response) => {
           if (response.message) {
             this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
-            this.router.navigate(['login']);
+            this.router.navigate(['/login']);
           }
         },
         error: (e: any) => {
@@ -90,6 +88,6 @@ export class DcRegisterFormComponent {
     }
   }
   cancelRegister(): void {
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
   }
 }

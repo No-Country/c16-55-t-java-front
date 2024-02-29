@@ -36,7 +36,7 @@ export class DcLoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       this.http
         .post(
-          'http://localhost:8080/auth/login',
+          'https://sudden-base-production.up.railway.app/auth/login',
           this.loginForm.value
         )
         .subscribe(
@@ -55,7 +55,7 @@ export class DcLoginFormComponent implements OnInit {
           }
         );
     } else {
-      this.router.navigate(['register']);
+      this.router.navigate(['/register']);
       //console.log('Formulario inválido');
     }
   }
@@ -70,6 +70,6 @@ export class DcLoginFormComponent implements OnInit {
   }
 
   openViewRegister() {
-    this.router.navigate(['register']);
+    this.router.navigate(['/register']);
   }
 }

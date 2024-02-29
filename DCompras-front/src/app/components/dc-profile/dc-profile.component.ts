@@ -35,6 +35,11 @@ export class DcProfileComponent {
   }
 
   ngOnInit(): void {
+    this.loadUserData();
+
+  }
+
+  loadUserData(): void {
     const userInfoLogueado: any = window.localStorage.getItem('userInfo')
     const userInfo= JSON.parse(userInfoLogueado);
     console.log(userInfo)
@@ -74,8 +79,33 @@ export class DcProfileComponent {
     } 
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
+
+    this.router.navigate(['/login']);
+  }
+
+
+  saveChangesBeforeLogout(): void {
+    const userData: IdcUser = this.formUser.value;
+    this.dcUserService.editUser(userData).subscribe({
+      next: (response: ApiResponse) => {
+        if (response.status === 0 && response.message === 'success') {
+          const userInfo: any = JSON.stringify(response.payload);
+          localStorage.setItem('userInfo', userInfo);
+        } else {
+          console.error('Error al guardar los cambios antes de cerrar sesión');
+        }
+      },
+      error: (error: any) => {
+        console.error('Error al conectar con el servidor al guardar los cambios antes de cerrar sesión');
+      }
+    });
+  }
+
   cancelRegister(): void {
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 
 }

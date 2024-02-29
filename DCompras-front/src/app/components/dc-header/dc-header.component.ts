@@ -10,6 +10,8 @@ import {
 import { FormControl } from '@angular/forms';
 import { Observable, Subscription, map, startWith, take } from 'rxjs';
 import { Router } from '@angular/router';
+import { DcProfileComponent } from '../dc-profile/dc-profile.component';
+import { DcUserService } from 'src/app/services/dc-user.service';
 
 @Component({
   selector: 'app-dc-header',
@@ -29,12 +31,23 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   subscriptionName!: Subscription;
   loggedInUserName: string = '';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private dcUserService: DcUserService
+    ) {}
 
   ngOnInit() {
     this.setFilteredOptions();
 
-    this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
+    const userInfoLogueado: string | null = localStorage.getItem('userInfo');
+    const userInfo = userInfoLogueado !== null ? JSON.parse(userInfoLogueado) : null;
+  
+    if (userInfo !== null) {
+      this.loggedInUserName = userInfo.name;
+    } else {
+      this.loggedInUserName = ''; 
+    }
+    //this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
   }
 
   ngOnDestroy(): void {
@@ -85,12 +98,37 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
     event.preventDefault();
   }
 
- 
-
   logout() {
+
+    this.saveChangesBeforeLogout();
     localStorage.removeItem('token');
     localStorage.removeItem('userInfo');
 
-    this.router.navigate(['login']); 
+    this.router.navigate(['/login']); 
   }
+
+  saveChangesBeforeLogout() {
+    const userDataString: string | null = localStorage.getItem('userInfo');
+    if (userDataString !== null) {
+      const userData: any = JSON.parse(userDataString);
+      this.dcUserService.editUser(userData).subscribe({
+        next: (response: any) => {
+          if (response.status === 0 && response.message === 'success') {
+            const userInfo: any = JSON.stringify(response.payload);
+            localStorage.setItem('userInfo', userInfo);
+          } else {
+            console.error('Error al guardar los cambios antes de cerrar sesión');
+          }
+        },
+        error: (error: any) => {
+          console.error('Error al conectar con el servidor al guardar los cambios antes de cerrar sesión');
+        }
+      });
+    }
+  }
+  
+
+
+
+
 }
