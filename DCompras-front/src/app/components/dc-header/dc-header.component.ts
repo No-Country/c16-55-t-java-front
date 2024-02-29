@@ -35,9 +35,15 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptionName.unsubscribe();
-    this.notifications$.unsubscribe();
-    this.onLangChangeSub.unsubscribe();
+    if (this.subscriptionName) {
+      this.subscriptionName.unsubscribe();
+    }
+    if (this.notifications$) {
+      this.notifications$.unsubscribe();
+    }
+    if (this.onLangChangeSub) {
+      this.onLangChangeSub.unsubscribe();
+    }
   }
 
   private setFilteredOptions() {
@@ -74,5 +80,12 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
 
   prevenRefresh(event: any) {
     event.preventDefault();
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
+
+    this.router.navigate(['login']); 
   }
 }

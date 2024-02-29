@@ -44,6 +44,14 @@
         }
       }
     }
+    &-close {
+      display: flex;
+
+      &-icon {
+        margin-left: 20rem;
+        width: 1.75rem;
+      }
+    }
 
     &-title {
       width: 10rem;

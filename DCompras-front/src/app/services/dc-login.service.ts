@@ -16,7 +16,4 @@ export class DcLoginService {
     return this.http.post<ApiResponse>(`${this.urlAPI}/auth/login`, request);
   }
 
-  // saveRegister(request: SignUp) {
-  //   return this.http.post<SignUp>('http://localhost:8080/auth/signup', request);
-  // }
 }
