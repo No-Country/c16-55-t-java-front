@@ -1,0 +1,47 @@
+<!-- Product-Card -->
+
+<div class="dc-product-card" *ngIf="product">
+  <div class="dc-product-card__body">
+    <div class="dc-product-card__body-header">
+      <img
+        class="dc-product-card__brand"
+        src="{{ product.imgBrand }}"
+        alt="icon"
+        onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
+      />
+    </div>
+    <div class="dc-product-card__body-col">
+      <div class="dc-product-card__body-col--left">
+        <img
+          class="dc-product-card__brand-product"
+          src="{{ product.imgProduct }}"
+          alt="icon"
+          onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
+        />
+      </div>
+      <div class="dc-product-card__body-col--right">
+        <div class="dc-product-card__description">
+          {{ product.marca }} {{ product.presentacion }}
+        </div>
+        <div class="dc-product-card__description">
+          {{ product.nombre }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="product.sucursalSelect">
+    <p>{{ product.sucursalSelect.comercioRazonSocial }}</p>
+
+    <p>{{ product.sucursalSelect.preciosProducto.precioLista }}</p>
+  </div>
+
+  <button (click)="openModal(product)">ver mas</button>
+
+  <div class="dc-product-card__body-background-price">
+    <div class="dc-product-card__body-background-price--price">
+      {{ product.precioMax | currency }} Max -
+      {{ product.precioMin | currency }} Min
+    </div>
+  </div>
+</div>

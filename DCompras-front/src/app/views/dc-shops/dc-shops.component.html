@@ -1,0 +1,8 @@
+<div class="dc-shops">
+  <div class="dc-shops__background">
+    <div class="dc-shops__header-title">Todas las tiendas</div>
+    <div class="dc-shops__shops" *ngIf="shops">
+      <app-dc-card *ngFor="let shop of shops" [shop]="shop"></app-dc-card>
+    </div>
+  </div>
+</div>

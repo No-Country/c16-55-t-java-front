@@ -1,0 +1,280 @@
+<div class="dc-register__img">
+  <mat-card class="card">
+    <div class="dc-register__header">
+      <div class="dc-register__header-title">Registro</div>
+      <div class="dc-register__header-subtitle">
+        Registrate de forma fácil y sencilla a nuestra plataforma para que
+        empieces a irte De_Compras
+      </div>
+
+      <img
+        class="dc-register__logo"
+        src="../../../assets/imgs/dc-general/De Compras 9.png"
+        alt="Logo"
+      />
+    </div>
+    <mat-card-content class="dc-register__content">
+      <form [formGroup]="formUser">
+        <div class="row">
+          <div>
+            <div class="dc-register__input">
+              <mat-label class="dc-register__input-title">Nombre</mat-label>
+              <input formControlName="name" placeholder="Ingresa tu nombre" />
+              <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('required') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre es requerido
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('pattern') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre solo puede contener letras
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('name')?.hasError('maxlength') &&
+                formUser.get('name')?.touched
+              "
+            >
+              El nombre no puede exceder los 30 carácteres
+            </span>
+            </div>
+          </div>
+          <div>
+            <div class="dc-register__input">
+              <mat-label class="dc-register__input-title">Apellidos</mat-label>
+              <input
+                formControlName="lastname"
+                placeholder="Ingresa tu apellido"
+              />
+              <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('required') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido es requerido
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('pattern') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido solo puede contener letras
+            </span>
+            <span
+              class="dc-register__error"
+              *ngIf="
+                formUser.get('lastname')?.hasError('maxlength') &&
+                formUser.get('lastname')?.touched
+              "
+            >
+              El apellido no puede exceder los 30 carácteres
+            </span>
+
+            </div>
+          </div>
+          <div>
+            <div class="dc-register__input">
+              <mat-label class="dc-register__input-title">E-mail</mat-label>
+              <input matInput formControlName="email" placeholder="Email" />
+              <span
+              class="dc-register__error"
+                *ngIf="
+                  formUser.get('email')?.hasError('required') &&
+                  formUser.get('email')?.touched
+                "
+              >
+                El email es requerido
+              </span>
+
+              <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('email')?.hasError('email') &&
+                  formUser.get('email')?.touched &&
+                  !formUser.get('email')?.hasError('required')
+                "
+              >
+                Este campo requiere un email válido
+              </span>
+              
+            </div>
+          </div>
+        </div>
+        
+            <div>
+              <div class="dc-register__input" style="position: relative;">
+                <label class="dc-register__input-title">Clave</label>
+                <input
+                  matInput
+                  formControlName="password"
+                  placeholder="Ingresa tu clave"
+                  [type]="ocultarPassword ? 'password' : 'text'"
+                  style="padding-right: 40px;"
+                />
+                <button mat-icon-button style="position: absolute; right: 8px; top: 35%;" (click)="ocultarPassword = !ocultarPassword" type="button">
+                  <mat-icon>{{ ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('required') &&
+                  formUser.get('password')?.touched
+                "
+              >
+                La clave es requerida
+              </span>
+              <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('minlength') &&
+                  formUser.get('password')?.touched
+                "
+              >
+                La clave debe tener al menos 4 caracteres
+              </span>
+              <span
+                class="dc-register__error"
+                *ngIf="
+                  formUser.get('password')?.hasError('pattern') &&
+                  formUser.get('password')?.touched
+                "
+              >
+                La clave debe contener al menos una letra, un número y un carácter especial
+              </span>
+              </div>
+          
+          <div>
+            <div class="dc-register__input" style="position: relative;">
+              <label class="dc-register__input-title">Repetir clave</label>
+              <input
+                matInput
+                formControlName="repeatPassword"
+                placeholder="Repetir clave"
+                [type]="ocultarPassword ? 'password' : 'text'"
+                style="padding-right: 40px;"
+              />
+              <button mat-icon-button style="position: absolute; right: 8px; top: 35%;" (click)="ocultarPassword = !ocultarPassword" type="button">
+                <mat-icon>{{ ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+
+              <span 
+                class="dc-register__error"
+                *ngIf="formUser.get('repeatPassword')?.hasError('mismatch') && formUser.get('repeatPassword')?.dirty">
+                Las claves no coinciden.
+              </span>
+              <span 
+                *ngIf="formUser.get('repeatPassword')?.errors?.['required'] && formUser.get('repeatPassword')?.touched"
+                class="dc-register__error">
+                La repetición de la contraseña es requerida.
+              </span>
+             
+            </div>
+          </div>
+          
+          <div>
+            <div class="dc-register__input">
+              <mat-label class="dc-register__input-title">Dirección</mat-label>
+              <input
+                formControlName="address"
+                placeholder="Ingresar dirección"
+              />
+              <span
+                class="dc-register__error"
+                *ngIf="
+                    formUser.get('address')?.hasError('required') &&
+                    formUser.get('address')?.touched
+                    "
+              >
+                La dirección es requerida
+              </span>
+              <span
+                class="dc-register__error"
+                *ngIf="
+                      formUser.get('address')?.hasError('pattern') &&
+                      formUser.get('address')?.touched
+                    "
+              >
+                La dirección solo puede contener letras, números y espacios
+              </span>
+            </div>
+          </div>
+          <!-- <div >
+                    <div class="dc-register__input">
+                        <mat-label>País</mat-label>
+                        <mat-form-field >
+                            <mat-label>Selecciona un país</mat-label>
+                            <mat-select formControlName="country">
+                                 <mat-option *ngFor="let item of listaPaises" [value]="item.idPais">
+                                    {{item.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div> 
+              </div>-->
+
+          <!-- <div class="row">  
+                  <div >
+                      <div class="dc-register__input">
+                          <mat-label>Provincia</mat-label>
+                          <mat-form-field >
+                              <mat-label>Selecciona una provincia</mat-label>
+                              <mat-select formControlName="province">
+                                   <mat-option *ngFor="let item of listaEstados" [value]="item.idEstado">
+                                      {{item.nombre}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                  </div> -->
+          <!-- <div >
+                      <div class="dc-register__input">
+                          <mat-label>Ciudad</mat-label>
+                          <mat-form-field >
+                              <mat-label>Selecciona una ciudad</mat-label>
+                              <mat-select formControlName="city">
+                                   <mat-option *ngFor="let item of listaCiudad" [value]="item.idCiudad">
+                                      {{item.nombre}}
+                                  </mat-option> 
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                  </div> -->
+        </div>
+      </form>
+    </mat-card-content>
+    <div class="dc-register__content-row">
+      <div>
+        ¿Ya tienes cuenta?<a href="" class="link-iniciar-sesion">
+          Iniciar sesión</a
+        >
+      </div>
+
+      <div class="dc-register__content-row--buttons">
+        <button
+          (click)="cancelRegister()"
+          mat-stroked-button
+          color="warn"
+          class="dc-register__content-row--button dc-register__content-row--button__cancelar"
+        >
+          Cancelar
+        </button>
+        <button (click)="onSubmit()" mat-raised-button color="warn" class="dc-register__content-row--button dc-register__content-row--button__continuar">Continuar</button>
+      </div>
+    </div>
+  </mat-card>
+</div>
