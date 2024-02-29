@@ -21,6 +21,7 @@ import { DcProfileComponent } from './components/dc-profile/dc-profile.component
 import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
 import { DcSelectProductComponent } from './components/dc-selectProduct/dc-selectProduct.component';
 import { DcProductDetailListModalComponent } from './components/dc-product-detail-list-modal/dc-product-detail-list-modal.component';
+import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-forgot-pass-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DcProductDetailListModalComponent } from './components/dc-product-detai
     DcShoppingCartComponent,
     DcSelectProductComponent,
     DcProductDetailListModalComponent,
+    DcForgotPassFormComponent,
   ],
 
   imports: [

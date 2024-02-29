@@ -1,0 +1,38 @@
+<main class="content" role="main">
+  <div class="content__wrapper">
+    <div class="content__header">
+      <h1 class="content__title">Change Password</h1>
+    </div>
+    <div class="content__form">
+      <form class="form" (ngSubmit)="onSubmit()" [formGroup]="formUser">
+        <div class="form__group">
+          <label for="email" class="form__label">Email address</label>
+          <div class="form__input-wrapper">
+            <input type="email" id="email" name="email" class="form__input" required formControlName="email">
+          </div>
+          <p class="form__error hidden" id="email-error">Please include a valid email address so we can get back to you</p>
+        </div>
+        <div class="form__group">
+          <label for="password" class="form__label">Current Password</label>
+          <div class="form__input-wrapper">
+            <input type="password" id="password" name="password" class="form__input" required formControlName="password">
+          </div>
+        </div>
+        <div class="form__group">
+          <label for="newPassword" class="form__label">New Password</label>
+          <div class="form__input-wrapper">
+            <input type="password" id="newPassword" name="newPassword" class="form__input" required formControlName="newPassword">
+          </div>
+        </div>
+        <div class="form__group">
+          <label for="confirmPassword" class="form__label">Confirm New Password</label>
+          <div class="form__input-wrapper">
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form__input" required>
+          </div>
+          <p class="form__error hidden" id="confirmPassword-error">Passwords do not match.</p>
+        </div>
+        <button type="submit" class="form__button">Change Password</button>
+      </form>
+    </div>
+  </div>
+</main>

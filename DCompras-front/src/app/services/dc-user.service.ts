@@ -16,9 +16,11 @@ export class DcUserService {
   constructor(private http: HttpClient) { }
 
   editUser(userEdit: IdcUser): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.urlAPI}user/update/info`, userEdit)
+    return this.http.post<ApiResponse>(`${this.urlAPI}/user/update/info`, userEdit)
   }
-  
 
-  
+  editpassWord(userEdit: any): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.urlAPI}/user/update/password`, userEdit)
+  }
+
 }
