@@ -27,11 +27,14 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   setNotifications: boolean = false;
   onLangChangeSub!: Subscription;
   subscriptionName!: Subscription;
+  loggedInUserName: string = '';
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.setFilteredOptions();
+
+    this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
   }
 
   ngOnDestroy(): void {
@@ -81,6 +84,8 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   prevenRefresh(event: any) {
     event.preventDefault();
   }
+
+ 
 
   logout() {
     localStorage.removeItem('token');
