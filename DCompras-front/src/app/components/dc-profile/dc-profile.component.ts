@@ -37,10 +37,11 @@ export class DcProfileComponent {
   ngOnInit(): void {
     const userInfoLogueado: any = window.localStorage.getItem('userInfo')
     const userInfo= JSON.parse(userInfoLogueado);
+    console.log(userInfo)
     if(userInfo != null){
       this.formUser.patchValue({
-        //name: this.datosUsuario.name,
-        //lastname: this.datosUsuario.lastname,
+        name: userInfo.name,
+        lastname: userInfo.lastname,
         email: userInfo.email,
         country: userInfo.country,
         province: userInfo.province,

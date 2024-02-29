@@ -1,4 +1,6 @@
 export interface IdcUser {
+    name: string,
+    lastname: string,
     token: string,
     email: string,
     country: string,

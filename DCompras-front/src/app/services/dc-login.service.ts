@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DcLoginService {
-  urlAPI: string = 'https://sudden-base-production.up.railway.app';
+  urlAPI: string = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {}
 
   saveRegister(request: SignUp): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.urlAPI}/auth/login`, request);
+    return this.http.post<ApiResponse>(`${this.urlAPI}auth/login`, request);
   }
 
 }

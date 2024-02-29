@@ -12,7 +12,7 @@ import { SignUp } from '../interfaces/sign-up';
 })
 export class SignUpService {
 
-  private urlAPI: string = environment.endpoint + "/auth/";
+  private urlAPI: string = environment.endpoint + "auth/";
 
   constructor(
     private http: HttpClient) { }

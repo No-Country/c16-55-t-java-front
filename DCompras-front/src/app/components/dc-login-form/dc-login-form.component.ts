@@ -36,7 +36,7 @@ export class DcLoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       this.http
         .post(
-          'https://sudden-base-production.up.railway.app/auth/login',
+          'http://localhost:8080/auth/login',
           this.loginForm.value
         )
         .subscribe(
@@ -46,6 +46,7 @@ export class DcLoginFormComponent implements OnInit {
             localStorage.setItem('token', response.payload.token);
             const userInfo: any = JSON.stringify(response.payload.userInfo);
             localStorage.setItem('userInfo', userInfo);
+            console.log(userInfo)
             console.log(response.payload.token);
             this.router.navigate(['/home/offers']);
           },
