@@ -9,6 +9,7 @@ import { DcOffersComponent } from './views/dc-offers/dc-offers.component';
 import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
 import { DcCategoriesComponent } from './views/dc-categories/dc-categories.component';
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
+import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
         component: DcCategoriesComponent,
       },
  */
+
+      {
+        path: 'shopping',
+        component: DcShoppingCartComponent,
+      },
       {
         path: 'shops',
         component: DcShopsComponent,

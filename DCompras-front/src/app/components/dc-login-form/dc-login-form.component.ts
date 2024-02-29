@@ -35,10 +35,13 @@ export class DcLoginFormComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       this.http
-        .post('http://localhost:8080/auth/login', this.loginForm.value)
+        .post(
+          'https://sudden-base-production.up.railway.app/auth/login',
+          this.loginForm.value
+        )
         .subscribe(
           (response: any) => {
-            console.log(response.payload.userInfo)
+            console.log(response.payload.userInfo);
             console.log('Formulario enviado correctamente', response);
             localStorage.setItem('token', response.payload.token);
             const userInfo: any = JSON.stringify(response.payload.userInfo);

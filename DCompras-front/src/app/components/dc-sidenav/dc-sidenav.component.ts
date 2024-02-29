@@ -76,6 +76,8 @@ export class DcSidenavComponent {
         return 'Categorías';
       case '/home/shops':
         return 'Tiendas';
+      case '/home/shopping':
+        return 'Carrito de compras';
       case '/home/my-profile':
         return 'Mi perfil';
 
@@ -95,6 +97,12 @@ export class DcSidenavComponent {
         text: 'Categorías',
         link: 'categories',
       }, */
+      {
+        img: 'assets/icons/dc-sidenav/shop_icon.svg',
+        text: 'Carrito de compras',
+        link: 'shopping',
+      },
+
       {
         img: 'assets/icons/dc-sidenav/shop_icon.svg',
         text: 'Tiendas',

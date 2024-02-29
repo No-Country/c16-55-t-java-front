@@ -1,0 +1,318 @@
+{
+  "items": [
+    {
+      "_type": "paginateable-collection",
+      "total": 29,
+      "offset": 0,
+      "page_size": 29,
+      "items": [
+        {
+          "_type": "story",
+          "id": "toplist:top-ten-offers",
+          "object_type": "toplist",
+          "sticky": true,
+          "title": "Top 10 de ofertas",
+          "default_click_url": "https://www.catalogosofertas.com.ar/ofertas-populares",
+          "display_info": null,
+          "tile_url": "https://img.offers-cdn.net/assets/uploads/top_lists/icons/toplist-94-icon-original-645d1e3edcf98.png",
+          "pages": [
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34623526/heladera-con-freezer-ciclica-314-lts-gris-drean-hdr320f00s-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/fravega/ofertas/heladera-con-freezer-ciclica-314-lts-gris-drean-hdr320f00s-oferta-34623526/",
+              "object_id": 34623526,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "Heladera Con Freezer C\u00edclica 314 Lts Gris Drean Hdr320f00s",
+                "start_valid": "23 feb",
+                "end_valid": "29 feb",
+                "start_valid_date": "2024-02-23",
+                "end_valid_date": "2024-02-29",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37116,
+                  "name": "Fr\u00e1vega",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/fravega/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/fravega-1585319057.jpg"
+                },
+                "click_out_url": "https://www.catalogosofertas.com.ar/click-out/ofertas/34623526/"
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34524816/lapiz-grafito-hb2-con-goma-x-4u-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/carrefour/ofertas/lapiz-grafito-hb2-con-goma-x-4u-oferta-34524816/",
+              "object_id": 34524816,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "L\u00e1piz grafito HB2 con goma x 4u",
+                "start_valid": "16 feb",
+                "end_valid": "15 mar",
+                "start_valid_date": "2024-02-16",
+                "end_valid_date": "2024-03-15",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37113,
+                  "name": "Carrefour",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/carrefour/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/carrefour-62bc19fbbac2f.png"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/32186693/toallas-femeninas-pock-x-8-unid-s-c-des-c-alas-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-yaguar/ofertas/toallas-femeninas-pock-x-8-unid-s-c-des-c-alas-oferta-32186693/",
+              "object_id": 32186693,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "TOALLAS FEMENINAS POCK.X 8 UNID S/C DES C/ALAS",
+                "start_valid": "19 ene",
+                "end_valid": "17 mar",
+                "start_valid_date": "2024-01-19",
+                "end_valid_date": "2024-03-17",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37134,
+                  "name": "Supermercados Yaguar",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-yaguar/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/supermercados-yaguar-1585312139.jpg"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34462183/abrochadora-n-10-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/carrefour/ofertas/abrochadora-n-10-oferta-34462183/",
+              "object_id": 34462183,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "Abrochadora N 10",
+                "start_valid": "16 feb",
+                "end_valid": "15 mar",
+                "start_valid_date": "2024-02-16",
+                "end_valid_date": "2024-03-15",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37113,
+                  "name": "Carrefour",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/carrefour/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/carrefour-62bc19fbbac2f.png"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34976379/aceite-cocinero-girasol-x-900-mi-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/diarco/ofertas/aceite-cocinero-girasol-x-900-mi-oferta-34976379/",
+              "object_id": 34976379,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "Aceite COCINERO Girasol x 900 MI.",
+                "start_valid": "26 feb",
+                "end_valid": "3 mar",
+                "start_valid_date": "2024-02-26",
+                "end_valid_date": "2024-03-03",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37126,
+                  "name": "Diarco",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/diarco/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/diarco-1585311395.jpg"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34978389/aceite-de-girasol-cocinero-x-1-5-lts-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/gomez-pardo/ofertas/aceite-de-girasol-cocinero-x-1-5-lts-oferta-34978389/",
+              "object_id": 34978389,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "Aceite de girasol Cocinero x 1,5 lts.",
+                "start_valid": "26 feb",
+                "end_valid": "29 feb",
+                "start_valid_date": "2024-02-26",
+                "end_valid_date": "2024-02-29",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37151,
+                  "name": "Gomez Pardo",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/gomez-pardo/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/gomez-pardo-1587393969.jpg"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/32186678/aceite-de-girasol-x-900cc-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-yaguar/ofertas/aceite-de-girasol-x-900cc-oferta-32186678/",
+              "object_id": 32186678,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "ACEITE DE GIRASOL X 900CC",
+                "start_valid": "19 ene",
+                "end_valid": "17 mar",
+                "start_valid_date": "2024-01-19",
+                "end_valid_date": "2024-03-17",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37134,
+                  "name": "Supermercados Yaguar",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-yaguar/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/supermercados-yaguar-1585312139.jpg"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34711376/aceite-en-aerosol-fritolim-clasico-o-manteca-x-120g-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-buenos-dias/ofertas/aceite-en-aerosol-fritolim-clasico-o-manteca-x-120g-oferta-34711376/",
+              "object_id": 34711376,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "Aceite en aerosol FRITOLIM cl\u00e1sico o manteca x 120g",
+                "start_valid": "22 feb",
+                "end_valid": "28 feb",
+                "start_valid_date": "2024-02-22",
+                "end_valid_date": "2024-02-28",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 41989,
+                  "name": "Supermercados Buenos D\u00edas",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/supermercados-buenos-dias/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/supermercados-buenos-dias.png"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34586215/aceite-girasol-cocinero-900cc-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/changomas/ofertas/aceite-girasol-cocinero-900cc-oferta-34586215/",
+              "object_id": 34586215,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "ACEITE GIRASOL COCINERO 900CC",
+                "start_valid": "22 feb",
+                "end_valid": "29 feb",
+                "start_valid_date": "2024-02-22",
+                "end_valid_date": "2024-02-29",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37118,
+                  "name": "Changomas",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/changomas/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/changomas-6441374f34516.png"
+                },
+                "click_out_url": null
+              }
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/offers/ar/34971739/aceitunas-negras-rodajadas-en-salmuera-en-salmuera-300g-normal.jpeg",
+              "click_url": "https://www.catalogosofertas.com.ar/tiendas/atomo-conviene/ofertas/aceitunas-negras-rodajadas-en-salmuera-en-salmuera-300g-oferta-34971739/",
+              "object_id": 34971739,
+              "display_info": {
+                "_type": "story-display-info",
+                "title": "ACEITUNAS NEGRAS RODAJADAS EN SALMUERA EN SALMUERA 300G",
+                "start_valid": "23 feb",
+                "end_valid": "29 feb",
+                "start_valid_date": "2024-02-23",
+                "end_valid_date": "2024-02-29",
+                "validity_period": null,
+                "store_info": {
+                  "_type": "story-store-info",
+                  "id": 37139,
+                  "name": "Atomo Conviene",
+                  "url": "https://www.catalogosofertas.com.ar/tiendas/atomo-conviene/ofertas-catalogos",
+                  "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/atomo-conviene.png"
+                },
+                "click_out_url": null
+              }
+            }
+          ]
+        },
+        {
+          "_type": "story",
+          "id": "flyer:2044643",
+          "object_id": 2044643,
+          "object_type": "flyer",
+          "sticky": false,
+          "title": "Supermayorista Vital",
+          "default_click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643",
+          "display_info": {
+            "_type": "story-display-info",
+            "title": "Cat\u00e1logo Supermayorista Vital",
+            "start_valid": "27 feb",
+            "end_valid": "4 mar",
+            "start_valid_date": "2024-02-27",
+            "end_valid_date": "2024-03-04",
+            "validity_period": "V\u00e1lido por 5 d\u00edas",
+            "store_info": {
+              "_type": "story-store-info",
+              "id": 37129,
+              "name": "Supermayorista Vital",
+              "url": "https://www.catalogosofertas.com.ar/tiendas/supermayorista-vital/ofertas-catalogos",
+              "logo_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/supermayorista-vital.jpg"
+            },
+            "click_out_url": null
+          },
+          "tile_url": "https://img.offers-cdn.net/assets/uploads/stores/ar/logos/200x72/supermayorista-vital.jpg",
+          "pages": [
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/flyers/2044643/normalWebP/supermayorista-vital-1-1.webp",
+              "click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643#page=1",
+              "object_id": 59102181,
+              "display_info": null
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/flyers/2044643/normalWebP/supermayorista-vital-2-1.webp",
+              "click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643#page=3",
+              "object_id": 59102182,
+              "display_info": null
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/flyers/2044643/normalWebP/supermayorista-vital-3-1.webp",
+              "click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643#page=5",
+              "object_id": 59102183,
+              "display_info": null
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/flyers/2044643/normalWebP/supermayorista-vital-4-1.webp",
+              "click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643#page=7",
+              "object_id": 59102184,
+              "display_info": null
+            },
+            {
+              "_type": "story-page",
+              "url": "https://img.offers-cdn.net/assets/uploads/flyers/2044643/normalWebP/supermayorista-vital-5-1.webp",
+              "click_url": "https://www.catalogosofertas.com.ar/ver/ofertas/catyylogo-supermayorista-vital-2044643#page=9",
+              "object_id": 59102185,
+              "display_info": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

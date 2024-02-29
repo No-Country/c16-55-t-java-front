@@ -9,7 +9,6 @@
         alt="icon"
         onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
       />
-      <input type="checkbox" (change)="agregarProductoSeleccionado(product)" />
     </div>
     <div class="dc-product-card__body-col">
       <div class="dc-product-card__body-col--left">
@@ -31,24 +30,18 @@
     </div>
   </div>
 
+  <div *ngIf="product.sucursalSelect">
+    <p>{{ product.sucursalSelect.comercioRazonSocial }}</p>
+
+    <p>{{ product.sucursalSelect.preciosProducto.precioLista }}</p>
+  </div>
+
+  <button (click)="openModal(product)">ver mas</button>
+
   <div class="dc-product-card__body-background-price">
     <div class="dc-product-card__body-background-price--price">
       {{ product.precioMax | currency }} Max -
       {{ product.precioMin | currency }} Min
     </div>
-  </div>
-</div>
-
-<!-- Shop-Card -->
-<div class="dc-shop-card" *ngIf="shop">
-  <img
-    class="dc-shop-card__brand-shop"
-    src="{{ shop.imgBrand }}"
-    alt="icon"
-    onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
-  />
-
-  <div class="dc-shop-card__brand-title">
-    {{ shop.brand }}
   </div>
 </div>

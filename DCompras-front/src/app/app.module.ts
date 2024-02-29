@@ -18,6 +18,9 @@ import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.compon
 import { DcCardComponent } from './components/dc-card/dc-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DcProfileComponent } from './components/dc-profile/dc-profile.component';
+import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
+import { DcSelectProductComponent } from './components/dc-selectProduct/dc-selectProduct.component';
+import { DcProductDetailListModalComponent } from './components/dc-product-detail-list-modal/dc-product-detail-list-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { DcProfileComponent } from './components/dc-profile/dc-profile.component
     DcMyProfileComponent,
     DcCardComponent,
     DcProfileComponent,
+    DcShoppingCartComponent,
+    DcSelectProductComponent,
+    DcProductDetailListModalComponent,
   ],
 
   imports: [
