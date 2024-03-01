@@ -2,14 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #ffffff;
+  border: 2px solid #e03a06;
   border-radius: 1rem;
-  border: 0.884px solid #ebebeb;
-  background: #fff;
-  width: 16rem;
   height: 100%;
-
-  display: flex;
-  flex-direction: column;
   &__body {
     padding: 1rem;
     &-header {
@@ -21,6 +17,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       gap: 2rem;
       &--right {
         display: flex;
@@ -30,11 +27,11 @@
     &-background-price {
       display: flex;
       justify-content: center;
-      background-color: #797676;
+      background-color: #e03a06;
       align-items: center;
       width: 100%;
       height: 2.5rem;
-      border-radius: 0 0 1rem 1rem;
+      border-radius: 0 0 0.7rem 0.7rem;
       &--price {
         font-family: Inter;
         font-size: 1rem;
