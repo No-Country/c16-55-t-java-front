@@ -101,7 +101,7 @@ export class DcSidenavComponent {
         link: 'categories',
       }, */
       {
-        img: 'assets/icons/dc-sidenav/shop_icon.svg',
+        img: 'assets/icons/dc-sidenav/shopping_basket.svg',
         text: 'Carrito de compras',
         link: 'shopping',
       },
