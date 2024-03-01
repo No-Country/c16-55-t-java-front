@@ -42,6 +42,7 @@ export class DcSidenavComponent {
   onRouteChangeSub: Subscription = new Subscription();
   onLangChangeSub!: Subscription;
   listItems!: any[];
+  loggedInUserName: string = '';
 
   constructor(
     private router: Router,
@@ -61,6 +62,8 @@ export class DcSidenavComponent {
     const CurrentURL = this.router.url;
     const pageTitle = this.pageTitleMap.get(CurrentURL) || '';
     this.pageTitle = pageTitle;
+
+    this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
   }
   private getProfileById() {
     this.dcProfileService.getProfileData().subscribe((data) => {
