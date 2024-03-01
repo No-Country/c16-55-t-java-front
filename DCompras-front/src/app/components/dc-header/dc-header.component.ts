@@ -127,7 +127,9 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
     }
   }
   
-
+onHome(){
+  this.router.navigate(['/home']);
+}
 
 
 
