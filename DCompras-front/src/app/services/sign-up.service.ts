@@ -17,4 +17,8 @@ export class SignUpService {
   saveRegister(request: SignUp): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.urlAPI}/auth/signup`, request);
   }
+
+  getState(): Observable<any[]> {
+    return this.http.get<any[]>('assets/db/dc-all-state.json');
+  }
 }

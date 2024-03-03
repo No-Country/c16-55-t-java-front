@@ -10,6 +10,7 @@ import { DcListService } from 'src/app/services/lista.service';
 export class DcCardComponent {
   @Input() product!: any;
   @Input() shop!: IDcProduct;
+  @Input() title: string | null = null;
 
   constructor(public DcListService: DcListService) {}
 

@@ -12,8 +12,9 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 })
 export class DcRegisterFormComponent {
   formUser: FormGroup;
-  ocultarPassword:boolean=true;
-  
+  ocultarPassword: boolean = true;
+  provinces!: any[];
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -21,10 +22,24 @@ export class DcRegisterFormComponent {
     private utilitiesService: UtilitiesService
   ) {
     this.formUser = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/), Validators.maxLength(30)]],
-      lastname:['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/), Validators.maxLength(30)]] ,
-      email:['', [Validators.required, Validators.email]],
-        password: [
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z ]+$/),
+          Validators.maxLength(30),
+        ],
+      ],
+      lastname: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z ]+$/),
+          Validators.maxLength(30),
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
         '',
         [
           Validators.required,
@@ -33,37 +48,39 @@ export class DcRegisterFormComponent {
         ],
       ],
       repeatPassword: ['', Validators.required],
-      country:['Argentina'],
-      province:['Buenos Aires'],
-      city:['Belgrano'], 
-      address:['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s]+$/)]],
-      
+      country: ['Argentina'],
+      province: ['', Validators.required],
+      city: ['.'],
+      address: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s]+$/)],
+      ],
     });
   }
 
   ngOnInit() {
+    this.getState();
   }
 
   onSubmit(): void {
     if (this.formUser.valid) {
+      const password = this.formUser.value.password;
+      const repeatPasswordControl = this.formUser.get('repeatPassword');
 
-    const password = this.formUser.value.password;
-    const repeatPasswordControl = this.formUser.get('repeatPassword');
+      if (!repeatPasswordControl) {
+        return;
+      }
 
-    if (!repeatPasswordControl) {
-      return;
-    }
+      const repeatPassword = repeatPasswordControl.value;
 
-    const repeatPassword = repeatPasswordControl.value;
+      if (repeatPassword === null || repeatPassword === undefined) {
+        return;
+      }
 
-    if (repeatPassword === null || repeatPassword === undefined) {
-      return;
-    }
-
-    if (password !== repeatPassword) {
-      this.formUser.get('repeatPassword')?.setErrors({ 'mismatch': true });
-      return;
-    }
+      if (password !== repeatPassword) {
+        this.formUser.get('repeatPassword')?.setErrors({ mismatch: true });
+        return;
+      }
       const signUpData: SignUp = {
         name: this.formUser.value.name,
         lastname: this.formUser.value.lastname,
@@ -87,6 +104,14 @@ export class DcRegisterFormComponent {
       });
     }
   }
+
+  getState() {
+    this.signUpService.getState().subscribe((res) => {
+      this.provinces = res;
+      console.log(res);
+    });
+  }
+
   cancelRegister(): void {
     this.router.navigate(['/login']);
   }

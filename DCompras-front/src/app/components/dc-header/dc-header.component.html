@@ -24,30 +24,21 @@
           <input
             class="dc-header__toolbar-search-form-input"
             type="text"
-            placeholder="Hola"
+            placeholder="Buscar producto aquí"
             [formControl]="myControl"
-            [matAutocomplete]="auto"
             id="search"
           />
         </label>
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let option of filteredOptions | async"
-            [value]="option.text"
-            (click)="onSelect(option.link)"
-          >
-            {{ option.text }}
-          </mat-option>
-        </mat-autocomplete>
       </div>
     </form>
 
     <div>
-      <img src="assets/icons/dc-sidenav/close_out.svg" 
-      class="dc-header__toolbar-close-icon" 
-      type="button"
-      (click)="logout()"
-      >
+      <img
+        src="assets/icons/dc-sidenav/close_out.svg"
+        class="dc-header__toolbar-close-icon"
+        type="button"
+        (click)="logout()"
+      />
     </div>
 
     <div class="dc-header__toolbar-name">{{ loggedInUserName }}</div>

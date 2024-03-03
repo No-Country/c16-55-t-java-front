@@ -1,96 +1,75 @@
 <div class="dc-my-profile">
-    <div class="dc-my-profile__background-card">
-      <div class="dc-my-profile__header-title"> Mi perfil </div>
+  <div class="dc-my-profile__background-card">
+    <div class="dc-my-profile__header-title">Mi perfil</div>
 
-      <form [formGroup]="formUser">
+    <form [formGroup]="formUser">
+      <div class="dc-my-profile__content">
+        <div class="dc-my-profile__input">
+          <mat-label class="dc-my-profile__input-title">Nombre</mat-label>
+          <input formControlName="name" matInput autocomplete="off" />
+        </div>
+        <div class="dc-my-profile__input">
+          <mat-label class="dc-my-profile__input-title">Apellidos</mat-label>
 
-        <div class="row">
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Nombre</mat-label>
-              <input formControlName="name" 
-                matInput autocomplete="off"
-              />
-            </div>
-          </div>
-        
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Apellidos</mat-label>
-              <input
-                formControlName="lastname"
-              
-              />
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">E-mail</mat-label>
-              <input matInput formControlName="email"/>
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Dirección</mat-label>
-              <input
-                formControlName="address"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Pais</mat-label>
-              <input
-                formControlName="country"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Provincia</mat-label>
-              <input
-                formControlName="province"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-my-profile__input">
-              <mat-label class="dc-my-profile__input-title">Ciudad</mat-label>
-              <input
-                formControlName="city"
-              />
-            </div>
-          </div>
-        
+          <input formControlName="lastname" />
+        </div>
+        <div class="dc-my-profile__input">
+          <mat-label class="dc-my-profile__input-title">E-mail</mat-label>
+          <input matInput formControlName="email" />
+        </div>
+        <div class="dc-my-profile__input">
+          <mat-label class="dc-my-profile__input-title">Dirección</mat-label>
+          <input formControlName="address" />
         </div>
 
-      </form>    
-      <div class="dc-my-profile__content-row">
-        
-        <div class="dc-my-profile__content-row--buttons">
-          <button
-            (click)="cancelRegister()"
-            mat-stroked-button
-            color="warn"
-            class="dc-my-profile__content-row--button dc-my-profile__content-row--button__cancelar"
-          >
-            Cancelar
-          </button>
-          <button (click)="onSubmit()" mat-raised-button color="warn" class="dc-my-profile__content-row--button dc-my-profile__content-row--button__continuar">Continuar</button>
+        <div class="dc-my-profile__input">
+          <mat-label class="dc-my-profile__input-title">Pais</mat-label>
+          <input formControlName="country" />
+        </div>
+
+        <div class="dc-my-profile__input">
+          <!--  <div class="dc-my-profile__input">
+            <mat-label class="dc-my-profile__input-title">Provincia</mat-label>
+            <input formControlName="province" />
+          </div> -->
+          <mat-label class="dc-my-profile__input-title">Provincia</mat-label>
+          <mat-select formControlName="province" class="dc-my-profile__select">
+            <mat-option
+              [value]="province.url"
+              *ngFor="let province of provinces"
+            >
+              {{ province.name }}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <div>
+          <div class="dc-my-profile__input">
+            <mat-label class="dc-my-profile__input-title">Ciudad</mat-label>
+            <input formControlName="city" />
+          </div>
         </div>
       </div>
-
-
+    </form>
+    <div class="dc-my-profile__content-row">
+      <div class="dc-my-profile__content-row--buttons">
+        <button
+          (click)="cancelRegister()"
+          mat-stroked-button
+          color="warn"
+          class="dc-my-profile__content-row--button dc-my-profile__content-row--button__cancelar"
+        >
+          Cancelar
+        </button>
+        <button
+          (click)="onSubmit()"
+          mat-raised-button
+          color="warn"
+          class="dc-my-profile__content-row--button dc-my-profile__content-row--button__continuar"
+        >
+          Continuar
+        </button>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
-      
-
-  

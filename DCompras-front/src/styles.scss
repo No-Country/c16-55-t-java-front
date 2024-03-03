@@ -43,6 +43,8 @@ body {
   font-family: Inter, "Helvetica Neue", sans-serif;
 }
 
+@import "src/app/dc-styles/mixins/size.scss";
+
 .mdc-list-item__primary-text {
   color: #fff3f3;
 }
@@ -92,6 +94,7 @@ body {
 
 input {
   height: 3rem;
+  width: 100%;
   border-radius: 1rem;
   border: 1px solid #dcdbdd;
   padding: 0.5rem;
@@ -103,4 +106,7 @@ input:focus {
   filter: drop-shadow(0px 1px 0px #efefef)
     drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+.mdc-list-item__primary-text {
+  color: #000000;
 }

@@ -1,10 +1,16 @@
 <div class="dc-shopping">
   <div class="dc-shopping__background">
-    <div class="dc-shopping__products">
+    <div
+      *ngIf="productosRaros?.length; else noDataMessage"
+      class="dc-offers__products"
+    >
       <app-dc-selectProduct
         *ngFor="let product of productosRaros"
         [product]="product"
       ></app-dc-selectProduct>
     </div>
+    <ng-template #noDataMessage>
+      <div>No hay productos seleccionados disponibles</div>
+    </ng-template>
   </div>
 </div>

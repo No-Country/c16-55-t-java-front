@@ -75,7 +75,11 @@
     </div>
     <div class="dc-login__reminder">
       <div class="dc-login__reminder-checkbox">
-        <input type="checkbox" (change)="toggleAutocomplete($event)" />
+        <input
+          type="checkbox"
+          class="dc-login__reminder-checkbox--input"
+          (change)="toggleAutocomplete($event)"
+        />
         <label class="dc-login__reminder-checkbox--label"
           >Recordar mis datos</label
         >

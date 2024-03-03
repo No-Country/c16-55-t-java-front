@@ -46,9 +46,13 @@ export class DcLoginFormComponent implements OnInit {
             localStorage.setItem('token', response.payload.token);
             const userInfo: any = JSON.stringify(response.payload.userInfo);
             localStorage.setItem('userInfo', userInfo);
-            console.log(userInfo)
+            console.log(userInfo);
             console.log(response.payload.token);
             this.router.navigate(['/home/offers']);
+            localStorage.setItem(
+              'userInfo',
+              JSON.stringify(response.payload.userInfo)
+            );
           },
           (error) => {
             console.log('Error al enviar el formulario', error);
