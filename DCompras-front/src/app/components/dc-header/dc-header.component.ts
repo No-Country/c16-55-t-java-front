@@ -30,6 +30,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   onLangChangeSub!: Subscription;
   subscriptionName!: Subscription;
   loggedInUserName: string = '';
+  loggedInUserLastname: string = '';
 
   constructor(
     private router: Router,
@@ -47,6 +48,14 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
     } else {
       this.loggedInUserName = ''; 
     }
+
+    if (userInfo !== null) {
+      this.loggedInUserLastname = userInfo.lastname;
+    } else {
+      this.loggedInUserLastname = ''; 
+    }
+
+
     //this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
   }
 
@@ -98,15 +107,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
     event.preventDefault();
   }
 
-  logout() {
-
-    this.saveChangesBeforeLogout();
-    localStorage.removeItem('token');
-    localStorage.removeItem('userInfo');
-
-    this.router.navigate(['/login']); 
-  }
-
+ 
   saveChangesBeforeLogout() {
     const userDataString: string | null = localStorage.getItem('userInfo');
     if (userDataString !== null) {
