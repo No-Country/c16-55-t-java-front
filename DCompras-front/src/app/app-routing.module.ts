@@ -10,6 +10,7 @@ import { DcShopsComponent } from './views/dc-shops/dc-shops.component';
 import { DcCategoriesComponent } from './views/dc-categories/dc-categories.component';
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
 import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
+import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-forgot-pass-form.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
       }, */
     ],
   },
+  {
+    path: 'forgot-pass',
+    component: DcForgotPassFormComponent
+  }
 ];
 
 @NgModule({
