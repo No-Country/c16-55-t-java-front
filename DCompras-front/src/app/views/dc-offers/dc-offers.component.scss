@@ -18,6 +18,61 @@
     height: 80vh;
     overflow-y: auto;
   }
+
+  &__select {
+    outline: none;
+    height: 3rem;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 1rem;
+    border: 1px solid #dcdbdd;
+    background: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: flex;
+
+    &::ng-deep .mat-mdc-select-arrow {
+      background-image: url("./../../../assets/imgs/dc-general/selectArrowNew.svg");
+      background-repeat: no-repeat;
+      background-position: right center;
+      width: 1.1875rem;
+      height: 1.1875rem;
+      background-size: cover;
+      svg {
+        display: none;
+      }
+    }
+
+    &::ng-deep .mat-mdc-select-trigger {
+      height: 100%;
+      padding: 0 0.5rem;
+    }
+
+    &:hover {
+      background-color: #eeeeee55;
+    }
+
+    option {
+      background: #fff;
+      color: #4d4d4d;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    &-title {
+      font-size: 1rem;
+      font-weight: 500;
+      width: 100px;
+    }
+  }
 }
 
 @media (width < 768px) {

@@ -1,5 +1,20 @@
 <div class="dc-offers">
   <div class="dc-offers__background">
+    <form [formGroup]="myOffers">
+      <div class="dc-offers__category">
+        <mat-select
+          formControlName="category"
+          class="dc-offers__select"
+          placeholder="Categorías"
+          (change)="onCategorySelect($event)"
+        >
+          {{ myOffers.value | json }}
+          <mat-option [value]="category.id" *ngFor="let category of categories">
+            {{ category.category }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </form>
     <div class="dc-offers__products" *ngIf="products">
       <app-dc-card
         *ngFor="let product of products"
