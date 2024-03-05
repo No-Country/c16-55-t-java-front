@@ -43,6 +43,7 @@ export class DcSidenavComponent {
   onLangChangeSub!: Subscription;
   listItems!: any[];
   loggedInUserName: string = '';
+  loggedInUserLastname: string = '';
 
   constructor(
     private router: Router,
@@ -64,6 +65,7 @@ export class DcSidenavComponent {
     this.pageTitle = pageTitle;
 
     this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
+    this.loggedInUserLastname = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).lastname : '';
   }
   private getProfileById() {
     this.dcProfileService.getProfileData().subscribe((data) => {
@@ -83,7 +85,6 @@ export class DcSidenavComponent {
         return 'Carrito de compras';
       case '/home/my-profile':
         return 'Mi perfil';
-
       default:
         return '';
     }
@@ -115,6 +116,11 @@ export class DcSidenavComponent {
         img: 'assets/icons/dc-sidenav/profile.svg',
         text: 'Mi perfil',
         link: 'my-profile',
+      },
+      {
+        img: 'assets/icons/dc-sidenav/close_out.svg',
+        text: 'Cerrar sesión',
+        link: '',
       },
       /*       {
         img: 'assets/imgs/dc-general/search.svg',
