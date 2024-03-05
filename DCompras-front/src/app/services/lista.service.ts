@@ -19,13 +19,24 @@ export class DcListService {
         this.productos.push(producto);
       }
     } else {
-      const index = this.productos.findIndex((p) => p.id === producto.id);
+      const productosFavoritosString =
+        window.localStorage.getItem('productosFavoritos');
+      let productosFavoritos: any[] = [];
+
+      if (productosFavoritosString) {
+        productosFavoritos = JSON.parse(productosFavoritosString);
+      }
+
+      const index = this.productos
+        .concat(productosFavoritos)
+        .findIndex((p) => p.id === producto.id);
       if (index === -1) {
         this.productos.push(producto);
       } else {
         this.productos.splice(index, 1);
       }
     }
+    console.log('prodListaServicio', this.productos);
   }
 
   obtenerProductos(): any[] {

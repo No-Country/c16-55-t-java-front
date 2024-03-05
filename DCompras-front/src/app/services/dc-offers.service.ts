@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { IDcProduct } from '../interfaces/Idc-product';
 import { IAllProducts } from '../interfaces/IAllProducts';
 interface Product {
@@ -47,5 +55,20 @@ export class DcOffersService {
   }
   getCategories(): Observable<any> {
     return this.http.get<any>('assets/db/dc-category.json');
+  }
+
+  private searchTermSubject = new BehaviorSubject<string>('');
+  searchTerm$: Observable<string> = this.searchTermSubject.asObservable();
+
+  setSearchTerm(term: string) {
+    this.searchTermSubject.next(term);
+  }
+
+  apiUrl = 'https://d3e6htiiul5ek9.cloudfront.net/prod/productos';
+
+  searchProductosos(searchInput: string, ids: string[]): Observable<any> {
+    const idsString = ids.join(',');
+    const url = `${this.apiUrl}?string=${searchInput}&array_sucursales=${idsString}&offset=0&limit=50&sort=-cant_sucursales_disponible`;
+    return this.http.get(url);
   }
 }

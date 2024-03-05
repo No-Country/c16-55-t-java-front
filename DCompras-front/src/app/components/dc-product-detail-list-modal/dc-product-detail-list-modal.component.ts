@@ -18,22 +18,6 @@ export class DcProductDetailListModalComponent {
     console.log(this.data);
   }
 
-  /*  sucursalSeleccionada(sucursalSelect: any) {
-    if (this.checkboxSeleccionado === sucursalSelect) {
-      this.checkboxSeleccionado = null;
-    } else {
-      this.checkboxSeleccionado === sucursalSelect;
-      console.log('sucursalNueva', sucursalSelect);
-      const itemSucursal = {
-        ...this.data.product,
-        sucursalSelect: sucursalSelect,
-      };
-      this.dcListService.agregarProducto(itemSucursal);
-      console.log(itemSucursal);
-    }
-  }
- */
-
   sucursalSeleccionada(sucursalSelect: any) {
     this.checkboxSeleccionado = sucursalSelect;
     console.log('sucursalNueva', sucursalSelect);

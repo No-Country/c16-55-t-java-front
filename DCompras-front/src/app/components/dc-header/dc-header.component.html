@@ -27,6 +27,8 @@
             placeholder="Buscar producto aquí"
             [formControl]="myControl"
             id="search"
+            #searchInput
+            (keyup.enter)="onSearchEnter(searchInput)"
           />
         </label>
       </div>
