@@ -66,14 +66,14 @@ export class DcProfileComponent {
           if (response.status === 0 && response.message === 'sucess') {
             const userInfo: any = JSON.stringify(response.payload);
             localStorage.setItem('userInfo', userInfo);
-            this.utilitiesService.mostrarAlerta('Perfil actualizado correctamente', 'Ok!');
+            this.utilitiesService.mostrarAlerta('Perfil actualizado correctamente', 'sucess');
             this.router.navigate(['home']);
           } else {
-            this.utilitiesService.mostrarAlerta('Error al actualizar el perfil', 'Error');
+            this.utilitiesService.mostrarAlerta('Error al actualizar el perfil', 'error');
           }
         },
         error: (error: any) => {
-          this.utilitiesService.mostrarAlerta('Error al conectar con el servidor', 'Error');
+          this.utilitiesService.mostrarAlerta('Error al conectar con el servidor', 'error');
         }
       }); 
     } 
@@ -91,7 +91,7 @@ export class DcProfileComponent {
     const userData: IdcUser = this.formUser.value;
     this.dcUserService.editUser(userData).subscribe({
       next: (response: ApiResponse) => {
-        if (response.status === 0 && response.message === 'success') {
+        if (response.status === 0 && response.message === 'sucess') {
           const userInfo: any = JSON.stringify(response.payload);
           localStorage.setItem('userInfo', userInfo);
         } else {
