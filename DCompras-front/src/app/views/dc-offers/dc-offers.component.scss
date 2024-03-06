@@ -7,7 +7,6 @@
     padding: 1rem;
     box-shadow: 4px 0px 8px 8px rgb(0 0 0 / 4%);
     border-radius: 1rem;
-    margin: 0.5rem 0;
   }
   &__products {
     display: flex;
@@ -15,51 +14,80 @@
     flex-direction: row;
     gap: 1rem;
     max-width: 75vw;
-    height: 80vh;
+    height: 75vh;
     overflow-y: auto;
   }
-
-  &__select {
-    outline: none;
-    height: 3rem;
-    color: #000000;
-    font-size: 1rem;
-    font-weight: 400;
-    cursor: pointer;
-    border-radius: 1rem;
-    border: 1px solid #dcdbdd;
-    background: #fff;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  &__buttons {
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
 
-    &::ng-deep .mat-mdc-select-arrow {
-      background-image: url("./../../../assets/imgs/dc-general/selectArrowNew.svg");
-      background-repeat: no-repeat;
-      background-position: right center;
-      width: 1.1875rem;
-      height: 1.1875rem;
-      background-size: cover;
-      svg {
-        display: none;
-      }
+  &__button-order {
+    background-color: #e03a06;
+    border-radius: 1rem;
+    border: none;
+    width: 15rem;
+    &--text {
+      font-size: 1rem;
+      color: #fff;
     }
+  }
 
-    &::ng-deep .mat-mdc-select-trigger {
-      height: 100%;
-      padding: 0 0.5rem;
+  &__selectCategory {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e03a06;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    &-header {
+      font-family: 1rem;
+      font-weight: 600;
     }
-
-    &:hover {
-      background-color: #eeeeee55;
-    }
-
-    option {
-      background: #fff;
-      color: #4d4d4d;
+    &-select {
+      outline: none;
+      height: 3rem;
+      width: 15rem;
+      color: #000000;
       font-size: 1rem;
       font-weight: 400;
+      cursor: pointer;
+      border-radius: 1rem;
+      border: 2px solid #e03a06;
+      background: #fff;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: flex;
+
+      &::ng-deep .mat-mdc-select-arrow {
+        background-image: url("./../../../assets/imgs/dc-general/selectArrowNew.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        width: 1.1875rem;
+        height: 1.1875rem;
+        background-size: cover;
+        svg {
+          display: none;
+        }
+      }
+
+      &::ng-deep .mat-mdc-select-trigger {
+        height: 100%;
+        padding: 1rem;
+      }
+
+      &:hover {
+        background-color: #eeeeee55;
+      }
+
+      option {
+        background: #fff;
+        color: #4d4d4d;
+        font-size: 1rem;
+        font-weight: 400;
+      }
     }
   }
 

@@ -9,6 +9,7 @@ import { DcListService } from 'src/app/services/lista.service';
 })
 export class DcProductDetailListModalComponent {
   checkboxSeleccionado: any = null;
+  totalPrecios: number = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dcListService: DcListService

@@ -44,10 +44,10 @@ const routes: Routes = [
         path: 'shopping',
         component: DcShoppingCartComponent,
       },
-      {
+      /*  {
         path: 'shops',
         component: DcShopsComponent,
-      },
+      }, */
 
       {
         path: 'my-profile',
@@ -62,8 +62,8 @@ const routes: Routes = [
   },
   {
     path: 'forgot-pass',
-    component: DcForgotPassFormComponent
-  }
+    component: DcForgotPassFormComponent,
+  },
 ];
 
 @NgModule({

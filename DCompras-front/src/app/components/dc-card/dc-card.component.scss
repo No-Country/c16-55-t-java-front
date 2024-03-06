@@ -15,7 +15,7 @@
     &-header {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-end;
     }
     &-col {
       display: flex;
@@ -36,7 +36,7 @@
       border-radius: 0 0 1rem 1rem;
       &--price {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 600;
         color: #ffff;
       }
@@ -241,4 +241,7 @@
 .selected {
   /* Estilos para cuando el producto está seleccionado */
   background-color: #ececec;
+}
+.selected {
+  filter: hue-rotate(180deg);
 }

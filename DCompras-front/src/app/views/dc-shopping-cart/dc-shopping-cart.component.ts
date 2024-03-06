@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DcListService } from 'src/app/services/lista.service';
 
 @Component({
@@ -7,12 +8,16 @@ import { DcListService } from 'src/app/services/lista.service';
   styleUrls: ['./dc-shopping-cart.component.scss'],
 })
 export class DcShoppingCartComponent {
-  productosRaros: any;
-
-  constructor(public DcListService: DcListService) {}
+  productosRaros: any[] = [];
+  precioTotal: number = 0;
+  constructor(public dcListService: DcListService, private router: Router) {}
 
   ngOnInit() {
-    this.productosRaros = this.DcListService.obtenerProductos();
-    console.log(this.productosRaros);
+    this.productosRaros = this.dcListService.obtenerProductos();
+    console.log('listat', this.productosRaros);
+  }
+
+  navigateOffers() {
+    this.router.navigate(['/home/offers']);
   }
 }

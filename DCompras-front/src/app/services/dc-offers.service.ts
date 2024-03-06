@@ -11,6 +11,7 @@ import {
 } from 'rxjs';
 import { IDcProduct } from '../interfaces/Idc-product';
 import { IAllProducts } from '../interfaces/IAllProducts';
+import { DcListService } from './lista.service';
 interface Product {
   cantSucursalesDisponible: number;
   id: string;
@@ -25,7 +26,7 @@ interface Product {
   providedIn: 'root',
 })
 export class DcOffersService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dcListService: DcListService) {}
 
   searchProducts(idsSucursales: string[], categoryId: string): Observable<any> {
     const url = `https://d3e6htiiul5ek9.cloudfront.net/prod/productos?&id_categoria=${categoryId}&array_sucursales=${idsSucursales.join(
@@ -69,6 +70,8 @@ export class DcOffersService {
   searchProductosos(searchInput: string, ids: string[]): Observable<any> {
     const idsString = ids.join(',');
     const url = `${this.apiUrl}?string=${searchInput}&array_sucursales=${idsString}&offset=0&limit=50&sort=-cant_sucursales_disponible`;
+    console.log('listas de busqueda', this.http.get(url));
+
     return this.http.get(url);
   }
 }

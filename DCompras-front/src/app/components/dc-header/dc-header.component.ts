@@ -195,6 +195,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
             idsSucursales.push(sucursal.id);
           }
         });
+        this.router.navigate(['/home/offers']);
         this.dcOffersService
           .searchProductosos(searchString, idsSucursales)
           .subscribe((productos: any) => {

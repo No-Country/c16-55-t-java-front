@@ -64,8 +64,12 @@ export class DcSidenavComponent {
     const pageTitle = this.pageTitleMap.get(CurrentURL) || '';
     this.pageTitle = pageTitle;
 
-    this.loggedInUserName = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).name : '';
-    this.loggedInUserLastname = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')!).lastname : '';
+    this.loggedInUserName = localStorage.getItem('userInfo')
+      ? JSON.parse(localStorage.getItem('userInfo')!).name
+      : '';
+    this.loggedInUserLastname = localStorage.getItem('userInfo')
+      ? JSON.parse(localStorage.getItem('userInfo')!).lastname
+      : '';
   }
   private getProfileById() {
     this.dcProfileService.getProfileData().subscribe((data) => {
@@ -82,7 +86,7 @@ export class DcSidenavComponent {
       case '/home/shops':
         return 'Tiendas';
       case '/home/shopping':
-        return 'Carrito de compras';
+        return 'Lista de compras';
       case '/home/my-profile':
         return 'Mi perfil';
       default:
@@ -102,16 +106,16 @@ export class DcSidenavComponent {
         link: 'categories',
       }, */
       {
-        img: 'assets/icons/dc-sidenav/shopping_basket.svg',
-        text: 'Carrito de compras',
+        img: 'assets/icons/dc-sidenav/icon-order-list.png',
+        text: 'Lista de compras',
         link: 'shopping',
       },
 
-      {
+      /*   {
         img: 'assets/icons/dc-sidenav/shop_icon.svg',
         text: 'Tiendas',
         link: 'shops',
-      },
+      }, */
       {
         img: 'assets/icons/dc-sidenav/profile.svg',
         text: 'Mi perfil',

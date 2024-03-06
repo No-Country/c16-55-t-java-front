@@ -10,6 +10,7 @@ import { DcListService } from 'src/app/services/lista.service';
 export class DcCardComponent {
   @Input() product!: any;
   @Input() shop!: IDcProduct;
+
   @Input() title: string | null = null;
   @Input() isSelected: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
@@ -28,6 +29,7 @@ export class DcCardComponent {
     });
   }
   agregarProductoSeleccionado(producto: any): void {
+    this.isSelected = !this.isSelected;
     this.DcListService.agregarProducto(producto);
     this.prodFavorite = this.DcListService.obtenerProductos();
   }

@@ -110,3 +110,11 @@ input:focus {
 .mdc-list-item__primary-text {
   color: #000000;
 }
+
+.mat-mdc-option-pseudo-checkbox {
+  display: none !important; /* Ocultar el pseudo-checkbox */
+}
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled)
+  .mdc-list-item__primary-text {
+  color: #e03a06 !important;
+}

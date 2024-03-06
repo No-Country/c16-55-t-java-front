@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IAllProducts } from 'src/app/interfaces/IAllProducts';
 import { DcOffersService } from 'src/app/services/dc-offers.service';
 import { ProductDataService } from 'src/app/services/dc-product.service';
+import { DcListService } from 'src/app/services/lista.service';
 interface OfferResponse {
   items: any[]; // Aquí puedes definir una estructura más específica si es posible
 }
@@ -27,14 +29,27 @@ export class DcOffersComponent {
   constructor(
     private dcOffersService: DcOffersService,
     private fb: FormBuilder,
+    private router: Router,
+
+    private dcListService: DcListService,
     private productDataService: ProductDataService
   ) {}
 
+  imagen!: any;
   ngOnInit(): void {
-    this.productDataService.productList$.subscribe((products: any) => {
-      this.products = products.productos;
+    this.productDataService.productList$.subscribe((productsResponse: any) => {
+      const products = productsResponse.productos;
 
-      console.log('arroza', this.products);
+      this.products = products.map((product: any) => {
+        this.dcListService
+          .image(product.nombre)
+          .subscribe((imgUrl: string | null) => {
+            product.title = imgUrl;
+          });
+
+        product.isSelected = this.selectedProducts.has(product.id);
+        return product;
+      });
     });
 
     this.myOffers = this.fb.group({
@@ -70,29 +85,6 @@ export class DcOffersComponent {
       }
     });
   }
-  /*   getProduct(idsSucursales: string[], categoryId: string): void {
-    this.dcOffersService.getImg().subscribe((res: any[]) => {
-      if (res && res.length > 0) {
-        this.dcOffersService
-          .searchProducts(idsSucursales, categoryId)
-          .subscribe((response) => {
-            if (response && response.productos) {
-              this.products = response.productos.map((product: any) => {
-                const matchingProduct = res.find(
-                  (item: any) => item.id === product.id
-                );
-                if (matchingProduct) {
-                  product.title = matchingProduct.imgUrl;
-                } else {
-                  product.title = null;
-                }
-                return product;
-              });
-            }
-          });
-      }
-    });
-  } */
 
   getProduct(idsSucursales: string[], categoryId: string): void {
     this.dcOffersService.getImg().subscribe((res: any[]) => {
@@ -102,18 +94,17 @@ export class DcOffersComponent {
           .subscribe((response) => {
             if (response && response.productos) {
               this.products = response.productos.map((product: any) => {
-                const matchingProduct = res.find(
-                  (item: any) => item.id === product.id
-                );
-                if (matchingProduct) {
-                  product.title = matchingProduct.imgUrl;
-                } else {
-                  product.title = null;
-                }
+                this.dcListService
+                  .image(product.nombre)
+                  .subscribe((imgUrl: string | null) => {
+                    product.title = imgUrl;
+                  });
                 product.isSelected = this.selectedProducts.has(product.id);
 
                 return product;
               });
+
+              console.log('iamgenes', this.products);
             }
           });
       }
@@ -148,5 +139,9 @@ export class DcOffersComponent {
     }
 
     console.log('Productos seleccionados:', this.selectedProducts);
+  }
+
+  navigateMyOrder() {
+    this.router.navigate(['/home/shopping']);
   }
 }
