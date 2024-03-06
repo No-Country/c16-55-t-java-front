@@ -1,4 +1,5 @@
 .content {
+  max-width: 28rem;
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
@@ -18,14 +19,14 @@
 }
 
 .content__title {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   font-weight: 600;
   color: #2d3748;
 }
 
 .content__subtitle {
   margin-top: 0.5rem;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   color: #4a5568;
 }
 
@@ -48,7 +49,7 @@
 
 .form__label {
   display: block;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #4a5568;
@@ -62,8 +63,8 @@
   padding: 0.75rem;
   width: 100%;
   border: 1px solid #edf2f7;
-  border-radius: 0.375rem; /* 6px */
-  font-size: 0.875rem; /* 14px */
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -81,7 +82,7 @@
   align-items: center;
   gap: 0.5rem;
   border: 1px solid transparent;
-  border-radius: 0.375rem; /* 6px */
+  border-radius: 0.375rem;
   font-weight: 600;
   background-color: #3182ce;
   color: #fff;
@@ -94,7 +95,7 @@
 }
 
 .form__error {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
   color: #e53e3e;
 }
 

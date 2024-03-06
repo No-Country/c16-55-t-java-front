@@ -1,0 +1,50 @@
+<main class="content" role="main">
+  <div class="content__wrapper">
+    <ng-container *ngIf="!emailFound; else changePassForm">
+      <div class="content__header">
+        <h1 class="content__title">Forgot password?</h1>
+        <p class="content__subtitle">
+          Remember your password?
+          <a class="content__link" href="#">
+            Login here
+          </a>
+        </p>
+      </div>
+
+      <div class="content__form">
+        <form class="form" [formGroup]="formUserEmail" (ngSubmit)="onSubmitEmail()">
+          <div class="form__group">
+            <label for="email" class="form__label">Email address</label>
+            <div class="form__input-wrapper">
+              <input type="email" id="email" name="email" class="form__input" placeholder="Tu correo electrónico" required autocomplete="email" formControlName="email">
+            </div>
+            <p class="form__error hidden" id="email-error">Please include a valid email address so we can get back to you</p>
+          </div>
+          <button type="submit" class="form__button">Reset password</button>
+        </form>
+      </div>
+    </ng-container>
+    <ng-template #changePassForm>
+      <div class="content__header">
+        <h1 class="content__title">Change Password</h1>
+      </div>
+      <div class="content__form">
+        <form class="form" [formGroup]="formUserPassword" (ngSubmit)="onSubmitChangePassword()">
+          <div class="form__group">
+            <label for="newPassword" class="form__label">New Password</label>
+            <div class="form__input-wrapper">
+              <input type="password" id="newPassword" placeholder="Tu nueva contraseña" name="newPassword" class="form__input" required formControlName="newPassword">
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="confirmPassword" class="form__label">Confirm New Password</label>
+            <div class="form__input-wrapper">
+              <input type="password" id="confirmPassword" placeholder="Reescribe tu contraseña"  name="confirmPassword" class="form__input" required formControlName="confirmPassword">
+            </div>
+          </div>
+          <button type="submit" class="form__button">Change Password</button>
+        </form>
+      </div>
+    </ng-template>
+  </div>
+</main>
