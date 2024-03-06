@@ -64,6 +64,10 @@ export class DcLoginFormComponent implements OnInit {
     }
   }
 
+  passwordRecovery() {
+    this.router.navigate(['/recoveryPass']);
+  }
+
   toggleAutocomplete(event: any) {
     const fields: HTMLInputElement[] = Array.from(
       document.querySelectorAll('.input_field')

@@ -11,6 +11,7 @@ import { DcCategoriesComponent } from './views/dc-categories/dc-categories.compo
 import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.component';
 import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
 import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-forgot-pass-form.component';
+import { DcLoginPassRecoveryComponent } from './views/dc-login-pass-recovery/dc-login-pass-recovery.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: DcLoginComponent,
+    // children: [
+    //   {
+    //     path: 'recovery',
+    //     component: DcLoginPassRecoveryComponent,
+    //   }
+    // ]
   },
   {
     path: 'register',
@@ -64,6 +71,10 @@ const routes: Routes = [
     path: 'forgot-pass',
     component: DcForgotPassFormComponent,
   },
+  {
+    path: 'recoveryPass',
+    component: DcLoginPassRecoveryComponent,
+  }
 ];
 
 @NgModule({
