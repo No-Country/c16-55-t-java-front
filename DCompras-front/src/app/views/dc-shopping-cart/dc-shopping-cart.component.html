@@ -1,10 +1,38 @@
 <div class="dc-shopping">
   <div class="dc-shopping__background">
-    <div class="dc-shopping__products">
+    <div
+      *ngIf="productosRaros?.length; else noDataMessage"
+      class="dc-shopping__products"
+    >
       <app-dc-selectProduct
         *ngFor="let product of productosRaros"
         [product]="product"
       ></app-dc-selectProduct>
     </div>
+
+    <div class="dc-shopping__footer" *ngIf="dcListService.precioFinal">
+      <div class="dc-shopping__footer-text">
+        Precio Final: {{ dcListService.precioFinal | currency }}
+      </div>
+    </div>
+
+    <ng-template #noDataMessage>
+      <div class="dc-shopping__empity-product">
+        <div>No hay productos seleccionados disponibles</div>
+        <button
+          class="dc-shopping__empity-product-button-navigate"
+          (click)="navigateOffers()"
+        >
+          <div class="dc-shopping__empity-product--text">
+            Agregar productos
+            <img
+              src="./../../../assets/icons/dc-offers/order.png"
+              style="width: 2rem; height: 2rem"
+              alt=""
+            />
+          </div>
+        </button>
+      </div>
+    </ng-template>
   </div>
 </div>

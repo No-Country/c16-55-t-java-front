@@ -3,21 +3,48 @@
 <div class="dc-product-card" *ngIf="product">
   <div class="dc-product-card__body">
     <div class="dc-product-card__body-header">
-      <img
+      <!--  <img
         class="dc-product-card__brand"
         src="{{ product.imgBrand }}"
         alt="icon"
         onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
+      /> -->
+      <!--  <input
+        type="checkbox"
+        class="dc-product-card__checkbox"
+        [checked]="isSelected"
+        (change)="agregarProductoSeleccionado(product)"
       />
-      <input type="checkbox" (change)="agregarProductoSeleccionado(product)" />
+ -->
+      <div (click)="agregarProductoSeleccionado(product)">
+        <ng-container *ngIf="!isSelected">
+          <img
+            src="./../../../assets/icons/dc-offers/select-product-false.png"
+            style="width: 2rem; height: 2rem; cursor: pointer"
+            alt=""
+          />
+        </ng-container>
+        <ng-container *ngIf="isSelected">
+          <img
+            src="./../../../assets/icons/dc-offers/select-product.png"
+            style="width: 2rem; height: 2rem; cursor: pointer"
+            alt=""
+          />
+        </ng-container>
+      </div>
     </div>
     <div class="dc-product-card__body-col">
       <div class="dc-product-card__body-col--left">
-        <img
+        <!--    <img
           class="dc-product-card__brand-product"
-          src="{{ product.imgProduct }}"
+          src="{{ title }}"
           alt="icon"
           onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
+        /> --><img
+          class="dc-product-card__brand-product"
+          src="{{ title }}"
+          alt="icon"
+          onerror="if (!this.getAttribute('title')) {this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';}"
         />
       </div>
       <div class="dc-product-card__body-col--right">

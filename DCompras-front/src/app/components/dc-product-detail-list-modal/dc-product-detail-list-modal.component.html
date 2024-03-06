@@ -1,14 +1,69 @@
-<div *ngFor="let item of data.productDetails.sucursales">
-  <div>{{ item.comercioRazonSocial }}</div>
-  <div *ngIf="item.preciosProducto">
-    {{ item.preciosProducto.precio_unitario_con_iva }} || "Precio no disponible"
-  </div>
-  <div>
-    <input
-      type="radio"
-      [id]="item"
-      [checked]="checkboxSeleccionado === item"
-      (change)="sucursalSeleccionada(item)"
-    />
+<div class="dc-prodcut-detail">
+  <div *ngIf="data.productDetails.producto">
+    <span>
+      <div *ngFor="let item of data.productDetails.sucursales">
+        <div
+          *ngIf="
+            !data.productDetails.sucursales ||
+            data.productDetails.sucursales.message !==
+              'La sucursal no contiene el producto'
+          "
+        >
+          <div>{{ item.sucursalTipo }} {{ item.banderaDescripcion }}</div>
+          <div *ngIf="item.preciosProducto">
+            <input
+              type="radio"
+              [id]="item"
+              [checked]="checkboxSeleccionado === item"
+              (change)="sucursalSeleccionada(item)"
+            />
+          </div>
+        </div>
+      </div>
+    </span>
   </div>
 </div>
+
+<!-- REVISARR -->
+<!-- <div class="dc-product-detail">
+  <div *ngIf="data.productDetails.producto.precio_bulto_min_con_iva === null">
+    <span> PRODUCTO NO DISPONIBLE! </span>
+  </div>
+
+  <div
+    *ngIf="data.productDetails.producto.precio_bulto_min_con_iva !== null"
+    class="dc-product-detail__content"
+  >
+    <div *ngFor="let item of data.productDetails.sucursales">
+      <div
+        *ngIf="
+          !data.productDetails.sucursales ||
+          data.productDetails.sucursales.message !==
+            'La sucursal no contiene el producto'
+        "
+      >
+        <div
+          *ngIf="item.preciosProducto"
+          class="dc-product-detail__content--branches-item"
+        >
+          <div class="dc-product-detail__content--branches-item--left">
+            <div>Sucursal: {{ item.comercioRazonSocial }}</div>
+            <div>
+              Precio:
+              {{ item.preciosProducto.precio_unitario_con_iva | currency }}
+            </div>
+            <div>
+              <input
+                class="input-ratio"
+                type="radio"
+                [id]="item"
+                [checked]="checkboxSeleccionado === item"
+                (change)="sucursalSeleccionada(item)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

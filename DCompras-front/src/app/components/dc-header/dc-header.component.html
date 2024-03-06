@@ -2,7 +2,7 @@
   <mat-toolbar class="dc-header__toolbar">
     <img
       class="dc-header__toolbar-img"
-      src="assets/imgs/dc-general/DeCompras.png"
+      src="assets/imgs/dc-general/DeComprasLogo.png"
       alt="logo"
       type="button"
       (click)="onHome()"
@@ -24,24 +24,18 @@
           <input
             class="dc-header__toolbar-search-form-input"
             type="text"
-            placeholder="Hola"
+            placeholder="Buscar producto aquí"
             [formControl]="myControl"
-            [matAutocomplete]="auto"
             id="search"
+            #searchInput
+            (keyup.enter)="onSearchEnter(searchInput)"
           />
         </label>
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let option of filteredOptions | async"
-            [value]="option.text"
-            (click)="onSelect(option.link)"
-          >
-            {{ option.text }}
-          </mat-option>
-        </mat-autocomplete>
       </div>
     </form>
 
-    <div class="dc-header__toolbar-name">{{ loggedInUserName }} {{loggedInUserLastname}}  </div>
+    <div class="dc-header__toolbar-name">
+      {{ loggedInUserName }} {{ loggedInUserLastname }}
+    </div>
   </mat-toolbar>
 </div>

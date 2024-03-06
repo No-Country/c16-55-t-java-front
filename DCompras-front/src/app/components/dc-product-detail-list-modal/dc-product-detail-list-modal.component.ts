@@ -9,6 +9,7 @@ import { DcListService } from 'src/app/services/lista.service';
 })
 export class DcProductDetailListModalComponent {
   checkboxSeleccionado: any = null;
+  totalPrecios: number = 0;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dcListService: DcListService
@@ -17,22 +18,6 @@ export class DcProductDetailListModalComponent {
   ngOnInit() {
     console.log(this.data);
   }
-
-  /*  sucursalSeleccionada(sucursalSelect: any) {
-    if (this.checkboxSeleccionado === sucursalSelect) {
-      this.checkboxSeleccionado = null;
-    } else {
-      this.checkboxSeleccionado === sucursalSelect;
-      console.log('sucursalNueva', sucursalSelect);
-      const itemSucursal = {
-        ...this.data.product,
-        sucursalSelect: sucursalSelect,
-      };
-      this.dcListService.agregarProducto(itemSucursal);
-      console.log(itemSucursal);
-    }
-  }
- */
 
   sucursalSeleccionada(sucursalSelect: any) {
     this.checkboxSeleccionado = sucursalSelect;

@@ -2,19 +2,11 @@
 
 <div class="dc-product-card" *ngIf="product">
   <div class="dc-product-card__body">
-    <!--    <div class="dc-product-card__body-header">
-      <img
-        class="dc-product-card__brand"
-        src="{{ product.imgBrand }}"
-        alt="icon"
-        onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
-      />
-    </div> -->
     <div class="dc-product-card__body-col">
       <div class="dc-product-card__body-col">
         <img
           class="dc-product-card__brand-product"
-          src="{{ product.imgProduct }}"
+          src="{{ product.title }}"
           alt="icon"
           onerror="this.onerror=null; this.src='https://e7.pngegg.com/pngimages/10/205/png-clipart-computer-icons-error-information-error-angle-triangle-thumbnail.png';"
         />
@@ -36,17 +28,24 @@
           </div>
         </div>
       </div>
+      <div>
+        <button mat-icon-button (click)="deleteProduct(product)">
+          <mat-icon>delete</mat-icon>
+        </button>
 
-      <!-- tu-componente.component.html -->
-      <button mat-icon-button (click)="openModal(product)">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+        <button mat-icon-button (click)="openModal(product)">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
   <div *ngIf="product.sucursalSelect">
     <div class="dc-product-card__body-background-price">
       <div class="dc-product-card__body-background-price--price">
-        ${{ product.sucursalSelect.preciosProducto.precio_unitario_con_iva }}
+        {{
+          product.sucursalSelect.preciosProducto.precio_unitario_con_iva
+            | currency
+        }}
       </div>
     </div>
   </div>

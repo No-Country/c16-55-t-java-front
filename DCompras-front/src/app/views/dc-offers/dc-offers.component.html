@@ -1,31 +1,45 @@
-<div class="dc-offers">
+<div class="dc-offers" *ngIf="products">
   <div class="dc-offers__background">
-    <div class="dc-offers__products" *ngIf="products">
+    <form [formGroup]="myOffers">
+      <fieldset class="dc-offers__selectCategory">
+        <div class="dc-offers__selectCategory-header">
+          Seleccionar productos
+        </div>
+        <div class="dc-offers__buttons">
+          <mat-select
+            formControlName="category"
+            class="dc-offers__selectCategory-select"
+            placeholder="Categorías"
+            (change)="onCategorySelect($event)"
+          >
+            <mat-option
+              [value]="category.id"
+              *ngFor="let category of categories"
+            >
+              {{ category.category }}
+            </mat-option>
+          </mat-select>
+          <button class="dc-offers__button-order" (click)="navigateMyOrder()">
+            <div class="dc-offers__button-order--text">
+              Mi lista
+              <img
+                src="./../../../assets/icons/dc-offers/order.png"
+                style="width: 2rem; height: 2rem"
+                alt=""
+              />
+            </div>
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <div class="dc-offers__products">
       <app-dc-card
         *ngFor="let product of products"
         [product]="product"
+        [title]="product.title"
+        [isSelected]="product.isSelected"
+        (selectedChange)="onSelectedChange($event)"
       ></app-dc-card>
     </div>
   </div>
 </div>
-
-<!-- <div style="display: flex; flex-wrap: wrap">
-  <div *ngFor="let oferta of ofertas">
-    <h2>{{ oferta._type }}</h2>
-    <h2>{{ oferta.total }}</h2>
-    <h2>{{ oferta.offset }}</h2>
-    <h2>{{ oferta.object_type }}</h2>
-    <h2>{{ oferta.page_size }}</h2>
-    <div *ngFor="let data of oferta.items">
-      <div>
-        <div>{{ data.title }}</div>
-      </div>
-
-      <div *ngFor="let page of data.pages">
-        <div>{{ page.object_id }}</div>
-        <div>{{ page.display_info.title }}</div>
-        <div>{{ page.display_info.store_info.name }}</div>
-      </div>
-    </div>
-  </div>
-</div> -->

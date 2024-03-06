@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Cordoba",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-31.42008329999999&lng=-64.18877609999998&limit=30&"
+  },
+  {
+    "id": "2",
+    "name": "Rosario",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-32.947368&lng=-60.63087200000001&limit=30&"
+  },
+  {
+    "id": "3",
+    "name": "Mendoza",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-32.8981644&lng=-68.84596909999999&limit=30&"
+  },
+  {
+    "id": "4",
+    "name": "La Plata",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-34.9133418&lng=-57.951597900000024&limit=30&"
+  },
+  {
+    "id": "5",
+    "name": "Ushuahia",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-54.80739920000001&lng=-68.30878489999998&limit=30&"
+  },
+  {
+    "id": "6",
+    "name": "San miguel de tucuman",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-26.83040209999999&lng=-65.20785660000001&limit=30&"
+  },
+  {
+    "id": "7",
+    "name": "Bariloche",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-41.13477770000001&lng=-71.29783370000001&limit=30&"
+  },
+  {
+    "id": "8",
+    "name": "Salta",
+    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-24.7867294&lng=-65.43609079999999&limit=30&"
+  }
+]

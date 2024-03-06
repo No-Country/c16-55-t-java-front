@@ -1,0 +1,11 @@
+[
+  { "category": "Alimentos congelados", "id": "01" },
+  { "category": "Almacén", "id": "02" },
+  { "category": "Bebidas con alcohol", "id": "04" },
+  { "category": "Bebidas sin alcohol", "id": "05" },
+  { "category": "Bebés", "id": "03" },
+  { "category": "Frescos", "id": "06" },
+  { "category": "Limpieza", "id": "07" },
+  { "category": "Mascotas", "id": "08" },
+  { "category": "Perfumería y cuidado personal", "id": "09" }
+]

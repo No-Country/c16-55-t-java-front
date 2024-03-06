@@ -7,15 +7,99 @@
     padding: 1rem;
     box-shadow: 4px 0px 8px 8px rgb(0 0 0 / 4%);
     border-radius: 1rem;
-    margin: 0.5rem 0;
   }
   &__products {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 1rem;
-    height: 80vh;
+    max-width: 75vw;
+    height: 75vh;
     overflow-y: auto;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  &__button-order {
+    background-color: #e03a06;
+    border-radius: 1rem;
+    border: none;
+    width: 15rem;
+    &--text {
+      font-size: 1rem;
+      color: #fff;
+    }
+  }
+
+  &__selectCategory {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e03a06;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    &-header {
+      font-family: 1rem;
+      font-weight: 600;
+    }
+    &-select {
+      outline: none;
+      height: 3rem;
+      width: 15rem;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 400;
+      cursor: pointer;
+      border-radius: 1rem;
+      border: 2px solid #e03a06;
+      background: #fff;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: flex;
+
+      &::ng-deep .mat-mdc-select-arrow {
+        background-image: url("./../../../assets/imgs/dc-general/selectArrowNew.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        width: 1.1875rem;
+        height: 1.1875rem;
+        background-size: cover;
+        svg {
+          display: none;
+        }
+      }
+
+      &::ng-deep .mat-mdc-select-trigger {
+        height: 100%;
+        padding: 1rem;
+      }
+
+      &:hover {
+        background-color: #eeeeee55;
+      }
+
+      option {
+        background: #fff;
+        color: #4d4d4d;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    &-title {
+      font-size: 1rem;
+      font-weight: 500;
+      width: 100px;
+    }
   }
 }
 
