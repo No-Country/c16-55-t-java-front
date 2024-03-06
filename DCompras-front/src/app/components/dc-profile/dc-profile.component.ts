@@ -69,19 +69,6 @@ export class DcProfileComponent {
           if (response.status === 0 && response.message === 'sucess') {
             const userInfo: any = JSON.stringify(response.payload);
             localStorage.setItem('userInfo', userInfo);
-<<<<<<< HEAD
-            this.utilitiesService.mostrarAlerta('Perfil actualizado correctamente', 'sucess');
-            this.router.navigate(['home']);
-          } else {
-            this.utilitiesService.mostrarAlerta('Error al actualizar el perfil', 'error');
-          }
-        },
-        error: (error: any) => {
-          this.utilitiesService.mostrarAlerta('Error al conectar con el servidor', 'error');
-        }
-      }); 
-    } 
-=======
             this.utilitiesService.mostrarAlerta(
               'Perfil actualizado correctamente',
               'Ok!'
@@ -102,7 +89,6 @@ export class DcProfileComponent {
         },
       });
     }
->>>>>>> master
   }
 
   logout() {
