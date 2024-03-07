@@ -27,10 +27,17 @@ export class DcUserService {
     );
   }
 
-  newPassWord(userEdit: any): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(
-      `${this.urlAPI}/user/reset/password`,
+  newPassWord(userEdit: any): Observable<ArrayBuffer> {
+    return this.http.post<ArrayBuffer>(
+      `${this.urlAPI}/user/resetPassword`,
       userEdit
+    );
+  }
+
+  savePassWord(token: any): Observable<ArrayBuffer> {
+    return this.http.post<ArrayBuffer>(
+      `https://sudden-base-production.up.railway.app/user/savePassword?token=${token.token}`,
+      { newPassword: token.newPassword }
     );
   }
 }

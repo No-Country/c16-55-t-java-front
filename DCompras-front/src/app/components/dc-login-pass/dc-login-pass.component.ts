@@ -31,9 +31,18 @@ export class DcLoginPassComponent {
   onSubmitEmail() {
     if (this.formUserEmail.valid) {
       console.log('El correo electrónico es:', this.formUserEmail.value.email);
-      this.emailFound = true;
-    } else {
-      console.log('El correo electrónico no es válido.');
+      this.urlService
+        .newPassWord({
+          email: this.formUserEmail.value.email,
+        })
+        .subscribe(
+          (response) => {
+            console.log('Correo Enviado', response);
+          },
+          (error) => {
+            console.log('Correo no enviado', error);
+          }
+        );
     }
   }
 
@@ -59,15 +68,13 @@ export class DcLoginPassComponent {
         this.urlService
           .newPassWord({
             email: this.formUserEmail.value.email,
-            newPassword: this.formUserPassword.value.newPassword,
-            confirmPassword: this.formUserPassword.value.confirmPassword,
           })
           .subscribe(
             (response) => {
-              console.log('Contraseña restablecida correctamente.', response);
+              console.log('Correo Enviado', response);
             },
             (error) => {
-              error;
+              console.log('Correo no enviado', error);
             }
           );
       } else {

@@ -1,6 +1,6 @@
 <main class="content" role="main">
   <div class="content__wrapper">
-    <ng-container *ngIf="!emailFound; else changePassForm">
+    <ng-container *ngIf="!emailFound;">
       <div class="content__header">
         <h1 class="content__title">Forgot password?</h1>
         <p class="content__subtitle">
@@ -24,7 +24,7 @@
         </form>
       </div>
     </ng-container>
-    <ng-template #changePassForm>
+    <!-- <ng-template #changePassForm>
       <div class="content__header">
         <h1 class="content__title">Change Password</h1>
       </div>
@@ -45,6 +45,6 @@
           <button type="submit" class="form__button">Change Password</button>
         </form>
       </div>
-    </ng-template>
+    </ng-template> -->
   </div>
 </main>
