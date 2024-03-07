@@ -57,6 +57,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
     &-title {
       font-size: 1.5rem;
       font-weight: bold;
@@ -98,7 +99,6 @@
   }
 
   &__logo {
-    height: 12rem;
     width: 10rem;
   }
 
@@ -279,4 +279,3 @@
 .error-message {
   color: red;
 }
-
