@@ -27,6 +27,7 @@ import { DcLoginPassRecoveryComponent } from './views/dc-login-pass-recovery/dc-
 import { DcEditPasswordComponent } from './views/dc-edit-password/dc-edit-password.component';
 import { DcLoginSavePassComponent } from './components/dc-login-save-pass/dc-login-save-pass.component';
 import { DcSavePasswordComponent } from './views/dc-save-password/dc-save-password.component';
+import { DcForgotPassFormModalComponent } from './components/dc-forgot-pass-form-modal/dc-forgot-pass-form-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DcSavePasswordComponent } from './views/dc-save-password/dc-save-passwo
     DcEditPasswordComponent,
     DcLoginSavePassComponent,
     DcSavePasswordComponent,
+    DcForgotPassFormModalComponent,
   ],
 
   imports: [

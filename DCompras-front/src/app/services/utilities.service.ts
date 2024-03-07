@@ -11,21 +11,11 @@ export class UtilitiesService {
 
   
   mostrarAlerta(message:string, tipo:string){
-    let color: string;
-
-    if (message === 'sucess') {
-      color = 'green';
-    } else if (message === 'error') {
-      color = 'red';
-    } else {
-      color = 'black'; 
-    }
-
     this._snackBar.open(message, tipo, {
       horizontalPosition:"end",
       verticalPosition:"top",
       duration:5000,
-      panelClass: [color]
+      
     })
   }
 

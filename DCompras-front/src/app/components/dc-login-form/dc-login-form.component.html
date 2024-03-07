@@ -37,7 +37,7 @@
         <input type="checkbox" class="dc-login__reminder-checkbox--input" (change)="toggleAutocomplete($event)" />
         <label class="dc-login__reminder-checkbox--label">Recordar mis datos</label>
       </div>
-      <a class="dc-login__reminder-forgot-password" routerLink="recoveryPass">¿Olvidaste tu contraseña?</a>
+      <a class="dc-login__reminder-forgot-password" (click)="openForgotPassword()">¿Olvidaste tu contraseña?</a>
     </div>
 
     <button title="Sign In" type="submit" class="dc-login__buttons dc-login__buttons-in">

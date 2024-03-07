@@ -7,8 +7,9 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DcUserService } from 'src/app/services/dc-user.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-dc-login-save-pass',
@@ -20,7 +21,9 @@ export class DcLoginSavePassComponent {
 
   constructor(
     private urlService: DcUserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private utilitiesService: UtilitiesService,
+    private router: Router
   ) {
     this.formUserPassword = new FormGroup({
       newPassword: new FormControl('', [Validators.required]),
@@ -51,8 +54,15 @@ export class DcLoginSavePassComponent {
             newPassword: this.formUserPassword.value.newPassword,
           })
           .subscribe(
-            (response) => {
-              console.log('Correo Enviado', response);
+            (response: any) => {
+              if(response.message == 'Password Changed' ){
+                this.utilitiesService.mostrarAlerta('Tu contraseña fue cambiada', 'Ok!');
+                this.router.navigate(['/login']);
+              }
+              else {
+                this.utilitiesService.mostrarAlerta('Se produjo un error', 'Oops!');
+              }
+              
             },
             (error) => {
               console.log('Correo no enviado', error);

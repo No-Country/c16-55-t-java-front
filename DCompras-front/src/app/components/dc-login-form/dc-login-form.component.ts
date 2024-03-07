@@ -6,7 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DcLoginPassRecoveryComponent } from 'src/app/views/dc-login-pass-recovery/dc-login-pass-recovery.component';
 
 @Component({
   selector: 'app-dc-login-form',
@@ -19,7 +21,8 @@ export class DcLoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -71,4 +74,11 @@ export class DcLoginFormComponent implements OnInit {
   openViewRegister() {
     this.router.navigate(['/register']);
   }
+
+
+  openForgotPassword(){
+    this.dialog.open(DcLoginPassRecoveryComponent)
+  }
+
+
 }
