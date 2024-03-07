@@ -102,7 +102,7 @@ export class DcOffersComponent {
     });
   }
   onSelectedChange(isSelected: boolean) {
-    console.log('El checkbox está seleccionado:', isSelected);
+    console.log('Producto seleccionado:', isSelected);
   }
 
   onCategorySelect(event: any) {
@@ -111,7 +111,6 @@ export class DcOffersComponent {
     if (categoryControl) {
       categoryControl.setValue(event.value);
       const categoryId = event.value;
-      console.log('datoss', categoryId);
     } else {
       console.log('El control de categoría es nulo.');
     }
@@ -119,7 +118,6 @@ export class DcOffersComponent {
   getCategory() {
     this.dcOffersService.getCategories().subscribe((res) => {
       this.categories = res;
-      console.log(this.categories);
     });
   }
   toggleProductSelection(productId: string): void {
@@ -128,8 +126,6 @@ export class DcOffersComponent {
     } else {
       this.selectedProducts.add(productId);
     }
-
-    console.log('Productos seleccionados:', this.selectedProducts);
   }
 
   navigateMyOrder() {

@@ -56,7 +56,6 @@ export class DcLoginFormComponent implements OnInit {
             );
           },
           (error) => {
-            console.log('Error al enviar el formulario', error);
             this.utilitiesService.mostrarAlertaError(
               'Usuario o contraseña incorrecta',
               'Oops!'

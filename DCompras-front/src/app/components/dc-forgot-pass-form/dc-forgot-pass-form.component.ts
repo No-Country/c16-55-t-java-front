@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DcUserService } from 'src/app/services/dc-user.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-dc-forgot-pass-form',
@@ -17,7 +18,11 @@ export class DcForgotPassFormComponent {
 
   formUser: FormGroup;
 
-  constructor(private http: HttpClient, private urlService: DcUserService) {
+  constructor(
+    private http: HttpClient,
+    private urlService: DcUserService,
+    private utilitiesService: UtilitiesService
+  ) {
     this.formUser = new FormGroup({
       email: new FormControl(this.email),
       password: new FormControl(this.password),
@@ -27,7 +32,9 @@ export class DcForgotPassFormComponent {
 
   onSubmit() {
     if (this.newPassword !== this.confirmPassword) {
-      document.getElementById('confirmPassword-error')?.classList.remove('hidden');
+      document
+        .getElementById('confirmPassword-error')
+        ?.classList.remove('hidden');
       return;
     }
 
@@ -37,17 +44,25 @@ export class DcForgotPassFormComponent {
     });
 
     this.loading = true;
-    console.log('Enviando solicitud para restablecer la contraseña.');
-    console.log('Este es el body:', this.formUser.value); // Obtener los valores del formulario
 
-    // Enviar solo los valores del formulario en la solicitud HTTP
+    this.utilitiesService.mostrarAlertaSuccess(
+      'Enviando solicitud para restablecer la contraseña',
+      'Ok!'
+    );
+
     this.urlService.editpassWord(this.formUser.value).subscribe(
       (response) => {
-        console.log('Contraseña restablecida correctamente.', response);
+        this.utilitiesService.mostrarAlertaSuccess(
+          'Contraseña restablecida correctamente',
+          'Ok!'
+        );
         this.loading = false;
       },
       (error) => {
-        console.log('Error al restablecer la contraseña.', error);
+        this.utilitiesService.mostrarAlertaError(
+          'Error al restablecer la contraseña',
+          'Oops!'
+        );
         this.loading = false;
       }
     );

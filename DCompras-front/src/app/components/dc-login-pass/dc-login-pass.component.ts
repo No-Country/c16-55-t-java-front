@@ -40,7 +40,6 @@ export class DcLoginPassComponent {
 
   onSubmitEmail() {
     if (this.formUserEmail.valid) {
-      console.log('El correo electrónico es:', this.formUserEmail.value.email);
       this.urlService
         .newPassWord({
           email: this.formUserEmail.value.email,
@@ -74,18 +73,10 @@ export class DcLoginPassComponent {
         this.formUserPassword.value.newPassword ===
         this.formUserPassword.value.confirmPassword
       ) {
-        console.log(
-          'Contraseña restablecida:',
-          this.formUserPassword.value.newPassword
-        );
-
         const headers = new HttpHeaders({
           Authorization: 'Bearer ' + localStorage.getItem('token'),
           'Content-Type': 'application/json',
         });
-
-        console.log('Enviando solicitud para restablecer la contraseña.');
-        console.log('Este es el body:', this.formUserPassword.value);
 
         this.urlService
           .newPassWord({
@@ -106,7 +97,10 @@ export class DcLoginPassComponent {
               }
             },
             (error) => {
-              console.log('Correo no enviado', error);
+              this.utilitiesService.mostrarAlertaError(
+                'Correo no enviado',
+                'Oops!'
+              );
             }
           );
       } else {

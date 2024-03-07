@@ -37,16 +37,7 @@ export class DcLoginSavePassComponent {
         this.formUserPassword.value.newPassword ===
         this.formUserPassword.value.confirmPassword
       ) {
-        console.log(
-          'Contraseña restablecida:',
-          this.formUserPassword.value.newPassword
-        );
-
-        console.log('Enviando solicitud para restablecer la contraseña.');
-        console.log('Este es el body:', this.formUserPassword.value);
-
         const token = this.route.snapshot.queryParamMap.get('token');
-        console.log('Este es su token, miamor: ', token);
 
         this.urlService
           .savePassWord({
@@ -69,11 +60,17 @@ export class DcLoginSavePassComponent {
               }
             },
             (error) => {
-              console.log('Correo no enviado', error);
+              this.utilitiesService.mostrarAlertaError(
+                'Correo no enviado',
+                'Oops!'
+              );
             }
           );
       } else {
-        console.log('Las contraseñas no coinciden');
+        this.utilitiesService.mostrarAlertaError(
+          'Las contraseñas no coinciden',
+          'Oops!'
+        );
       }
     }
   }

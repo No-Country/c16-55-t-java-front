@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DcShopsService } from 'src/app/services/dc-shops.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-dc-shops',
@@ -9,7 +10,10 @@ import { DcShopsService } from 'src/app/services/dc-shops.service';
 export class DcShopsComponent {
   shops!: any[];
 
-  constructor(private dcShopsService: DcShopsService) {}
+  constructor(
+    private dcShopsService: DcShopsService,
+    private utilitiesService: UtilitiesService
+  ) {}
 
   ngOnInit() {
     this.getShops();
@@ -20,7 +24,10 @@ export class DcShopsComponent {
         this.shops = response;
       },
       error: (err) => {
-        console.log(err);
+        this.utilitiesService.mostrarAlertaError(
+          'Error al cargar tiendas',
+          'Oops!'
+        );
       },
     });
   }
