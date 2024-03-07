@@ -22,7 +22,13 @@ export class DcLoginPassComponent {
   formUserEmail: FormGroup;
   formUserPassword: FormGroup;
 
-  constructor(private http: HttpClient, private urlService: DcUserService, private router: Router, public dialog: MatDialog, private utilitiesService: UtilitiesService) {
+  constructor(
+    private http: HttpClient,
+    private urlService: DcUserService,
+    private router: Router,
+    public dialog: MatDialog,
+    private utilitiesService: UtilitiesService
+  ) {
     this.formUserEmail = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
     });
@@ -40,16 +46,17 @@ export class DcLoginPassComponent {
           email: this.formUserEmail.value.email,
         })
         .subscribe(
-
           (response: any) => {
-
-            if(response.message == 'Email enviado' ){
+            if (response.message == 'Email enviado') {
               this.utilitiesService.mostrarAlerta('Correo enviado', 'Ok!');
+              this.navigateToLogin();
+            } else {
+              this.utilitiesService.mostrarAlerta(
+                'Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)',
+                'Oops!'
+              );
+              this.navigateToLogin();
             }
-            else {
-              this.utilitiesService.mostrarAlerta('Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)', 'Oops!');
-            }
-            
           },
           (error) => {
             console.log('Correo no enviado', error);
@@ -83,11 +90,13 @@ export class DcLoginPassComponent {
           })
           .subscribe(
             (response: any) => {
-              if(response.message == 'Email enviado' ){
+              if (response.message == 'Email enviado') {
                 this.utilitiesService.mostrarAlerta('Correo enviado', 'Ok!');
-              }
-              else {
-                this.utilitiesService.mostrarAlerta('Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)', 'Oops!');
+              } else {
+                this.utilitiesService.mostrarAlerta(
+                  'Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)',
+                  'Oops!'
+                );
               }
             },
             (error) => {
@@ -99,8 +108,8 @@ export class DcLoginPassComponent {
     }
   }
 
-  navigateToLogin(): void{
-    this.dialog.closeAll()
+  navigateToLogin(): void {
+    this.dialog.closeAll();
     //this.router.navigate(['/login']);
   }
 }

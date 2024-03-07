@@ -1,20 +1,56 @@
-<div class="content__header">
-  <h1 class="content__title">Change Password</h1>
-</div>
-<div class="content__form">
-  <form class="form" [formGroup]="formUserPassword" (ngSubmit)="onSubmitChangePassword()">
-    <div class="form__group">
-      <label for="newPassword" class="form__label">New Password</label>
-      <div class="form__input-wrapper">
-        <input type="password" id="newPassword" placeholder="Tu nueva contraseña" name="newPassword" class="form__input" required formControlName="newPassword">
-      </div>
+<div class="content">
+  <div class="content-container">
+    <div class="content__header">
+      <h1 class="content__title">Restablecer contraseña</h1>
     </div>
-    <div class="form__group">
-      <label for="confirmPassword" class="form__label">Confirm New Password</label>
-      <div class="form__input-wrapper">
-        <input type="password" id="confirmPassword" placeholder="Reescribe tu contraseña"  name="confirmPassword" class="form__input" required formControlName="confirmPassword">
-      </div>
+    <div class="content__form">
+      <form
+        class="form"
+        [formGroup]="formUserPassword"
+        (ngSubmit)="onSubmitChangePassword()"
+      >
+        <div class="form__group">
+          <label for="newPassword" class="form__label">Nueva contraseña</label>
+          <div class="form__input-wrapper">
+            <input
+              type="password"
+              id="newPassword"
+              placeholder="Tu nueva contraseña"
+              name="newPassword"
+              class="form__input"
+              required
+              formControlName="newPassword"
+            />
+          </div>
+        </div>
+        <div class="form__group">
+          <label for="confirmPassword" class="form__label">
+            Confirmar nueva contraseña</label
+          >
+          <div class="form__input-wrapper">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Reescribe tu contraseña"
+              name="confirmPassword"
+              class="form__input"
+              required
+              formControlName="confirmPassword"
+            />
+          </div>
+        </div>
+        <div class="form-buttons">
+          <button
+            type="submit"
+            class="form__button"
+            [ngClass]="{
+              'form__button--disabled': formUserPassword.invalid
+            }"
+          >
+            Cambiar contraseña
+          </button>
+        </div>
+      </form>
     </div>
-    <button type="submit" class="form__button">Change Password</button>
-  </form>
+  </div>
 </div>

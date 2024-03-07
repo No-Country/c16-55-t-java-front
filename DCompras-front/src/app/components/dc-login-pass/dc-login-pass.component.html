@@ -1,54 +1,71 @@
 <main class="content" role="main">
   <div class="content__wrapper">
-    <ng-container *ngIf="!emailFound;">
+    <ng-container *ngIf="!emailFound">
       <div class="content__header">
+        <div class="content-close">
+          <button (click)="navigateToLogin()" class="button_close" style="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-x"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              stroke="#2c3e50"
+              fill="none"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
         <h1 class="content__title">¿Olvidaste tu contraseña?</h1>
+
         <p class="content__subtitle">
-          ¿Recuerdas tu  contraseña?
+          ¿Recuerdas tu contraseña?
           <button class="content__link" (click)="navigateToLogin()">
             Iniciar sesión
           </button>
-          
         </p>
       </div>
 
       <div class="content__form">
-        <form class="form" [formGroup]="formUserEmail" (ngSubmit)="onSubmitEmail()">
+        <form
+          class="form"
+          [formGroup]="formUserEmail"
+          (ngSubmit)="onSubmitEmail()"
+        >
           <div class="form__group">
             <label for="email" class="form__label">Dirección de email</label>
             <div class="form__input-wrapper">
-              <input type="email" id="email" name="email" class="form__input" placeholder="Tu correo electrónico" required autocomplete="email" formControlName="email">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form__input"
+                placeholder="Tu correo electrónico"
+                required
+                autocomplete="email"
+                formControlName="email"
+              />
             </div>
-            <p class="form__error hidden" id="email-error">Por favor agrega un email válido</p>
+            <p class="form__error hidden" id="email-error">
+              Por favor agrega un email válido
+            </p>
           </div>
           <div class="form__buttons">
-            <button type="submit" class="form__button">Recuperar contraseña</button>
+            <button
+              type="submit"
+              class="form__button"
+              [ngClass]="{
+                'form__button--disabled': formUserEmail.invalid
+              }"
+            >
+              Recuperar contraseña
+            </button>
           </div>
-          
         </form>
       </div>
     </ng-container>
-    <!-- <ng-template #changePassForm>
-      <div class="content__header">
-        <h1 class="content__title">Change Password</h1>
-      </div>
-      <div class="content__form">
-        <form class="form" [formGroup]="formUserPassword" (ngSubmit)="onSubmitChangePassword()">
-          <div class="form__group">
-            <label for="newPassword" class="form__label">New Password</label>
-            <div class="form__input-wrapper">
-              <input type="password" id="newPassword" placeholder="Tu nueva contraseña" name="newPassword" class="form__input" required formControlName="newPassword">
-            </div>
-          </div>
-          <div class="form__group">
-            <label for="confirmPassword" class="form__label">Confirm New Password</label>
-            <div class="form__input-wrapper">
-              <input type="password" id="confirmPassword" placeholder="Reescribe tu contraseña"  name="confirmPassword" class="form__input" required formControlName="confirmPassword">
-            </div>
-          </div>
-          <button type="submit" class="form__button">Change Password</button>
-        </form>
-      </div>
-    </ng-template> -->
   </div>
 </main>
