@@ -108,7 +108,6 @@ export class DcRegisterFormComponent {
   getState() {
     this.signUpService.getState().subscribe((res) => {
       this.provinces = res;
-      console.log(res);
     });
   }
 

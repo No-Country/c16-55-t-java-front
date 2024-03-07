@@ -16,8 +16,7 @@ export class DcListService {
     let total = 0;
     this.productos.forEach((producto: any) => {
       if (producto.sucursalSelect && producto.sucursalSelect.preciosProducto) {
-        total +=
-          producto.sucursalSelect.preciosProducto.precio_unitario_con_iva;
+        total += producto.sucursalSelect.preciosProducto.precioLista;
       }
     });
 
@@ -28,8 +27,6 @@ export class DcListService {
     if (producto.sucursalSelect) {
       const index = this.productos.findIndex((prod) => prod.id === producto.id);
       if (index !== -1) {
-        console.log('productos para reemplazar', producto);
-
         this.productos[index] = producto;
         this.sumarPrecios();
       } else {
@@ -53,7 +50,6 @@ export class DcListService {
         this.productos.splice(index, 1);
       }
     }
-    console.log('prodListaServicio', this.productos);
   }
 
   obtenerProductos(): any[] {
@@ -62,9 +58,7 @@ export class DcListService {
 
   getItemDetail(product: any, idsSucursales: string[]): Observable<any> {
     const idsString = idsSucursales.join(',');
-
-    const url = `https://d3e6htiiul5ek9.cloudfront.net/dev/producto?entorno=mayoristas&limit=30&id_producto=${product.id}&array_sucursales=${idsString}`;
-
+    const url = `https://d3e6htiiul5ek9.cloudfront.net/prod/producto?limit=30&id_producto=${product.id}&array_sucursales=${idsString}`;
     return this.http.get<any>(url);
   }
 
@@ -84,7 +78,6 @@ export class DcListService {
           /*    const matchingProduct = response.results.find(
             (product: any) => product.title === nombre
           ); */
-          console.log('imagen del producto', response.results[0]);
 
           return response.results[0].pictures[0].url;
         }),

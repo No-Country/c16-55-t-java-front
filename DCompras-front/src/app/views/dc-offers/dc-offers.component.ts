@@ -73,15 +73,8 @@ export class DcOffersComponent {
           categoryControl.valueChanges.subscribe((categoryId) => {
             this.getProduct(idsSucursales, categoryId);
           });
-        } else {
-          console.log('El control "category" no está definido o es nulo.');
         }
         this.getProduct(idsSucursales, '01');
-        console.log('IDs de sucursales:', idsSucursales);
-      } else {
-        console.log(
-          'La respuesta no contiene la propiedad "sucursales" o no es un array.'
-        );
       }
     });
   }
@@ -103,8 +96,6 @@ export class DcOffersComponent {
 
                 return product;
               });
-
-              console.log('iamgenes', this.products);
             }
           });
       }

@@ -67,11 +67,10 @@ export class DcLoginPassComponent {
               console.log('Contraseña restablecida correctamente.', response);
             },
             (error) => {
-              console.log('Error al restablecer la contraseña.', error);
+              error;
             }
           );
       } else {
-        console.log('Las contraseñas no coinciden');
       }
     }
   }

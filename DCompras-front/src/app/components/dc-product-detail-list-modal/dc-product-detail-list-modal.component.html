@@ -51,9 +51,7 @@
 </div> -->
 
 <!-- REVISARR -->
-<div class="dc-product-detail">
-  <span> PRODUCTO NO DISPONIBLE! </span>
-
+<!-- <div class="dc-product-detail">
   <div class="dc-product-detail__content">
     <div *ngFor="let item of data.productDetails.sucursales">
       <div
@@ -71,7 +69,7 @@
             <div>Sucursal: {{ item.comercioRazonSocial }}</div>
             <div>
               Precio:
-              {{ item.preciosProducto.precio_unitario_con_iva | currency }}
+              {{ item.preciosProducto.precioLista | currency }}
             </div>
             <div>
               <input
@@ -84,7 +82,36 @@
             </div>
           </div>
         </div>
+
+        <div *ngIf="!item.preciosProducto">NO DISPONIBLE</div>
       </div>
     </div>
+  </div>
+</div>
+ -->
+
+<div class="dc-product-detail">
+  <div class="dc-product-detail__content">
+    <ng-container *ngFor="let item of data.productDetails.sucursales">
+      <ng-container *ngIf="item.preciosProducto">
+        <div class="dc-product-detail__content--branches-item">
+          <div class="dc-product-detail__content--branches-item--left">
+            <div>
+              Sucursal: {{ item.comercioRazonSocial }} {{ item.direccion }}
+            </div>
+            <div>Precio: {{ item.preciosProducto.precioLista | currency }}</div>
+            <div>
+              <input
+                class="input-ratio"
+                type="radio"
+                [id]="item"
+                [checked]="checkboxSeleccionado === item"
+                (change)="sucursalSeleccionada(item)"
+              />
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
   </div>
 </div>

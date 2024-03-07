@@ -137,53 +137,6 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   onHome() {
     this.router.navigate(['/home']);
   }
-
-  /*  onSearchEnter(searchInput: string) {
-    this.dcOffersService.getProvinceFromLocalStorage().subscribe((res: any) => {
-      if (res && res.sucursales && Array.isArray(res.sucursales)) {
-        const sucursales = res.sucursales;
-        const idsSucursales: string[] = [];
-        sucursales.forEach((sucursal: any) => {
-          if (sucursal && sucursal.id) {
-            idsSucursales.push(sucursal.id);
-          }
-        });
-        this.dcOffersService.searchProductosos(searchInput, idsSucursales);
-        console.log('IDs de sucursales:', idsSucursales);
-      } else {
-        console.log(
-          'La respuesta no contiene la propiedad "sucursales" o no es un array.'
-        );
-      }
-    });
-  } */
-
-  /* onSearchEnter(searchInput: HTMLInputElement) {
-    const searchString = searchInput.value;
-    this.dcOffersService.getProvinceFromLocalStorage().subscribe((res: any) => {
-      if (res && res.sucursales && Array.isArray(res.sucursales)) {
-        const sucursales = res.sucursales;
-        const idsSucursales: string[] = [];
-        sucursales.forEach((sucursal: any) => {
-          if (sucursal && sucursal.id) {
-            idsSucursales.push(sucursal.id);
-          }
-        });
-        this.dcOffersService
-          .searchProductosos(searchString, idsSucursales)
-          .subscribe((productos: any) => {
-            console.log('Productos encontrados:', productos);
-          });
-
-        console.log('IDs de sucursales:', idsSucursales);
-      } else {
-        console.log(
-          'La respuesta no contiene la propiedad "sucursales" o no es un array.'
-        );
-      }
-    });
-  } */
-
   onSearchEnter(searchInput: HTMLInputElement) {
     const searchString = searchInput.value;
     this.dcOffersService.getProvinceFromLocalStorage().subscribe((res: any) => {
@@ -201,11 +154,6 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
           .subscribe((productos: any) => {
             this.productDataService.sendProductList(productos);
           });
-        console.log('IDs de sucursales:', idsSucursales);
-      } else {
-        console.log(
-          'La respuesta no contiene la propiedad "sucursales" o no es un array.'
-        );
       }
     });
   }

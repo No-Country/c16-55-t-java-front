@@ -23,8 +23,6 @@ export class DcSelectProductComponent {
 
   openModal(product: any) {
     this.dcOffersService.getProvinceFromLocalStorage().subscribe((res: any) => {
-      console.log('Datos recibidos del almacenamiento local:', res); // Registro de los datos recibidos
-
       if (res && res.sucursales && Array.isArray(res.sucursales)) {
         const sucursales = res.sucursales;
         const idsSucursales: string[] = [];
@@ -44,7 +42,7 @@ export class DcSelectProductComponent {
             });
           },
           (error) => {
-            console.error('Error al obtener detalles del producto:', error);
+            console.error(error);
           }
         );
       }

@@ -14,7 +14,6 @@ export class DcShoppingCartComponent {
 
   ngOnInit() {
     this.productosRaros = this.dcListService.obtenerProductos();
-    console.log('listat', this.productosRaros);
   }
 
   navigateOffers() {

@@ -1,42 +1,122 @@
 [
   {
-    "id": "1",
-    "name": "Cordoba",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-31.42008329999999&lng=-64.18877609999998&limit=30&"
+    "centroide": { "lat": -34.6144420654301, "lng": -58.4458763250916 },
+    "id": "02",
+    "name": "Ciudad Autónoma de Buenos Aires"
   },
   {
-    "id": "2",
-    "name": "Rosario",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-32.947368&lng=-60.63087200000001&limit=30&"
+    "centroide": { "lat": -38.6419828626673, "lng": -70.1198972237318 },
+    "id": "58",
+    "name": "Neuquén"
   },
   {
-    "id": "3",
-    "name": "Mendoza",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-32.8981644&lng=-68.84596909999999&limit=30&"
+    "centroide": { "lat": -33.7611035381154, "lng": -66.0252312714021 },
+    "id": "74",
+    "name": "San Luis"
   },
   {
-    "id": "4",
-    "name": "La Plata",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-34.9133418&lng=-57.951597900000024&limit=30&"
+    "centroide": { "lat": -30.7088227091528, "lng": -60.9506872769706 },
+    "id": "82",
+    "name": "Santa Fe"
   },
   {
-    "id": "5",
-    "name": "Ushuahia",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-54.80739920000001&lng=-68.30878489999998&limit=30&"
+    "centroide": { "lat": -29.6849372775783, "lng": -67.1817575814487 },
+    "id": "46",
+    "name": "La Rioja"
   },
   {
-    "id": "6",
-    "name": "San miguel de tucuman",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-26.83040209999999&lng=-65.20785660000001&limit=30&"
+    "centroide": { "lat": -27.3359537960762, "lng": -66.9478972451295 },
+    "id": "10",
+    "name": "Catamarca"
   },
   {
-    "id": "7",
-    "name": "Bariloche",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-41.13477770000001&lng=-71.29783370000001&limit=30&"
+    "centroide": { "lat": -26.948283501723, "lng": -65.3647655803683 },
+    "id": "90",
+    "name": "Tucumán"
   },
   {
-    "id": "8",
-    "name": "Salta",
-    "url": "https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=-24.7867294&lng=-65.43609079999999&limit=30&"
+    "centroide": { "lat": -26.3869871835867, "lng": -60.765116260356 },
+    "id": "22",
+    "name": "Chaco"
+  },
+  {
+    "centroide": { "lat": -24.8950871761481, "lng": -59.9321901121647 },
+    "id": "34",
+    "name": "Formosa"
+  },
+  {
+    "centroide": { "lat": -48.8155471830527, "lng": -69.9557619144913 },
+    "id": "78",
+    "name": "Santa Cruz"
+  },
+  {
+    "centroide": { "lat": -43.7886271389083, "lng": -68.5267363339818 },
+    "id": "26",
+    "name": "Chubut"
+  },
+  {
+    "centroide": { "lat": -34.6303887067166, "lng": -68.5829456019867 },
+    "id": "50",
+    "name": "Mendoza"
+  },
+  {
+    "centroide": { "lat": -32.0589278938558, "lng": -59.201262616496 },
+    "id": "30",
+    "name": "Entre Ríos"
+  },
+  {
+    "centroide": { "lat": -30.8656607015096, "lng": -68.8881597071776 },
+    "id": "70",
+    "name": "San Juan"
+  },
+  {
+    "centroide": { "lat": -23.3199750616583, "lng": -65.764423919292 },
+    "id": "38",
+    "name": "Jujuy"
+  },
+  {
+    "centroide": { "lat": -27.7834318817521, "lng": -63.2526268856462 },
+    "id": "86",
+    "name": "Santiago del Estero"
+  },
+  {
+    "centroide": { "lat": -40.4050796306359, "lng": -67.2296757996036 },
+    "id": "62",
+    "name": "Río Negro"
+  },
+  {
+    "centroide": { "lat": -28.7742044813623, "lng": -57.8010818603331 },
+    "id": "18",
+    "name": "Corrientes"
+  },
+  {
+    "centroide": { "lat": -26.8753025989034, "lng": -54.6515705627219 },
+    "id": "54",
+    "name": "Misiones"
+  },
+  {
+    "centroide": { "lat": -24.2992838957201, "lng": -64.8141586574346 },
+    "id": "66",
+    "name": "Salta"
+  },
+  {
+    "centroide": { "lat": -32.1447993873859, "lng": -63.801973466573 },
+    "id": "14",
+    "name": "Córdoba"
+  },
+  {
+    "centroide": { "lat": -36.6773920760823, "lng": -60.5584771084959 },
+    "id": "06",
+    "name": "Buenos Aires"
+  },
+  {
+    "centroide": { "lat": -37.1350652212898, "lng": -65.4476439990213 },
+    "id": "42",
+    "name": "La Pampa"
+  },
+  {
+    "centroide": { "lat": -82.5211345211545, "lng": -50.7428606764691 },
+    "id": "94",
+    "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
   }
 ]

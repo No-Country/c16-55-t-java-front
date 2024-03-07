@@ -15,18 +15,14 @@ export class DcProductDetailListModalComponent {
     public dcListService: DcListService
   ) {}
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 
   sucursalSeleccionada(sucursalSelect: any) {
     this.checkboxSeleccionado = sucursalSelect;
-    console.log('sucursalNueva', sucursalSelect);
     const itemSucursal = {
       ...this.data.product,
       sucursalSelect: sucursalSelect,
     };
     this.dcListService.agregarProducto(itemSucursal);
-    console.log(itemSucursal);
   }
 }
