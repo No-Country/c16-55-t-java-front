@@ -52,7 +52,7 @@ export class DcProfileComponent {
         lastname: userInfo.lastname,
         email: userInfo.email,
         country: userInfo.country,
-        province: userInfo.province.value,
+        province: userInfo.province,
         city: userInfo.city,
         address: userInfo.address,
       });
@@ -72,7 +72,7 @@ export class DcProfileComponent {
               'Perfil actualizado correctamente',
               'Ok!'
             );
-            this.router.navigate(['home']);
+            this.router.navigate(['/home/offers']);
           } else {
             this.utilitiesService.mostrarAlerta(
               'Error al actualizar el perfil',

@@ -135,7 +135,7 @@ export class DcHeaderComponent implements OnInit, OnDestroy {
   }
 
   onHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home/offers']);
   }
   onSearchEnter(searchInput: HTMLInputElement) {
     const searchString = searchInput.value;
