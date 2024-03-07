@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, finalize } from 'rxjs';
 import { IAllProducts } from 'src/app/interfaces/IAllProducts';
 import { DcOffersService } from 'src/app/services/dc-offers.service';
 import { ProductDataService } from 'src/app/services/dc-product.service';
@@ -25,7 +25,7 @@ export class DcOffersComponent {
   searchTermSubscription!: Subscription;
 
   productList: any[] = [];
-
+  isLoading: boolean = false;
   constructor(
     private dcOffersService: DcOffersService,
     private fb: FormBuilder,
@@ -78,8 +78,9 @@ export class DcOffersComponent {
       }
     });
   }
-
+  /* 
   getProduct(idsSucursales: string[], categoryId: string): void {
+    this.isLoading = true;
     this.dcOffersService.getImg().subscribe((res: any[]) => {
       if (res && res.length > 0) {
         this.dcOffersService
@@ -93,14 +94,45 @@ export class DcOffersComponent {
                     product.title = imgUrl;
                   });
                 product.isSelected = this.selectedProducts.has(product.id);
-
                 return product;
               });
             }
           });
       }
     });
+  } */
+  getProduct(idsSucursales: string[], categoryId: string): void {
+    this.isLoading = true; // Iniciar el spinner
+    this.dcOffersService
+      .getImg()
+      .pipe(
+        finalize(() => {
+          setTimeout(() => {
+            this.isLoading = false; // Finalizar el spinner después de 2 segundos
+          }, 2000); // Retardo de 2 segundos
+        })
+      )
+      .subscribe((res: any[]) => {
+        if (res && res.length > 0) {
+          this.dcOffersService
+            .searchProducts(idsSucursales, categoryId)
+            .subscribe((response) => {
+              if (response && response.productos) {
+                this.products = response.productos.map((product: any) => {
+                  this.dcListService
+                    .image(product.nombre)
+                    .subscribe((imgUrl: string | null) => {
+                      product.title = imgUrl;
+                    });
+                  product.isSelected = this.selectedProducts.has(product.id);
+                  return product;
+                });
+              }
+            });
+        }
+      });
   }
+
   onSelectedChange(isSelected: boolean) {
     console.log('Producto seleccionado:', isSelected);
   }

@@ -1,45 +1,51 @@
-<div class="dc-offers" *ngIf="products">
-  <div class="dc-offers__background">
-    <form [formGroup]="myOffers">
-      <fieldset class="dc-offers__selectCategory">
-        <div class="dc-offers__selectCategory-header">
-          Seleccionar productos
-        </div>
-        <div class="dc-offers__buttons">
-          <mat-select
-            formControlName="category"
-            class="dc-offers__selectCategory-select"
-            placeholder="Categorías"
-            (change)="onCategorySelect($event)"
-          >
-            <mat-option
-              [value]="category.id"
-              *ngFor="let category of categories"
+<div *ngIf="isLoading" class="spinner-container">
+  <div class="loader"></div>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="dc-offers" *ngIf="products">
+    <div class="dc-offers__background">
+      <form [formGroup]="myOffers">
+        <fieldset class="dc-offers__selectCategory">
+          <div class="dc-offers__selectCategory-header">
+            Seleccionar productos
+          </div>
+          <div class="dc-offers__buttons">
+            <mat-select
+              formControlName="category"
+              class="dc-offers__selectCategory-select"
+              placeholder="Categorías"
+              (change)="onCategorySelect($event)"
             >
-              {{ category.category }}
-            </mat-option>
-          </mat-select>
-          <button class="dc-offers__button-order" (click)="navigateMyOrder()">
-            <div class="dc-offers__button-order--text">
-              Mi lista
-              <img
-                src="./../../../assets/icons/dc-offers/order.png"
-                style="width: 2rem; height: 2rem"
-                alt=""
-              />
-            </div>
-          </button>
-        </div>
-      </fieldset>
-    </form>
-    <div class="dc-offers__products">
-      <app-dc-card
-        *ngFor="let product of products"
-        [product]="product"
-        [title]="product.title"
-        [isSelected]="product.isSelected"
-        (selectedChange)="onSelectedChange($event)"
-      ></app-dc-card>
+              <mat-option
+                [value]="category.id"
+                *ngFor="let category of categories"
+              >
+                {{ category.category }}
+              </mat-option>
+            </mat-select>
+            <button class="dc-offers__button-order" (click)="navigateMyOrder()">
+              <div class="dc-offers__button-order--text">
+                Mi lista
+                <img
+                  src="./../../../assets/icons/dc-offers/order.png"
+                  style="width: 2rem; height: 2rem"
+                  alt=""
+                />
+              </div>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+      <div class="dc-offers__products">
+        <app-dc-card
+          *ngFor="let product of products"
+          [product]="product"
+          [title]="product.title"
+          [isSelected]="product.isSelected"
+          (selectedChange)="onSelectedChange($event)"
+        ></app-dc-card>
+      </div>
     </div>
   </div>
 </div>
