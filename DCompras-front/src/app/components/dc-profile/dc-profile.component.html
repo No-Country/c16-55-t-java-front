@@ -28,14 +28,10 @@
         </div>
 
         <div class="dc-my-profile__input">
-          <!--  <div class="dc-my-profile__input">
-            <mat-label class="dc-my-profile__input-title">Provincia</mat-label>
-            <input formControlName="province" />
-          </div> -->
           <mat-label class="dc-my-profile__input-title">Provincia</mat-label>
           <mat-select formControlName="province" class="dc-my-profile__select">
             <mat-option
-              [value]="province.url"
+              [value]="province.name"
               *ngFor="let province of provinces"
             >
               {{ province.name }}

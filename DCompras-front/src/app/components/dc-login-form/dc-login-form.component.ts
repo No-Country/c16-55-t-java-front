@@ -41,13 +41,9 @@ export class DcLoginFormComponent implements OnInit {
         )
         .subscribe(
           (response: any) => {
-            console.log(response.payload.userInfo);
-            console.log('Formulario enviado correctamente', response);
             localStorage.setItem('token', response.payload.token);
             const userInfo: any = JSON.stringify(response.payload.userInfo);
             localStorage.setItem('userInfo', userInfo);
-            console.log(userInfo);
-            console.log(response.payload.token);
             this.router.navigate(['/home/offers']);
             localStorage.setItem(
               'userInfo',
@@ -60,7 +56,6 @@ export class DcLoginFormComponent implements OnInit {
         );
     } else {
       this.router.navigate(['/register']);
-      //console.log('Formulario inválido');
     }
   }
 

@@ -94,12 +94,12 @@ export class DcRegisterFormComponent {
       this.signUpService.saveRegister(signUpData).subscribe({
         next: (response) => {
           if (response.message) {
-            this.utilitiesService.mostrarAlerta('Registro exitoso', 'Ok!');
+            this.utilitiesService.mostrarAlerta('Registro exitoso', 'sucess');
             this.router.navigate(['/login']);
           }
         },
         error: (e: any) => {
-          this.utilitiesService.mostrarAlerta('El email ya existe', 'Opps!');
+          this.utilitiesService.mostrarAlerta('El email ya existe', 'error');
         },
       });
     }
@@ -108,7 +108,6 @@ export class DcRegisterFormComponent {
   getState() {
     this.signUpService.getState().subscribe((res) => {
       this.provinces = res;
-      console.log(res);
     });
   }
 

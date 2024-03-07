@@ -12,6 +12,7 @@ import {
 import { IDcProduct } from '../interfaces/Idc-product';
 import { IAllProducts } from '../interfaces/IAllProducts';
 import { DcListService } from './lista.service';
+import { SignUpService } from './sign-up.service';
 interface Product {
   cantSucursalesDisponible: number;
   id: string;
@@ -26,7 +27,11 @@ interface Product {
   providedIn: 'root',
 })
 export class DcOffersService {
-  constructor(private http: HttpClient, private dcListService: DcListService) {}
+  constructor(
+    private http: HttpClient,
+    private dcListService: DcListService,
+    private signUpService: SignUpService
+  ) {}
 
   searchProducts(idsSucursales: string[], categoryId: string): Observable<any> {
     const url = `https://d3e6htiiul5ek9.cloudfront.net/prod/productos?&id_categoria=${categoryId}&array_sucursales=${idsSucursales.join(
@@ -42,8 +47,25 @@ export class DcOffersService {
     const userInfoString = localStorage.getItem('userInfo');
     if (userInfoString !== null) {
       const userInfo = JSON.parse(userInfoString);
-      const province = userInfo.province;
-      return this.http.get<any[]>(province);
+
+      return new Observable((observer) => {
+        this.signUpService.getState().subscribe((res) => {
+          const provinciaBuscada = res.find(
+            (provinces: any) => provinces.name === userInfo.province
+          );
+
+          if (provinciaBuscada) {
+            const provinceUrl = `https://d3e6htiiul5ek9.cloudfront.net/prod/sucursales?lat=${provinciaBuscada.centroide.lat}&lng=${provinciaBuscada.centroide.lng}&limit=30`;
+            this.http.get<any[]>(provinceUrl).subscribe((data) => {
+              observer.next(data);
+              observer.complete();
+            });
+          } else {
+            observer.next([]);
+            observer.complete();
+          }
+        });
+      });
     } else {
       console.error('No se encontró userInfo en el almacenamiento local');
       throw new Error('No se encontró userInfo en el almacenamiento local');
@@ -70,8 +92,6 @@ export class DcOffersService {
   searchProductosos(searchInput: string, ids: string[]): Observable<any> {
     const idsString = ids.join(',');
     const url = `${this.apiUrl}?string=${searchInput}&array_sucursales=${idsString}&offset=0&limit=50&sort=-cant_sucursales_disponible`;
-    console.log('listas de busqueda', this.http.get(url));
-
     return this.http.get(url);
   }
 }

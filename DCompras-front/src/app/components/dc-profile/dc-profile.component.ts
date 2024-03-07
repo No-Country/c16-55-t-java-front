@@ -45,7 +45,7 @@ export class DcProfileComponent {
   loadUserData(): void {
     const userInfoLogueado: any = window.localStorage.getItem('userInfo');
     const userInfo = JSON.parse(userInfoLogueado);
-    console.log(userInfo);
+
     if (userInfo != null) {
       this.formUser.patchValue({
         name: userInfo.name,
@@ -62,10 +62,9 @@ export class DcProfileComponent {
   onSubmit(): void {
     if (this.formUser.valid) {
       const userData: IdcUser = this.formUser.value;
-      console.log(userData);
+
       this.dcUserService.editUser(userData).subscribe({
         next: (response: ApiResponse) => {
-          console.log(response);
           if (response.status === 0 && response.message === 'sucess') {
             const userInfo: any = JSON.stringify(response.payload);
             localStorage.setItem('userInfo', userInfo);
@@ -102,7 +101,7 @@ export class DcProfileComponent {
     const userData: IdcUser = this.formUser.value;
     this.dcUserService.editUser(userData).subscribe({
       next: (response: ApiResponse) => {
-        if (response.status === 0 && response.message === 'success') {
+        if (response.status === 0 && response.message === 'sucess') {
           const userInfo: any = JSON.stringify(response.payload);
           localStorage.setItem('userInfo', userInfo);
         } else {
@@ -120,7 +119,6 @@ export class DcProfileComponent {
   getState() {
     this.signUpService.getState().subscribe((res) => {
       this.provinces = res;
-      console.log(res);
     });
   }
 

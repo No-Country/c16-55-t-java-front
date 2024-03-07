@@ -26,4 +26,11 @@ export class DcUserService {
       userEdit
     );
   }
+
+  newPassWord(userEdit: any): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(
+      `${this.urlAPI}/user/reset/password`,
+      userEdit
+    );
+  }
 }
