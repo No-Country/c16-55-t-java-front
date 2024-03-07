@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { DcLoginPassRecoveryComponent } from 'src/app/views/dc-login-pass-recovery/dc-login-pass-recovery.component';
 
 @Component({
@@ -21,6 +22,7 @@ export class DcLoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
+    private utilitiesService: UtilitiesService,
     private router: Router,
     public dialog: MatDialog
   ) {}
@@ -55,6 +57,10 @@ export class DcLoginFormComponent implements OnInit {
           },
           (error) => {
             console.log('Error al enviar el formulario', error);
+            this.utilitiesService.mostrarAlertaError(
+              'Usuario o contraseña incorrecta',
+              'Oops!'
+            );
           }
         );
     } else {
@@ -75,10 +81,7 @@ export class DcLoginFormComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-
-  openForgotPassword(){
-    this.dialog.open(DcLoginPassRecoveryComponent)
+  openForgotPassword() {
+    this.dialog.open(DcLoginPassRecoveryComponent);
   }
-
-
 }

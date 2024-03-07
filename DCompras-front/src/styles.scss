@@ -118,3 +118,14 @@ input:focus {
   .mdc-list-item__primary-text {
   color: #e03a06 !important;
 }
+
+.message-success {
+  --mdc-snackbar-container-color: #118a01;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mat-snack-bar-button-color: #fff6f9;
+}
+.message-error {
+  --mdc-snackbar-container-color: #ca0303;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mat-snack-bar-button-color: #fff6f9;
+}

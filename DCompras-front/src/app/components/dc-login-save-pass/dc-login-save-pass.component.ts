@@ -55,14 +55,18 @@ export class DcLoginSavePassComponent {
           })
           .subscribe(
             (response: any) => {
-              if(response.message == 'Password Changed' ){
-                this.utilitiesService.mostrarAlerta('Tu contraseña fue cambiada', 'Ok!');
+              if (response.message == 'Password Changed') {
+                this.utilitiesService.mostrarAlertaSuccess(
+                  'Contraseña fue actualizada',
+                  'Ok!'
+                );
                 this.router.navigate(['/login']);
+              } else {
+                this.utilitiesService.mostrarAlertaError(
+                  'Se produjo un error',
+                  'Oops!'
+                );
               }
-              else {
-                this.utilitiesService.mostrarAlerta('Se produjo un error', 'Oops!');
-              }
-              
             },
             (error) => {
               console.log('Correo no enviado', error);

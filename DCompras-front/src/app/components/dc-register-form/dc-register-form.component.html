@@ -4,7 +4,7 @@
       <div class="dc-register__header-title">Registro</div>
       <div class="dc-register__header-subtitle">
         Registrate de forma fácil y sencilla a nuestra plataforma para que
-        empieces a irte De_Compras
+        empieces a irte De Compras
       </div>
 
       <img
@@ -274,6 +274,9 @@
           mat-raised-button
           color="warn"
           class="dc-register__content-row--button dc-register__content-row--button__continuar"
+          [ngClass]="{
+            'dc-register__content-row--button--disabled': formUser.invalid
+          }"
         >
           Continuar
         </button>

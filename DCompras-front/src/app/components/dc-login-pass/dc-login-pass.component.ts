@@ -48,10 +48,13 @@ export class DcLoginPassComponent {
         .subscribe(
           (response: any) => {
             if (response.message == 'Email enviado') {
-              this.utilitiesService.mostrarAlerta('Correo enviado', 'Ok!');
+              this.utilitiesService.mostrarAlertaSuccess(
+                'Correo enviado',
+                'Ok!'
+              );
               this.navigateToLogin();
             } else {
-              this.utilitiesService.mostrarAlerta(
+              this.utilitiesService.mostrarAlertaError(
                 'Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)',
                 'Oops!'
               );
@@ -91,9 +94,12 @@ export class DcLoginPassComponent {
           .subscribe(
             (response: any) => {
               if (response.message == 'Email enviado') {
-                this.utilitiesService.mostrarAlerta('Correo enviado', 'Ok!');
+                this.utilitiesService.mostrarAlertaSuccess(
+                  'Correo enviado',
+                  'Ok!'
+                );
               } else {
-                this.utilitiesService.mostrarAlerta(
+                this.utilitiesService.mostrarAlertaError(
                   'Se produjo un error (Tu correo ya fue enviado o no existe el usuario con ese email)',
                   'Oops!'
                 );
