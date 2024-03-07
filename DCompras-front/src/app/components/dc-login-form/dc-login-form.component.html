@@ -1,110 +1,52 @@
 <section class="dc-login">
-  <form
-    class="dc-login__form_container"
-    [formGroup]="loginForm"
-    (ngSubmit)="onSubmit()"
-  >
-    <img
-      class="dc-login__logo-container"
-      src="../../../assets/imgs/dc-login/img-login__form.svg"
-    />
+  <form class="dc-login__form_container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <img class="dc-login__logo-container" src="../../../assets/imgs/dc-login/img-login_logo.svg" />
     <div class="dc-login__title">Iniciar sesión</div>
     <div class="dc-login__input-container">
       <label class="dc-login__input-label" for="email_field">Usuario</label>
-      <img
-        src="assets/icons/dc-sidenav/profile.svg"
-        alt=""
-        class="dc-login__icon"
-      />
+      <img src="assets/icons/dc-sidenav/profile.svg" alt="" class="dc-login__icon" />
 
-      <input
-        placeholder="Correo electrónico"
-        title="Inpit title"
-        name="input-name"
-        type="email"
-        class="dc-login__input-field"
-        id="email_field"
-        formControlName="email"
-      />
+      <input placeholder="Correo electrónico" title="Inpit title" name="input-name" type="email"
+        class="dc-login__input-field" id="email_field" formControlName="email" />
     </div>
-    <div
-      *ngIf="
+    <div *ngIf="
         loginForm.get('email')?.invalid &&
         (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
-      "
-    >
-      <div
-        *ngIf="loginForm.get('email')?.errors?.['required']"
-        class="dc-login__error-message-text"
-      >
+      ">
+      <div *ngIf="loginForm.get('email')?.errors?.['required']" class="dc-login__error-message-text">
         Usuario es requerido
       </div>
     </div>
     <div class="dc-login__input-container">
-      <label class="dc-login__input-label" for="password_field"
-        >Contraseña</label
-      >
-      <img
-        src="assets/icons/dc-login/password.svg"
-        alt=""
-        class="dc-login__icon"
-      />
+      <label class="dc-login__input-label" for="password_field">Contraseña</label>
+      <img src="assets/icons/dc-login/password.svg" alt="" class="dc-login__icon" />
 
-      <input
-        placeholder="Contraseña"
-        title="Inpit title"
-        name="input-name"
-        type="password"
-        class="dc-login__input-field"
-        id="password_field"
-        formControlName="password"
-      />
+      <input placeholder="Contraseña" title="Inpit title" name="input-name" type="password"
+        class="dc-login__input-field" id="password_field" formControlName="password" />
     </div>
-    <div
-      *ngIf="
+    <div *ngIf="
         loginForm.get('password')?.invalid &&
         (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
-      "
-    >
-      <div
-        *ngIf="loginForm.get('password')?.errors?.['required']"
-        class="dc-login__error-message-text"
-      >
+      ">
+      <div *ngIf="loginForm.get('password')?.errors?.['required']" class="dc-login__error-message-text">
         Contraseña es requerida
       </div>
     </div>
     <div class="dc-login__reminder">
       <div class="dc-login__reminder-checkbox">
-        <input
-          type="checkbox"
-          class="dc-login__reminder-checkbox--input"
-          (change)="toggleAutocomplete($event)"
-        />
-        <label class="dc-login__reminder-checkbox--label"
-          >Recordar mis datos</label
-        >
+        <input type="checkbox" class="dc-login__reminder-checkbox--input" (change)="toggleAutocomplete($event)" />
+        <label class="dc-login__reminder-checkbox--label">Recordar mis datos</label>
       </div>
-      <span class="dc-login__reminder-forgot-password"
-        >¿Olvidaste tu contraseña?</span
-      >
+      <span class="dc-login__reminder-forgot-password">¿Olvidaste tu contraseña?</span>
     </div>
 
-    <button
-      title="Sign In"
-      type="submit"
-      class="dc-login__buttons dc-login__buttons-in"
-    >
+    <button title="Sign In" type="submit" class="dc-login__buttons dc-login__buttons-in">
       <span>Iniciar sesión</span>
     </button>
 
     <span>¿Primera vez en De Compras?</span>
 
-    <button
-      title="Sign In"
-      type="submit"
-      class="dc-login__buttons dc-login__buttons-up"
-      (click)="openViewRegister()"
-    >
+    <button title="Sign In" type="submit" class="dc-login__buttons dc-login__buttons-up" (click)="openViewRegister()">
       <img src="assets/icons/dc-login/add-user.svg" alt="" />
       <span>Registrarse</span>
     </button>

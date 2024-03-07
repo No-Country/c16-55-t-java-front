@@ -1,47 +1,30 @@
 .banner {
-  background-color: #FFDE59;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.banner__content {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
-}
-
-.banner__logo {
-  width: 32rem;
-  height: 38rem;
+  align-items: center;
+  background-color: #FFDE59;
+  width: 100%;
+  min-height: 100dvh;
+  background-image: url("../../../assets/imgs/dc-general/background-carrier.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .banner__slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-right: 2rem;
   font-size: 3rem;
   font-weight: 700;
   color: #B20C08;
-  text-align: end;
-  align-self: flex-end;
+  text-align: start;
 }
 
 @media screen and (max-width: 576px) {
   .banner {
     min-height: 100%;
     background: none;
-  }
-
-  .banner__content {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0;
-  }
-
-  .banner__logo {
-    width: 6rem;
-    height: 6rem;
   }
 
   .banner__slogan {

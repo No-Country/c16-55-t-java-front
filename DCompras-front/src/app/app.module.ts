@@ -22,6 +22,9 @@ import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-ca
 import { DcSelectProductComponent } from './components/dc-selectProduct/dc-selectProduct.component';
 import { DcProductDetailListModalComponent } from './components/dc-product-detail-list-modal/dc-product-detail-list-modal.component';
 import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-forgot-pass-form.component';
+import { DcLoginPassComponent } from './components/dc-login-pass/dc-login-pass.component';
+import { DcLoginPassRecoveryComponent } from './views/dc-login-pass-recovery/dc-login-pass-recovery.component';
+import { DcEditPasswordComponent } from './views/dc-edit-password/dc-edit-password.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-f
     DcSelectProductComponent,
     DcProductDetailListModalComponent,
     DcForgotPassFormComponent,
+    DcLoginPassComponent,
+    DcLoginPassRecoveryComponent,
+    DcEditPasswordComponent,
   ],
 
   imports: [
