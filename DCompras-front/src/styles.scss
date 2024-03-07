@@ -121,11 +121,11 @@ input:focus {
 
 .message-success {
   --mdc-snackbar-container-color: #118a01;
-  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mdc-snackbar-supporting-text-color: #fff6f9;
   --mat-snack-bar-button-color: #fff6f9;
 }
 .message-error {
   --mdc-snackbar-container-color: #ca0303;
-  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
+  --mdc-snackbar-supporting-text-color: #fff6f9;
   --mat-snack-bar-button-color: #fff6f9;
 }
