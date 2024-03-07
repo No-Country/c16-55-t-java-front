@@ -25,6 +25,8 @@ import { DcForgotPassFormComponent } from './components/dc-forgot-pass-form/dc-f
 import { DcLoginPassComponent } from './components/dc-login-pass/dc-login-pass.component';
 import { DcLoginPassRecoveryComponent } from './views/dc-login-pass-recovery/dc-login-pass-recovery.component';
 import { DcEditPasswordComponent } from './views/dc-edit-password/dc-edit-password.component';
+import { DcLoginSavePassComponent } from './components/dc-login-save-pass/dc-login-save-pass.component';
+import { DcSavePasswordComponent } from './views/dc-save-password/dc-save-password.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { DcEditPasswordComponent } from './views/dc-edit-password/dc-edit-passwo
     DcLoginPassComponent,
     DcLoginPassRecoveryComponent,
     DcEditPasswordComponent,
+    DcLoginSavePassComponent,
+    DcSavePasswordComponent,
   ],
 
   imports: [

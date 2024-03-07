@@ -1,0 +1,20 @@
+<div class="content__header">
+  <h1 class="content__title">Change Password</h1>
+</div>
+<div class="content__form">
+  <form class="form" [formGroup]="formUserPassword" (ngSubmit)="onSubmitChangePassword()">
+    <div class="form__group">
+      <label for="newPassword" class="form__label">New Password</label>
+      <div class="form__input-wrapper">
+        <input type="password" id="newPassword" placeholder="Tu nueva contraseña" name="newPassword" class="form__input" required formControlName="newPassword">
+      </div>
+    </div>
+    <div class="form__group">
+      <label for="confirmPassword" class="form__label">Confirm New Password</label>
+      <div class="form__input-wrapper">
+        <input type="password" id="confirmPassword" placeholder="Reescribe tu contraseña"  name="confirmPassword" class="form__input" required formControlName="confirmPassword">
+      </div>
+    </div>
+    <button type="submit" class="form__button">Change Password</button>
+  </form>
+</div>

@@ -1,4 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 import { Component } from '@angular/core';
 import {
   FormGroup,
@@ -6,43 +7,25 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { DcUserService } from 'src/app/services/dc-user.service';
 
 @Component({
-  selector: 'app-dc-login-pass',
-  templateUrl: './dc-login-pass.component.html',
-  styleUrls: ['./dc-login-pass.component.scss'],
+  selector: 'app-dc-login-save-pass',
+  templateUrl: './dc-login-save-pass.component.html',
+  styleUrls: ['./dc-login-save-pass.component.scss'],
 })
-export class DcLoginPassComponent {
-  emailFound: boolean = false;
-  formUserEmail: FormGroup;
+export class DcLoginSavePassComponent {
   formUserPassword: FormGroup;
 
-  constructor(private http: HttpClient, private urlService: DcUserService) {
-    this.formUserEmail = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-    });
+  constructor(
+    private urlService: DcUserService,
+    private route: ActivatedRoute
+  ) {
     this.formUserPassword = new FormGroup({
       newPassword: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
     });
-  }
-
-  onSubmitEmail() {
-    if (this.formUserEmail.valid) {
-      console.log('El correo electrónico es:', this.formUserEmail.value.email);
-      this.urlService.newPassWord({
-        email: this.formUserEmail.value.email,
-      })
-      .subscribe(
-        (response) => {
-          console.log('Correo Enviado', response);
-        },
-        (error) => {
-          console.log('Correo no enviado', error);
-        }
-      );
-    }
   }
 
   onSubmitChangePassword() {
@@ -56,17 +39,16 @@ export class DcLoginPassComponent {
           this.formUserPassword.value.newPassword
         );
 
-        const headers = new HttpHeaders({
-          Authorization: 'Bearer ' + localStorage.getItem('token'),
-          'Content-Type': 'application/json',
-        });
-
         console.log('Enviando solicitud para restablecer la contraseña.');
         console.log('Este es el body:', this.formUserPassword.value);
 
+        const token = this.route.snapshot.queryParamMap.get('token');
+        console.log('Este es su token, miamor: ', token);
+
         this.urlService
-          .newPassWord({
-            email: this.formUserEmail.value.email,
+          .savePassWord({
+            token: token,
+            newPassword: this.formUserPassword.value.newPassword,
           })
           .subscribe(
             (response) => {

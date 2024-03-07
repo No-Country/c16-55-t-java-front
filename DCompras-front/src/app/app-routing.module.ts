@@ -8,6 +8,7 @@ import { DcMyProfileComponent } from './views/dc-my-profile/dc-my-profile.compon
 import { DcShoppingCartComponent } from './views/dc-shopping-cart/dc-shopping-cart.component';
 import { DcLoginPassRecoveryComponent } from './views/dc-login-pass-recovery/dc-login-pass-recovery.component';
 import { DcEditPasswordComponent } from './views/dc-edit-password/dc-edit-password.component';
+import { DcSavePasswordComponent } from './views/dc-save-password/dc-save-password.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'recoveryPass',
     component: DcLoginPassRecoveryComponent,
+  },
+  {
+    path: 'savePassword',
+    component: DcSavePasswordComponent,
   }
 ];
 
